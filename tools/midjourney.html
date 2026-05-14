@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midjourney 是什么？怎么用？多少钱？2026 新手入门教程 | AI 工具箱</title>
+    <meta name="description" content="Midjourney 使用教程：怎么注册订阅、Prompt 怎么写才能出好图、V7 有什么新功能、和 Stable Diffusion 比哪个好。2026 最全 Midjourney 入门指南。">
+    <meta name="keywords" content="Midjourney, Midjourney怎么用, Midjourney教程, AI绘画, AI生图, V7, Prompt怎么写, MJ价格">
+    <link rel="canonical" href="https://my-ai-tools-hub.netlify.app/tools/midjourney.html">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        :root{--bg-deep:#0f1117;--bg-card:#1a1c26;--bg-card-hover:#242636;--border:rgba(255,255,255,0.08);--border-hover:rgba(255,255,255,0.16);--text-primary:#f0f0f5;--text-secondary:#9a9ab0;--text-muted:#5e5e78;--accent:#6c5ce7;--accent-glow:rgba(108,92,231,0.3);--gradient-1:linear-gradient(135deg,#6c5ce7,#a29bfe);--shadow-hover:0 8px 40px rgba(108,92,231,0.15);--radius:16px}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC','Outfit',sans-serif;background:var(--bg-deep);color:var(--text-primary);min-height:100vh}
+        .bg-mesh{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 600px 400px at 30% 15%,rgba(253,121,168,0.1),transparent),radial-gradient(ellipse 500px 500px at 70% 60%,rgba(108,92,231,0.1),transparent)}
+        .bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:60px 60px}
+        .navbar{position:sticky;top:0;z-index:100;padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(15,17,23,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+        .logo{display:flex;align-items:center;gap:10px;font-family:'Outfit';font-weight:700;font-size:20px;color:var(--text-primary);text-decoration:none}
+        .logo-icon{width:32px;height:32px;background:var(--gradient-1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px}
+        .back-link{color:var(--text-secondary);font-size:14px;text-decoration:none;transition:color 0.2s}.back-link:hover{color:var(--text-primary)}
+        .container{position:relative;z-index:1;max-width:800px;margin:0 auto;padding:48px 40px 80px}
+        .breadcrumb{font-size:13px;color:var(--text-muted);margin-bottom:24px}.breadcrumb a{color:var(--text-secondary);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+        .hero-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:40px;margin-bottom:32px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
+        .hero-icon{width:72px;height:72px;border-radius:16px;background:rgba(253,121,168,0.12);display:flex;align-items:center;justify-content:center;font-size:36px;flex-shrink:0}
+        .hero-info{flex:1;min-width:240px}.hero-title{font-family:'Outfit';font-size:32px;font-weight:800;margin-bottom:6px}
+        .hero-subtitle{font-size:15px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px}
+        .hero-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+        .badge{font-size:12px;font-weight:600;padding:4px 12px;border-radius:8px}
+        .badge-hot{background:rgba(255,107,107,0.12);color:#ff6b6b}.badge-price{background:rgba(108,92,231,0.12);color:#a29bfe}
+        .hero-visit{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:var(--gradient-1);border:none;border-radius:12px;color:white;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;transition:all 0.2s}
+        .hero-visit:hover{opacity:0.9;transform:translateY(-2px);box-shadow:var(--shadow-hover)}
+        .quick-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:32px}
+        .stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+        .stat-val{font-family:'Outfit';font-size:20px;font-weight:700;color:#a29bfe}.stat-lbl{font-size:12px;color:var(--text-muted);margin-top:2px}
+        h2{font-family:'Outfit';font-size:22px;font-weight:700;margin:40px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+        h3{font-family:'Outfit';font-size:17px;font-weight:600;margin:24px 0 10px}
+        p{font-size:15px;line-height:1.8;color:var(--text-secondary);margin-bottom:14px}
+        ul,ol{font-size:15px;line-height:1.8;color:var(--text-secondary);margin-bottom:14px;padding-left:24px}li{margin-bottom:6px}
+        strong{color:var(--text-primary);font-weight:600}
+        .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:16px 0 24px}
+        .feature-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px}
+        .feature-card h3{margin:0 0 6px;font-size:15px;color:var(--text-primary)}.feature-card p{font-size:13px;margin:0;color:var(--text-muted)}
+        .step-list{counter-reset:step;list-style:none;padding:0}
+        .step-list li{counter-increment:step;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px 20px 16px 56px;margin-bottom:12px;position:relative}
+        .step-list li::before{content:counter(step);position:absolute;left:18px;top:16px;width:26px;height:26px;background:var(--gradient-1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;font-family:'Outfit'}
+        .prompt-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:12px 0}
+        .prompt-box code{display:block;font-family:'Courier New',monospace;font-size:13px;color:#a29bfe;line-height:1.6;word-break:break-all;white-space:pre-wrap}
+        .prompt-label{font-size:12px;color:var(--text-muted);margin-bottom:8px;font-weight:600}
+        .prompt-result{font-size:13px;color:#55efc4;margin-top:8px}
+        .compare-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:16px 0 24px}
+        .compare-row{display:grid;grid-template-columns:110px 1fr 1fr;border-bottom:1px solid var(--border)}
+        .compare-row:last-child{border-bottom:none}
+        .compare-cell{padding:12px 16px;font-size:14px}.compare-header{font-weight:600;color:var(--text-muted);background:rgba(255,255,255,0.02)}.compare-highlight{color:#55efc4}
+        .faq-item{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden}
+        .faq-q{padding:16px 20px;font-weight:600;font-size:15px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+        .faq-q::after{content:"+";font-size:18px;color:var(--text-muted);transition:transform 0.2s}.faq-item.open .faq-q::after{transform:rotate(45deg)}
+        .faq-a{padding:0 20px;max-height:0;overflow:hidden;transition:all 0.3s}.faq-item.open .faq-a{padding:0 20px 16px;max-height:500px}.faq-a p{font-size:14px;margin:0}
+        .footer{position:relative;z-index:1;text-align:center;padding:32px 40px;border-top:1px solid var(--border);color:var(--text-muted);font-size:13px}
+        .footer a{color:var(--text-secondary);text-decoration:none}.footer a:hover{color:var(--text-primary)}
+        @media(max-width:768px){.navbar{padding:0 20px}.container{padding:32px 20px 60px}.hero-card{padding:24px}.hero-title{font-size:24px}.quick-stats{grid-template-columns:1fr 1fr}}
+    </style>
+</head>
+<body>
+<div class="bg-mesh"></div><div class="bg-grid"></div>
+<nav class="navbar"><a href="../index.html" class="logo"><div class="logo-icon">⚡</div><span>AI 工具箱</span></a><a href="../index.html" class="back-link">← 返回首页</a></nav>
+<div class="container">
+    <div class="breadcrumb"><a href="../index.html">首页</a> / <a href="../index.html">AI 绘画</a> / Midjourney</div>
+
+    <div class="hero-card">
+        <div class="hero-icon">🎨</div>
+        <div class="hero-info">
+            <h1 class="hero-title">Midjourney</h1>
+            <div class="hero-badges"><span class="badge badge-hot">🔥 AI 绘画之王</span><span class="badge badge-price">$10/月起</span></div>
+            <p class="hero-subtitle">AI 绘画领域的绝对标杆。输入一段文字描述，就能生成令人惊叹的艺术作品。画面质量、艺术风格和细节表现目前无人超越。设计师、艺术家、内容创作者的必备工具。</p>
+            <a href="https://www.midjourney.com" target="_blank" rel="noopener" class="hero-visit">前往 Midjourney 官网 ↗</a>
+        </div>
+    </div>
+
+    <div class="quick-stats">
+        <div class="stat-card"><div class="stat-val">⭐⭐⭐⭐⭐</div><div class="stat-lbl">画面质量</div></div>
+        <div class="stat-card"><div class="stat-val">⭐⭐⭐</div><div class="stat-lbl">中文支持</div></div>
+        <div class="stat-card"><div class="stat-val">⭐⭐⭐⭐</div><div class="stat-lbl">易用性</div></div>
+        <div class="stat-card"><div class="stat-val">$10/月起</div><div class="stat-lbl">最低价格</div></div>
+    </div>
+
+    <h2>📋 Midjourney 能画什么？</h2>
+    <div class="feature-grid">
+        <div class="feature-card"><h3>🖼️ 艺术插画</h3><p>油画、水彩、素描、赛博朋克……几乎所有艺术风格都能生成</p></div>
+        <div class="feature-card"><h3>📐 产品设计</h3><p>产品设计概念图、包装设计、UI 设计灵感</p></div>
+        <div class="feature-card"><h3>📸 人像摄影</h3><p>生成逼真的人像照片，光影效果堪比专业摄影</p></div>
+        <div class="feature-card"><h3>🏠 建筑/室内</h3><p>建筑设计概念图、室内装修效果图</p></div>
+        <div class="feature-card"><h3>🎮 游戏素材</h3><p>游戏角色、场景、道具的概念设计</p></div>
+        <div class="feature-card"><h3>📱 社交媒体</h3><p>小红书配图、公众号封面、朋友圈海报</p></div>
+    </div>
+
+    <h2>📖 怎么用？新手入门</h2>
+    <p>Midjourney 目前通过 <strong>Discord</strong> 使用（也有网页版 alpha），操作流程如下：</p>
+    <ol class="step-list">
+        <li><strong>注册 Discord</strong>：去 <a href="https://discord.com" target="_blank" style="color:#a29bfe">discord.com</a> 注册一个免费账号</li>
+        <li><strong>加入 Midjourney</strong>：访问 <a href="https://www.midjourney.com" target="_blank" style="color:#a29bfe">midjourney.com</a>，点击"Join the Beta"，会被邀请到 Discord 服务器</li>
+        <li><strong>进入新手频道</strong>：在 Discord 左侧找到 #newbies 频道（任何带 newbies 字样的都行）</li>
+        <li><strong>输入命令</strong>：在聊天框输入 <code>/imagine prompt: 你想要的画面描述</code>，比如 <code>/imagine prompt: a cat sitting on a moon, dreamy style</code></li>
+        <li><strong>等待生成</strong>：大约 30-60 秒，会生成 4 张图片供你选择</li>
+        <li><strong>放大或变体</strong>：点击 U1-U4 放大某张图，点击 V1-V4 基于某张图生成变体</li>
+    </ol>
+    <p><strong>⚠️ 注意</strong>：免费试用已取消，现在需要付费订阅才能使用。</p>
+
+    <h2>✍️ Prompt 怎么写才能出好图？</h2>
+    <p>写好 Prompt 是用好 Midjourney 的核心技巧。以下是实际好用的模板：</p>
+
+    <h3>基础模板</h3>
+    <div class="prompt-box">
+        <div class="prompt-label">📝 Prompt</div>
+        <code>a [主体] in [场景], [风格], [光照], --ar [宽高比]</code>
+    </div>
+
+    <h3>实际例子</h3>
+    <div class="prompt-box">
+        <div class="prompt-label">🖼️ 赛博朋克城市</div>
+        <code>futuristic cyberpunk city at night, neon lights reflecting on wet streets, flying cars, cinematic lighting, ultra detailed, --ar 16:9</code>
+        <div class="prompt-result">✅ 效果：震撼的赛博朋克城市场景，16:9 宽屏比例</div>
+    </div>
+    <div class="prompt-box">
+        <div class="prompt-label">🖼️ 中国风水墨</div>
+        <code>chinese ink painting of mountains and mist, traditional style, elegant brush strokes, minimal, --ar 3:4</code>
+        <div class="prompt-result">✅ 效果：优雅的中国水墨山水画</div>
+    </div>
+    <div class="prompt-box">
+        <div class="prompt-label">🖼️ 逼真人像</div>
+        <code>portrait photo of a young woman, natural soft light, shallow depth of field, shot on 85mm lens, photorealistic --ar 2:3</code>
+        <div class="prompt-result">✅ 效果：接近真实摄影的人像照片</div>
+    </div>
+
+    <h3>常用参数</h3>
+    <ul>
+        <li><code>--ar 16:9</code> 宽屏比例（适合壁纸、封面）</li>
+        <li><code>--ar 9:16</code> 竖屏比例（适合手机、小红书）</li>
+        <li><code>--ar 1:1</code> 正方形（默认）</li>
+        <li><code>--v 7</code> 使用最新 V7 模型</li>
+        <li><code>--style raw</code> 更少艺术化，更写实</li>
+        <li><code>--s 250</code> 风格化程度（0-1000，越高越有艺术感）</li>
+    </ul>
+
+    <h2>💰 订阅方案</h2>
+    <div class="compare-box">
+        <div class="compare-row"><div class="compare-cell compare-header">方案</div><div class="compare-cell compare-header">月费</div><div class="compare-cell compare-header">快速时长/月</div></div>
+        <div class="compare-row"><div class="compare-cell">Basic</div><div class="compare-cell">$10</div><div class="compare-cell">约 200 张图</div></div>
+        <div class="compare-row"><div class="compare-cell">Standard</div><div class="compare-cell">$30</div><div class="compare-cell compare-highlight">15h 快速 + 无限慢速</div></div>
+        <div class="compare-row"><div class="compare-cell">Pro</div><div class="compare-cell">$60</div><div class="compare-cell compare-highlight">30h 快速 + 无限慢速</div></div>
+        <div class="compare-row"><div class="compare-cell">Mega</div><div class="compare-cell">$120</div><div class="compare-cell compare-highlight">60h 快速 + 无限慢速</div></div>
+    </div>
+    <p><strong>建议</strong>：刚开始用 <strong>Basic $10/月</strong> 就够了，大概能生成 200 张图。重度用户选 Standard $30/月，可以无限慢速生成。</p>
+
+    <h2>🔄 和其他 AI 绘画工具比怎么样？</h2>
+    <div class="compare-box">
+        <div class="compare-row"><div class="compare-cell compare-header">对比项</div><div class="compare-cell compare-header">Midjourney</div><div class="compare-cell compare-header">Stable Diffusion</div></div>
+        <div class="compare-row"><div class="compare-cell">画面质量</div><div class="compare-cell compare-highlight">顶级</div><div class="compare-cell">顶级（需调参）</div></div>
+        <div class="compare-row"><div class="compare-cell">价格</div><div class="compare-cell">$10/月起</div><div class="compare-cell compare-highlight">免费开源</div></div>
+        <div class="compare-row"><div class="compare-cell">上手难度</div><div class="compare-cell compare-highlight">简单</div><div class="compare-cell">需要技术背景</div></div>
+        <div class="compare-row"><div class="compare-cell">可控性</div><div class="compare-cell">中等</div><div class="compare-cell compare-highlight">极高</div></div>
+        <div class="compare-row"><div class="compare-cell">中文提示词</div><div class="compare-cell">一般（建议英文）</div><div class="compare-cell">一般</div></div>
+    </div>
+    <p><strong>怎么选</strong>：追求最好看的效果、不想折腾 → <strong>Midjourney</strong>。想免费、想精细控制、有技术能力 → <strong>Stable Diffusion</strong>。两者也可以搭配使用。</p>
+
+    <h2>❓ 常见问题</h2>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Midjourney 国内能用吗？</div>
+        <div class="faq-a"><p>Midjourney 通过 Discord 运行，Discord 在国内需要科学上网。另外付费需要国际信用卡（部分支持支付宝）。如果不想折腾，推荐用国产的 <a href="../index.html" style="color:#a29bfe">即梦 AI、LiblibAI、通义万相</a>，国内直接访问。</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">不会写英文 Prompt 怎么办？</div>
+        <div class="faq-a"><p>两个办法：1）先用中文写出你想要的画面，让 ChatGPT 或 DeepSeek 帮你翻译成英文 Prompt；2）用国产 AI 绘画工具（即梦 AI、通义万相等），直接支持中文提示词。</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">生成的图片可以商用吗？</div>
+        <div class="faq-a"><p>付费订阅用户生成的图片可以商用（具体条款见 Midjourney 官方服务协议）。但要注意，AI 生成的图片目前在很多国家不能获得版权保护，这意味着别人也可以使用类似的图片。建议用作素材和灵感，不要直接当作核心产品。</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Midjourney V7 有什么新功能？</div>
+        <div class="faq-a"><p>V7 版本在人物一致性、文字渲染、细节表现上有大幅提升。支持更长的 Prompt、更好的中文理解（但仍建议英文），以及更真实的摄影风格。同时网页版也在逐步开放，不再完全依赖 Discord。</p></div>
+    </div>
+</div>
+<footer class="footer">
+    <p>© 2026 AI 工具箱 · <a href="../index.html">返回首页</a> · <a href="mailto:jiangangzhou@nuaa.edu.cn">联系我们</a></p>
+    <p style="margin-top:8px;font-size:11px;">本页内容仅供参考，Midjourney 为 Midjourney Inc. 的产品。价格信息请以官网为准。</p>
+</footer>
+</body>
+</html>

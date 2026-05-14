@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor AI 编辑器好用吗？怎么用？和 Copilot 比哪个好？2026 评测 | AI 工具箱</title>
+    <meta name="description" content="Cursor AI 代码编辑器使用教程：怎么安装、核心功能、免费版和 Pro 版区别、和 GitHub Copilot 对比。程序员 AI 编程工具真实评测。">
+    <meta name="keywords" content="Cursor, Cursor AI, AI编程, AI代码编辑器, Cursor教程, Cursor vs Copilot, Vibe Coding, AI编程工具">
+    <link rel="canonical" href="https://my-ai-tools-hub.netlify.app/tools/cursor.html">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        :root{--bg-deep:#0f1117;--bg-card:#1a1c26;--bg-card-hover:#242636;--border:rgba(255,255,255,0.08);--border-hover:rgba(255,255,255,0.16);--text-primary:#f0f0f5;--text-secondary:#9a9ab0;--text-muted:#5e5e78;--accent:#6c5ce7;--accent-glow:rgba(108,92,231,0.3);--gradient-1:linear-gradient(135deg,#6c5ce7,#a29bfe);--shadow-hover:0 8px 40px rgba(108,92,231,0.15);--radius:16px}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC','Outfit',sans-serif;background:var(--bg-deep);color:var(--text-primary);min-height:100vh}
+        .bg-mesh{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 600px 400px at 20% 10%,rgba(69,170,242,0.1),transparent),radial-gradient(ellipse 500px 500px at 80% 60%,rgba(108,92,231,0.1),transparent)}
+        .bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:60px 60px}
+        .navbar{position:sticky;top:0;z-index:100;padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(15,17,23,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+        .logo{display:flex;align-items:center;gap:10px;font-family:'Outfit';font-weight:700;font-size:20px;color:var(--text-primary);text-decoration:none}
+        .logo-icon{width:32px;height:32px;background:var(--gradient-1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px}
+        .back-link{color:var(--text-secondary);font-size:14px;text-decoration:none;transition:color 0.2s}.back-link:hover{color:var(--text-primary)}
+        .container{position:relative;z-index:1;max-width:800px;margin:0 auto;padding:48px 40px 80px}
+        .breadcrumb{font-size:13px;color:var(--text-muted);margin-bottom:24px}.breadcrumb a{color:var(--text-secondary);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+        .hero-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:40px;margin-bottom:32px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
+        .hero-icon{width:72px;height:72px;border-radius:16px;background:rgba(69,170,242,0.12);display:flex;align-items:center;justify-content:center;font-size:36px;flex-shrink:0}
+        .hero-info{flex:1;min-width:240px}.hero-title{font-family:'Outfit';font-size:32px;font-weight:800;margin-bottom:6px}
+        .hero-subtitle{font-size:15px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px}
+        .hero-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+        .badge{font-size:12px;font-weight:600;padding:4px 12px;border-radius:8px}
+        .badge-hot{background:rgba(255,107,107,0.12);color:#ff6b6b}.badge-new{background:rgba(108,92,231,0.12);color:#a29bfe}.badge-free{background:rgba(85,239,196,0.12);color:#55efc4}
+        .hero-visit{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:var(--gradient-1);border:none;border-radius:12px;color:white;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;transition:all 0.2s}
+        .hero-visit:hover{opacity:0.9;transform:translateY(-2px);box-shadow:var(--shadow-hover)}
+        .quick-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:32px}
+        .stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+        .stat-val{font-family:'Outfit';font-size:20px;font-weight:700;color:#a29bfe}.stat-lbl{font-size:12px;color:var(--text-muted);margin-top:2px}
+        h2{font-family:'Outfit';font-size:22px;font-weight:700;margin:40px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+        h3{font-family:'Outfit';font-size:17px;font-weight:600;margin:24px 0 10px}
+        p{font-size:15px;line-height:1.8;color:var(--text-secondary);margin-bottom:14px}
+        ul,ol{font-size:15px;line-height:1.8;color:var(--text-secondary);margin-bottom:14px;padding-left:24px}li{margin-bottom:6px}
+        strong{color:var(--text-primary);font-weight:600}
+        .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:16px 0 24px}
+        .feature-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px}
+        .feature-card h3{margin:0 0 6px;font-size:15px;color:var(--text-primary)}.feature-card p{font-size:13px;margin:0;color:var(--text-muted)}
+        .step-list{counter-reset:step;list-style:none;padding:0}
+        .step-list li{counter-increment:step;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px 20px 16px 56px;margin-bottom:12px;position:relative}
+        .step-list li::before{content:counter(step);position:absolute;left:18px;top:16px;width:26px;height:26px;background:var(--gradient-1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;font-family:'Outfit'}
+        .compare-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:16px 0 24px}
+        .compare-row{display:grid;grid-template-columns:100px 1fr 1fr;border-bottom:1px solid var(--border)}.compare-row:last-child{border-bottom:none}
+        .compare-cell{padding:12px 16px;font-size:14px}.compare-header{font-weight:600;color:var(--text-muted);background:rgba(255,255,255,0.02)}.compare-highlight{color:#55efc4}
+        .faq-item{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden}
+        .faq-q{padding:16px 20px;font-weight:600;font-size:15px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+        .faq-q::after{content:"+";font-size:18px;color:var(--text-muted);transition:transform 0.2s}.faq-item.open .faq-q::after{transform:rotate(45deg)}
+        .faq-a{padding:0 20px;max-height:0;overflow:hidden;transition:all 0.3s}.faq-item.open .faq-a{padding:0 20px 16px;max-height:500px}.faq-a p{font-size:14px;margin:0}
+        .footer{position:relative;z-index:1;text-align:center;padding:32px 40px;border-top:1px solid var(--border);color:var(--text-muted);font-size:13px}
+        .footer a{color:var(--text-secondary);text-decoration:none}.footer a:hover{color:var(--text-primary)}
+        @media(max-width:768px){.navbar{padding:0 20px}.container{padding:32px 20px 60px}.hero-card{padding:24px}.hero-title{font-size:24px}.quick-stats{grid-template-columns:1fr 1fr}}
+    </style>
+</head>
+<body>
+<div class="bg-mesh"></div><div class="bg-grid"></div>
+<nav class="navbar"><a href="../index.html" class="logo"><div class="logo-icon">⚡</div><span>AI 工具箱</span></a><a href="../index.html" class="back-link">← 返回首页</a></nav>
+<div class="container">
+    <div class="breadcrumb"><a href="../index.html">首页</a> / <a href="../index.html">AI 编程</a> / Cursor</div>
+
+    <div class="hero-card">
+        <div class="hero-icon">🖱️</div>
+        <div class="hero-info">
+            <h1 class="hero-title">Cursor</h1>
+            <div class="hero-badges"><span class="badge badge-hot">🔥 热门</span><span class="badge badge-new">✨ 新品</span><span class="badge badge-free">免费可用</span></div>
+            <p class="hero-subtitle">专为 AI 编程打造的代码编辑器，基于 VS Code，内置 AI 对话和代码生成。最大亮点是能理解<strong>整个项目</strong>的上下文，而不只是当前文件。程序员圈子里最火的 AI 工具之一。</p>
+            <a href="https://www.cursor.com" target="_blank" rel="noopener" class="hero-visit">前往 Cursor 官网 ↗</a>
+        </div>
+    </div>
+
+    <div class="quick-stats">
+        <div class="stat-card"><div class="stat-val">⭐⭐⭐⭐⭐</div><div class="stat-lbl">代码质量</div></div>
+        <div class="stat-card"><div class="stat-val">⭐⭐⭐⭐</div><div class="stat-lbl">中文支持</div></div>
+        <div class="stat-card"><div class="stat-val">⭐⭐⭐⭐</div><div class="stat-lbl">易用性</div></div>
+        <div class="stat-card"><div class="stat-val">免费可用</div><div class="stat-lbl">免费程度</div></div>
+    </div>
+
+    <h2>📋 Cursor 有什么特别？</h2>
+    <div class="feature-grid">
+        <div class="feature-card"><h3>🧠 项目级理解</h3><p>不只是补全当前文件，能理解整个项目的代码结构和逻辑</p></div>
+        <div class="feature-card"><h3>💬 AI 对话编程</h3><p>用自然语言描述需求，AI 直接帮你写代码、改代码</p></div>
+        <div class="feature-card"><h3>📝 智能编辑</h3><p>选中代码，告诉 AI 怎么改，它直接帮你改好</p></div>
+        <div class="feature-card"><h3>🔍 代码库搜索</h3><p>用 @codebase 让 AI 搜索整个项目中的相关代码</p></div>
+        <div class="feature-card"><h3>📂 兼容 VS Code</h3><p>基于 VS Code，你原来的插件、主题、快捷键都能用</p></div>
+        <div class="feature-card"><h3>🤖 多模型支持</h3><p>可选择 Claude、GPT-4o 等不同 AI 模型</p></div>
+    </div>
+
+    <h2>🎯 适合谁用？</h2>
+    <ul>
+        <li><strong>专业程序员</strong>：提升开发效率 2-5 倍，尤其适合写新功能和重构代码</li>
+        <li><strong>编程新手</strong>：不会写没关系，描述你想要什么，AI 帮你写</li>
+        <li><strong>独立开发者</strong>：一个人就能做前后端全栈开发</li>
+        <li><strong>团队协作</strong>：Cursor 的 AI 能帮新人快速理解项目代码</li>
+        <li><strong>学生</strong>：学编程的好帮手，AI 能解释代码、找 Bug、教你怎么写</li>
+    </ul>
+
+    <h2>📖 怎么开始？</h2>
+    <ol class="step-list">
+        <li><strong>下载安装</strong>：访问 <a href="https://www.cursor.com" target="_blank" style="color:#a29bfe">cursor.com</a>，下载对应系统的安装包（Windows/Mac/Linux 都支持）</li>
+        <li><strong>导入 VS Code 配置</strong>：首次打开会问你是否导入 VS Code 的插件和设置，建议选"是"</li>
+        <li><strong>打开项目</strong>：用 Cursor 打开你现有的项目文件夹</li>
+        <li><strong>开始用 AI</strong>：按 <code>Ctrl+L</code>（Mac: <code>Cmd+L</code>）打开 AI 对话框，直接用中文描述你的需求</li>
+        <li><strong>试试 Composer</strong>：按 <code>Ctrl+I</code>（Mac: <code>Cmd+I</code>）打开 Composer 模式，AI 可以同时修改多个文件</li>
+    </ol>
+
+    <h2>💡 实用技巧</h2>
+    <ul>
+        <li><strong>@codebase</strong>：在对话框输入 <code>@codebase</code>，让 AI 搜索整个项目的相关代码</li>
+        <li><strong>@docs</strong>：输入 <code>@docs</code> + 技术名称（如 <code>@docs React</code>），AI 会查阅官方文档再回答</li>
+        <li><strong>选中代码 + Cmd+K</strong>：选中一段代码，按快捷键，直接告诉 AI 怎么修改</li>
+        <li><strong>Composer 多文件编辑</strong>：大功能开发时用 Composer 模式，AI 会同时修改多个文件并保持一致性</li>
+        <li><strong>.cursorrules 文件</strong>：在项目根目录创建这个文件，写上你的编码规范，AI 会自动遵守</li>
+    </ul>
+
+    <h2>💰 免费版和 Pro 版区别</h2>
+    <div class="compare-box">
+        <div class="compare-row"><div class="compare-cell compare-header">功能</div><div class="compare-cell compare-header">免费版</div><div class="compare-cell compare-header">Pro ($20/月)</div></div>
+        <div class="compare-row"><div class="compare-cell">AI 补全</div><div class="compare-cell compare-highlight">✅ 有限次</div><div class="compare-cell compare-highlight">✅ 无限</div></div>
+        <div class="compare-row"><div class="compare-cell">AI 对话</div><div class="compare-cell">有限次/月</div><div class="compare-cell compare-highlight">无限次</div></div>
+        <div class="compare-row"><div class="compare-cell">模型选择</div><div class="compare-cell">基础模型</div><div class="compare-cell compare-highlight">GPT-4o / Claude 等</div></div>
+        <div class="compare-row"><div class="compare-cell">Composer</div><div class="compare-cell">有限次</div><div class="compare-cell compare-highlight">无限次</div></div>
+        <div class="compare-row"><div class="compare-cell">长上下文</div><div class="compare-cell">不支持</div><div class="compare-cell compare-highlight">✅ 支持</div></div>
+    </div>
+    <p><strong>建议</strong>：先用免费版体验。如果你是重度开发者，每天写代码超过 2 小时，Pro 版 $20/月很值得。</p>
+
+    <h2>🔄 Cursor vs GitHub Copilot</h2>
+    <div class="compare-box">
+        <div class="compare-row"><div class="compare-cell compare-header">对比项</div><div class="compare-cell compare-header">Cursor</div><div class="compare-cell compare-header">GitHub Copilot</div></div>
+        <div class="compare-row"><div class="compare-cell">产品形态</div><div class="compare-cell">独立编辑器</div><div class="compare-cell">VS Code 插件</div></div>
+        <div class="compare-row"><div class="compare-cell">项目理解</div><div class="compare-cell compare-highlight">整个项目</div><div class="compare-cell">当前文件为主</div></div>
+        <div class="compare-row"><div class="compare-cell">多文件修改</div><div class="compare-cell compare-highlight">✅ Composer</div><div class="compare-cell">❌ 单文件</div></div>
+        <div class="compare-row"><div class="compare-cell">AI 对话</div><div class="compare-cell compare-highlight">内置</div><div class="compare-cell">需 Copilot Chat</div></div>
+        <div class="compare-row"><div class="compare-cell">价格</div><div class="compare-cell">免费 / $20月</div><div class="compare-cell">$10/月</div></div>
+        <div class="compare-row"><div class="compare-cell">插件兼容</div><div class="compare-cell compare-highlight">VS Code 插件通用</div><div class="compare-cell">原生 VS Code</div></div>
+    </div>
+    <p><strong>怎么选</strong>：想要 AI 深度参与编码全流程 → <strong>Cursor</strong>。只在现有 VS Code 里加 AI 补全 → <strong>Copilot</strong>。两个也可以一起用。</p>
+
+    <h2>❓ 常见问题</h2>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">不会编程的人能用 Cursor 吗？</div>
+        <div class="faq-a"><p>能。Cursor 降低了编程门槛，你只需要用自然语言描述想要什么。但完全零基础的话，AI 生成的代码你可能不知道怎么调试。建议至少了解基本的编程概念（变量、函数、循环）再使用。</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Cursor 会让程序员失业吗？</div>
+        <div class="faq-a"><p>不会，但会改变工作方式。AI 能帮你写代码，但架构设计、业务理解、代码审查这些还是需要人。会用 AI 工具的程序员效率会远高于不用的。</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Cursor 国内能用吗？</div>
+        <div class="faq-a"><p>能。Cursor 编辑器可以直接下载使用，国内不需要翻墙。AI 功能需要联网调用模型 API，但 Cursor 自己的服务器可以做中转。实际使用中，国内访问基本流畅。</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">和 TRAE 比怎么样？</div>
+        <div class="faq-a"><p>TRAE 是字节跳动推出的 AI 编程 IDE，也是免费的，中文场景体验不错。区别是 Cursor 生态更成熟、模型选择更多，TRAE 则完全免费且对中文用户更友好。如果你不想花钱，可以两个都试试看哪个顺手。</p></div>
+    </div>
+</div>
+<footer class="footer">
+    <p>© 2026 AI 工具箱 · <a href="../index.html">返回首页</a> · <a href="mailto:jiangangzhou@nuaa.edu.cn">联系我们</a></p>
+    <p style="margin-top:8px;font-size:11px;">本页内容仅供参考，Cursor 为 Anysphere Inc. 的产品。价格信息请以官网为准。</p>
+</footer>
+</body>
+</html>
