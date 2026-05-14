@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>豆包 AI 好用吗？免费吗？和 DeepSeek 比哪个好？2026 评测 | AI 工具箱</title>
+    <meta name="description" content="豆包 AI 使用评测：字节跳动出品、完全免费、支持语音通话、国内直接访问。和 DeepSeek、Kimi 对比，帮你选最适合的免费 AI 助手。">
+    <meta name="keywords" content="豆包AI, 豆包, 字节跳动AI, 免费AI助手, 豆包怎么用, 豆包免费, AI语音">
+    <link rel="canonical" href="https://my-ai-tools-hub.netlify.app/tools/doubao.html">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        :root{--bg-deep:#0f1117;--bg-card:#1a1c26;--bg-card-hover:#242636;--border:rgba(255,255,255,0.08);--border-hover:rgba(255,255,255,0.16);--text-primary:#f0f0f5;--text-secondary:#9a9ab0;--text-muted:#5e5e78;--accent:#6c5ce7;--accent-glow:rgba(108,92,231,0.3);--gradient-1:linear-gradient(135deg,#6c5ce7,#a29bfe);--shadow-hover:0 8px 40px rgba(108,92,231,0.15);--radius:16px}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC','Outfit',sans-serif;background:var(--bg-deep);color:var(--text-primary);min-height:100vh}
+        .bg-mesh{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 600px 400px at 25% 15%,rgba(253,203,110,0.08),transparent),radial-gradient(ellipse 500px 500px at 75% 60%,rgba(108,92,231,0.1),transparent)}
+        .bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:60px 60px}
+        .navbar{position:sticky;top:0;z-index:100;padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(15,17,23,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+        .logo{display:flex;align-items:center;gap:10px;font-family:'Outfit';font-weight:700;font-size:20px;color:var(--text-primary);text-decoration:none}
+        .logo-icon{width:32px;height:32px;background:var(--gradient-1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px}
+        .back-link{color:var(--text-secondary);font-size:14px;text-decoration:none;transition:color 0.2s}.back-link:hover{color:var(--text-primary)}
+        .container{position:relative;z-index:1;max-width:800px;margin:0 auto;padding:48px 40px 80px}
+        .breadcrumb{font-size:13px;color:var(--text-muted);margin-bottom:24px}.breadcrumb a{color:var(--text-secondary);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+        .hero-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:40px;margin-bottom:32px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
+        .hero-icon{width:72px;height:72px;border-radius:16px;background:rgba(253,203,110,0.12);display:flex;align-items:center;justify-content:center;font-size:36px;flex-shrink:0}
+        .hero-info{flex:1;min-width:240px}.hero-title{font-family:'Outfit';font-size:32px;font-weight:800;margin-bottom:6px}
+        .hero-subtitle{font-size:15px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px}
+        .hero-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+        .badge{font-size:12px;font-weight:600;padding:4px 12px;border-radius:8px}
+        .badge-hot{background:rgba(255,107,107,0.12);color:#ff6b6b}.badge-free{background:rgba(85,239,196,0.12);color:#55efc4}
+        .hero-visit{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:var(--gradient-1);border:none;border-radius:12px;color:white;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;transition:all 0.2s}
+        .hero-visit:hover{opacity:0.9;transform:translateY(-2px);box-shadow:var(--shadow-hover)}
+        .quick-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:32px}
+        .stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+        .stat-val{font-family:'Outfit';font-size:20px;font-weight:700;color:#a29bfe}.stat-lbl{font-size:12px;color:var(--text-muted);margin-top:2px}
+        h2{font-family:'Outfit';font-size:22px;font-weight:700;margin:40px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+        p{font-size:15px;line-height:1.8;color:var(--text-secondary);margin-bottom:14px}
+        ul,ol{font-size:15px;line-height:1.8;color:var(--text-secondary);margin-bottom:14px;padding-left:24px}li{margin-bottom:6px}
+        strong{color:var(--text-primary);font-weight:600}
+        .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:16px 0 24px}
+        .feature-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px}
+        .feature-card h3{margin:0 0 6px;font-size:15px;color:var(--text-primary)}.feature-card p{font-size:13px;margin:0;color:var(--text-muted)}
+        .step-list{counter-reset:step;list-style:none;padding:0}
+        .step-list li{counter-increment:step;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px 20px 16px 56px;margin-bottom:12px;position:relative}
+        .step-list li::before{content:counter(step);position:absolute;left:18px;top:16px;width:26px;height:26px;background:var(--gradient-1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;font-family:'Outfit'}
+        .compare-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:16px 0 24px}
+        .compare-row{display:grid;grid-template-columns:100px 1fr 1fr;border-bottom:1px solid var(--border)}.compare-row:last-child{border-bottom:none}
+        .compare-cell{padding:12px 16px;font-size:14px}.compare-header{font-weight:600;color:var(--text-muted);background:rgba(255,255,255,0.02)}.compare-highlight{color:#55efc4}
+        .faq-item{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden}
+        .faq-q{padding:16px 20px;font-weight:600;font-size:15px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+        .faq-q::after{content:"+";font-size:18px;color:var(--text-muted);transition:transform 0.2s}.faq-item.open .faq-q::after{transform:rotate(45deg)}
+        .faq-a{padding:0 20px;max-height:0;overflow:hidden;transition:all 0.3s}.faq-item.open .faq-a{padding:0 20px 16px;max-height:500px}.faq-a p{font-size:14px;margin:0}
+        .footer{position:relative;z-index:1;text-align:center;padding:32px 40px;border-top:1px solid var(--border);color:var(--text-muted);font-size:13px}
+        .footer a{color:var(--text-secondary);text-decoration:none}.footer a:hover{color:var(--text-primary)}
+        @media(max-width:768px){.navbar{padding:0 20px}.container{padding:32px 20px 60px}.hero-card{padding:24px}.hero-title{font-size:24px}.quick-stats{grid-template-columns:1fr 1fr}}
+    </style>
+</head>
+<body>
+<div class="bg-mesh"></div><div class="bg-grid"></div>
+<nav class="navbar"><a href="../index.html" class="logo"><div class="logo-icon">⚡</div><span>AI 工具箱</span></a><a href="../index.html" class="back-link">← 返回首页</a></nav>
+<div class="container">
+    <div class="breadcrumb"><a href="../index.html">首页</a> / <a href="../index.html">AI 对话</a> / 豆包</div>
+
+    <div class="hero-card">
+        <div class="hero-icon">🫘</div>
+        <div class="hero-info">
+            <h1 class="hero-title">豆包</h1>
+            <div class="hero-badges"><span class="badge badge-hot">🔥 热门</span><span class="badge badge-free">🆓 完全免费</span></div>
+            <p class="hero-subtitle">字节跳动推出的 AI 助手。<strong>最大亮点是 AI 语音通话</strong>——可以像打电话一样和 AI 聊天，声音自然流畅。文字对话、写作、翻译、图片生成也全部免费，国内直接使用。</p>
+            <a href="https://www.doubao.com" target="_blank" rel="noopener" class="hero-visit">前往豆包官网 ↗</a>
+        </div>
+    </div>
+
+    <div class="quick-stats">
+        <div class="stat-card"><div class="stat-val">⭐⭐⭐⭐</div><div class="stat-lbl">综合质量</div></div>
+        <div class="stat-card"><div class="stat-val">⭐⭐⭐⭐⭐</div><div class="stat-lbl">中文支持</div></div>
+        <div class="stat-card"><div class="stat-val">⭐⭐⭐⭐⭐</div><div class="stat-lbl">易用性</div></div>
+        <div class="stat-card"><div class="stat-val">完全免费</div><div class="stat-lbl">免费程度</div></div>
+    </div>
+
+    <h2>📋 豆包能做什么？</h2>
+    <div class="feature-grid">
+        <div class="feature-card"><h3>📞 AI 语音通话</h3><p>像打电话一样和 AI 聊天，声音自然，支持多轮对话</p></div>
+        <div class="feature-card"><h3>💬 文字对话</h3><p>日常问答、知识查询、翻译、写作辅助</p></div>
+        <div class="feature-card"><h3>🎨 AI 绘画</h3><p>输入描述生成图片，中文提示词就行</p></div>
+        <div class="feature-card"><h3>🤖 多种 AI 角色</h3><p>英语外教、写作助手、心理咨询师等多种预设角色</p></div>
+        <div class="feature-card"><h3>📱 手机 App</h3><p>有独立的手机 App，随时随地用</p></div>
+        <div class="feature-card"><h3>🔍 联网搜索</h3><p>可以搜索最新信息，回答实时性问题</p></div>
+    </div>
+
+    <h2>🎯 豆包的独特优势</h2>
+    <ul>
+        <li><strong>AI 语音通话做得最好</strong>：目前国产 AI 里语音体验最自然，适合练英语口语、闲聊、解闷</li>
+        <li><strong>完全免费</strong>：对话、语音、绘画全免费，没有付费墙</li>
+        <li><strong>手机 App 体验好</strong>：不像很多 AI 只有网页版，豆包的 App 做得很好用</li>
+        <li><strong>适合轻度使用</strong>：不是给程序员或研究者用的，是给普通人的日常 AI 助手</li>
+    </ul>
+
+    <h2>📖 怎么用？</h2>
+    <ol class="step-list">
+        <li><strong>下载 App 或打开网页</strong>：手机应用商店搜"豆包"下载，或访问 <a href="https://www.doubao.com" target="_blank" style="color:#a29bfe">doubao.com</a></li>
+        <li><strong>登录</strong>：用手机号验证码登录，非常快</li>
+        <li><strong>选择功能</strong>：文字聊天、语音通话、AI 绘画</li>
+        <li><strong>试试语音通话</strong>：点语音按钮，直接和 AI 聊天——这是豆包最值得体验的功能</li>
+    </ol>
+
+    <h2>🔄 豆包 vs DeepSeek vs Kimi</h2>
+    <div class="compare-box">
+        <div class="compare-row"><div class="compare-cell compare-header">对比项</div><div class="compare-cell compare-header">豆包</div><div class="compare-cell compare-header">DeepSeek</div></div>
+        <div class="compare-row"><div class="compare-cell">价格</div><div class="compare-cell compare-highlight">完全免费</div><div class="compare-cell compare-highlight">完全免费</div></div>
+        <div class="compare-row"><div class="compare-cell">语音通话</div><div class="compare-cell compare-highlight">✅ 很好</div><div class="compare-cell">❌</div></div>
+        <div class="compare-row"><div class="compare-cell">代码能力</div><div class="compare-cell">一般</div><div class="compare-cell compare-highlight">优秀</div></div>
+        <div class="compare-row"><div class="compare-cell">长文本</div><div class="compare-cell">一般</div><div class="compare-cell compare-highlight">支持</div></div>
+        <div class="compare-row"><div class="compare-cell">AI 绘画</div><div class="compare-cell compare-highlight">✅ 内置</div><div class="compare-cell">❌</div></div>
+        <div class="compare-row"><div class="compare-cell">深度分析</div><div class="compare-cell">一般</div><div class="compare-cell compare-highlight">强</div></div>
+        <div class="compare-row"><div class="compare-cell">适合谁</div><div class="compare-cell">普通人日常</div><div class="compare-cell">学生/程序员</div></div>
+    </div>
+    <p><strong>结论</strong>：日常聊天、语音、练口语 → <strong>豆包</strong>。学习、编程、深度分析 → <a href="deepseek.html" style="color:#a29bfe">DeepSeek</a>。读论文 → <a href="kimi.html" style="color:#a29bfe">Kimi</a>。三个都免费，可以都装着按场景切换。</p>
+
+    <h2>❓ 常见问题</h2>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">豆包的 AI 和抖音有关系吗？</div>
+        <div class="faq-a"><p>豆包是字节跳动（抖音的母公司）开发的 AI 产品。底层用的是字节自研的云雀大模型。虽然和抖音是同一家公司，但豆包是一个独立的产品，和抖音 App 没有直接关系。</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">语音通话好用吗？</div>
+        <div class="faq-a"><p>确实是目前国产 AI 里语音体验最好的之一。AI 说话的声音很自然，能理解你说的话，支持打断和追问。练英语口语特别好用，不会像真人一样嫌你烦。不过复杂问题还是用文字更准确。</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">豆包能写代码吗？</div>
+        <div class="faq-a"><p>能写，但不是强项。简单的代码可以，复杂的编程任务还是建议用 <a href="deepseek.html" style="color:#a29bfe">DeepSeek</a> 或 <a href="cursor.html" style="color:#a29bfe">Cursor</a>。豆包更偏向日常助手，不是给程序员用的。</p></div>
+    </div>
+</div>
+<footer class="footer">
+    <p>© 2026 AI 工具箱 · <a href="../index.html">返回首页</a> · <a href="mailto:jiangangzhou@nuaa.edu.cn">联系我们</a></p>
+    <p style="margin-top:8px;font-size:11px;">本页内容仅供参考，豆包为字节跳动公司的产品。</p>
+</footer>
+</body>
+</html>

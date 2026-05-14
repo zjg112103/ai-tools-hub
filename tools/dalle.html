@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DALL·E 3 怎么用？和 Midjourney 比哪个好？2026 AI 绘画评测 | AI 工具箱</title>
+    <meta name="description" content="DALL·E 3 使用教程：怎么用、需要付费吗、和 Midjourney/Stable Diffusion 比哪个好。OpenAI 出品 AI 绘画工具，中文理解最好、最简单的 AI 绘画方式。">
+    <meta name="keywords" content="DALL·E 3, DALL·E, AI绘画, ChatGPT画图, DALL·E教程, DALL·E免费, AI生图">
+    <link rel="canonical" href="https://my-ai-tools-hub.netlify.app/tools/dalle.html">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        :root{--bg-deep:#0f1117;--bg-card:#1a1c26;--bg-card-hover:#242636;--border:rgba(255,255,255,0.08);--border-hover:rgba(255,255,255,0.16);--text-primary:#f0f0f5;--text-secondary:#9a9ab0;--text-muted:#5e5e78;--accent:#6c5ce7;--accent-glow:rgba(108,92,231,0.3);--gradient-1:linear-gradient(135deg,#6c5ce7,#a29bfe);--shadow-hover:0 8px 40px rgba(108,92,231,0.15);--radius:16px}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC','Outfit',sans-serif;background:var(--bg-deep);color:var(--text-primary);min-height:100vh}
+        .bg-mesh{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 600px 400px at 30% 15%,rgba(0,206,201,0.1),transparent),radial-gradient(ellipse 500px 500px at 70% 55%,rgba(253,121,168,0.08),transparent)}
+        .bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:60px 60px}
+        .navbar{position:sticky;top:0;z-index:100;padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(15,17,23,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+        .logo{display:flex;align-items:center;gap:10px;font-family:'Outfit';font-weight:700;font-size:20px;color:var(--text-primary);text-decoration:none}
+        .logo-icon{width:32px;height:32px;background:var(--gradient-1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px}
+        .back-link{color:var(--text-secondary);font-size:14px;text-decoration:none;transition:color 0.2s}.back-link:hover{color:var(--text-primary)}
+        .container{position:relative;z-index:1;max-width:800px;margin:0 auto;padding:48px 40px 80px}
+        .breadcrumb{font-size:13px;color:var(--text-muted);margin-bottom:24px}.breadcrumb a{color:var(--text-secondary);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+        .hero-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:40px;margin-bottom:32px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
+        .hero-icon{width:72px;height:72px;border-radius:16px;background:rgba(0,206,201,0.12);display:flex;align-items:center;justify-content:center;font-size:36px;flex-shrink:0}
+        .hero-info{flex:1;min-width:240px}.hero-title{font-family:'Outfit';font-size:32px;font-weight:800;margin-bottom:6px}
+        .hero-subtitle{font-size:15px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px}
+        .hero-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+        .badge{font-size:12px;font-weight:600;padding:4px 12px;border-radius:8px}
+        .badge-hot{background:rgba(255,107,107,0.12);color:#ff6b6b}.badge-price{background:rgba(108,92,231,0.12);color:#a29bfe}
+        .hero-visit{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:var(--gradient-1);border:none;border-radius:12px;color:white;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;transition:all 0.2s}
+        .hero-visit:hover{opacity:0.9;transform:translateY(-2px);box-shadow:var(--shadow-hover)}
+        .quick-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:32px}
+        .stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+        .stat-val{font-family:'Outfit';font-size:20px;font-weight:700;color:#a29bfe}.stat-lbl{font-size:12px;color:var(--text-muted);margin-top:2px}
+        h2{font-family:'Outfit';font-size:22px;font-weight:700;margin:40px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+        p{font-size:15px;line-height:1.8;color:var(--text-secondary);margin-bottom:14px}
+        ul,ol{font-size:15px;line-height:1.8;color:var(--text-secondary);margin-bottom:14px;padding-left:24px}li{margin-bottom:6px}
+        strong{color:var(--text-primary);font-weight:600}
+        .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:16px 0 24px}
+        .feature-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px}
+        .feature-card h3{margin:0 0 6px;font-size:15px;color:var(--text-primary)}.feature-card p{font-size:13px;margin:0;color:var(--text-muted)}
+        .step-list{counter-reset:step;list-style:none;padding:0}
+        .step-list li{counter-increment:step;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px 20px 16px 56px;margin-bottom:12px;position:relative}
+        .step-list li::before{content:counter(step);position:absolute;left:18px;top:16px;width:26px;height:26px;background:var(--gradient-1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;font-family:'Outfit'}
+        .compare-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:16px 0 24px}
+        .compare-row{display:grid;grid-template-columns:100px 1fr 1fr 1fr;border-bottom:1px solid var(--border)}.compare-row:last-child{border-bottom:none}
+        .compare-cell{padding:12px 14px;font-size:13px}.compare-header{font-weight:600;color:var(--text-muted);background:rgba(255,255,255,0.02);font-size:12px}.compare-highlight{color:#55efc4}
+        .faq-item{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden}
+        .faq-q{padding:16px 20px;font-weight:600;font-size:15px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+        .faq-q::after{content:"+";font-size:18px;color:var(--text-muted);transition:transform 0.2s}.faq-item.open .faq-q::after{transform:rotate(45deg)}
+        .faq-a{padding:0 20px;max-height:0;overflow:hidden;transition:all 0.3s}.faq-item.open .faq-a{padding:0 20px 16px;max-height:500px}.faq-a p{font-size:14px;margin:0}
+        .footer{position:relative;z-index:1;text-align:center;padding:32px 40px;border-top:1px solid var(--border);color:var(--text-muted);font-size:13px}
+        .footer a{color:var(--text-secondary);text-decoration:none}.footer a:hover{color:var(--text-primary)}
+        @media(max-width:768px){.navbar{padding:0 20px}.container{padding:32px 20px 60px}.hero-card{padding:24px}.hero-title{font-size:24px}.quick-stats{grid-template-columns:1fr 1fr}.compare-row{grid-template-columns:70px 1fr 1fr 1fr}.compare-cell{padding:10px 8px;font-size:12px}}
+    </style>
+</head>
+<body>
+<div class="bg-mesh"></div><div class="bg-grid"></div>
+<nav class="navbar"><a href="../index.html" class="logo"><div class="logo-icon">⚡</div><span>AI 工具箱</span></a><a href="../index.html" class="back-link">← 返回首页</a></nav>
+<div class="container">
+    <div class="breadcrumb"><a href="../index.html">首页</a> / <a href="../index.html">AI 绘画</a> / DALL·E 3</div>
+
+    <div class="hero-card">
+        <div class="hero-icon">🖼️</div>
+        <div class="hero-info">
+            <h1 class="hero-title">DALL·E 3</h1>
+            <div class="hero-badges"><span class="badge badge-hot">🔥 最易上手</span><span class="badge badge-price">需 ChatGPT Plus</span></div>
+            <p class="hero-subtitle">OpenAI 的 AI 绘画工具。<strong>最简单的 AI 绘画方式</strong>——在 ChatGPT 里直接说"帮我画一张……"就行了，不需要学 Prompt，<strong>中文描述就能出图</strong>。和 ChatGPT 深度集成，是最适合新手的 AI 绘画工具。</p>
+            <a href="https://chat.openai.com" target="_blank" rel="noopener" class="hero-visit">前往 ChatGPT 使用 DALL·E ↗</a>
+        </div>
+    </div>
+
+    <div class="quick-stats">
+        <div class="stat-card"><div class="stat-val">⭐⭐⭐⭐</div><div class="stat-lbl">画面质量</div></div>
+        <div class="stat-card"><div class="stat-val">⭐⭐⭐⭐⭐</div><div class="stat-lbl">中文理解</div></div>
+        <div class="stat-card"><div class="stat-val">⭐⭐⭐⭐⭐</div><div class="stat-lbl">易用性</div></div>
+        <div class="stat-card"><div class="stat-val">$20/月</div><div class="stat-lbl">最低价格</div></div>
+    </div>
+
+    <h2>📋 DALL·E 3 的优势</h2>
+    <div class="feature-grid">
+        <div class="feature-card"><h3>🗣️ 中文直接画</h3><p>用中文描述想要的图就行，DALL·E 自动理解和翻译</p></div>
+        <div class="feature-card"><h3>✏️ 文字渲染</h3><p>图片上的文字能正确拼写（这在 AI 绘画里很难得）</p></div>
+        <div class="feature-card"><h3>🔄 对话式修改</h3><p>画完不满意？直接说"把背景改成蓝色"，AI 就帮你改</p></div>
+        <div class="feature-card"><h3>📐 精准理解</h3><p>比其他工具更好地理解你的描述，出图和预期更接近</p></div>
+        <div class="feature-card"><h3>🚫 安全过滤</h3><p>严格的内容安全策略，不会生成不当内容</p></div>
+        <div class="feature-card"><h3>🖼️ 编辑功能</h3><p>可以选中图片的一部分进行局部修改</p></div>
+    </div>
+
+    <h2>📖 怎么用？</h2>
+    <ol class="step-list">
+        <li><strong>开通 ChatGPT Plus</strong>：DALL·E 3 需要订阅 ChatGPT Plus（$20/月）。部分免费用户也有有限的 DALL·E 额度</li>
+        <li><strong>在 ChatGPT 里说</strong>：直接输入"帮我画一张……"或"generate an image of..."</li>
+        <li><strong>等 10-30 秒</strong>：AI 生成图片，不满意可以继续对话修改</li>
+        <li><strong>下载</strong>：点击图片可以下载高清版本</li>
+    </ol>
+    <p><strong>没有 Plus？</strong>可以用微软的 Bing Image Creator（免费，也用的 DALL·E 3），访问 <a href="https://www.bing.com/images/create" target="_blank" style="color:#a29bfe">bing.com/images/create</a> 即可。</p>
+
+    <h2>🔄 三大 AI 绘画工具对比</h2>
+    <div class="compare-box">
+        <div class="compare-row"><div class="compare-cell compare-header">对比项</div><div class="compare-cell compare-header">DALL·E 3</div><div class="compare-cell compare-header">Midjourney</div><div class="compare-cell compare-header">SD</div></div>
+        <div class="compare-row"><div class="compare-cell">上手难度</div><div class="compare-cell compare-highlight">最简单</div><div class="compare-cell">简单</div><div class="compare-cell">较难</div></div>
+        <div class="compare-row"><div class="compare-cell">画面质量</div><div class="compare-cell">好</div><div class="compare-cell compare-highlight">最好</div><div class="compare-cell">好（需调参）</div></div>
+        <div class="compare-row"><div class="compare-cell">中文理解</div><div class="compare-cell compare-highlight">最好</div><div class="compare-cell">一般</div><div class="compare-cell">一般</div></div>
+        <div class="compare-row"><div class="compare-cell">可控性</div><div class="compare-cell">中等</div><div class="compare-cell">中等</div><div class="compare-cell compare-highlight">极高</div></div>
+        <div class="compare-row"><div class="compare-cell">价格</div><div class="compare-cell">$20/月</div><div class="compare-cell">$10/月起</div><div class="compare-cell compare-highlight">免费</div></div>
+        <div class="compare-row"><div class="compare-cell">文字渲染</div><div class="compare-cell compare-highlight">✅ 好</div><div class="compare-cell">V7改善</div><div class="compare-cell">弱</div></div>
+        <div class="compare-row"><div class="compare-cell">无限量</div><div class="compare-cell">有限次/月</div><div class="compare-cell">按额度</div><div class="compare-cell compare-highlight">✅ 无限</div></div>
+    </div>
+    <p><strong>怎么选</strong>：不会写英文 Prompt、想最简单 → <strong>DALL·E 3</strong>。追求最好看 → <a href="midjourney.html" style="color:#a29bfe">Midjourney</a>。想免费+精细控制 → <a href="stable-diffusion.html" style="color:#a29bfe">Stable Diffusion</a>。</p>
+
+    <h2>❓ 常见问题</h2>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">DALL·E 3 一定要付费吗？</div>
+        <div class="faq-a"><p>最方便的使用方式是 ChatGPT Plus（$20/月）。但微软的 Bing Image Creator 也用 DALL·E 3 且免费（每天有额度），只是功能没有 ChatGPT 里那么完整。国内用户可以用 Bing 访问。</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">DALL·E 3 和 DALL·E 2 有什么区别？</div>
+        <div class="faq-a"><p>DALL·E 3 是更新版本，画面质量更好、文字渲染更准确、理解能力更强。现在 OpenAI 默认使用 DALL·E 3，DALL·E 2 已经很少用了。</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">生成的图片有版权吗？</div>
+        <div class="faq-a"><p>OpenAI 表示付费用户生成的图片归用户使用，但 AI 生成的图片在大多数国家不能获得版权保护。建议用作素材和创意参考，不要直接作为核心商业资产。</p></div>
+    </div>
+</div>
+<footer class="footer">
+    <p>© 2026 AI 工具箱 · <a href="../index.html">返回首页</a> · <a href="mailto:jiangangzhou@nuaa.edu.cn">联系我们</a></p>
+    <p style="margin-top:8px;font-size:11px;">本页内容仅供参考，DALL·E 为 OpenAI 的产品。价格信息请以官网为准。</p>
+</footer>
+</body>
+</html>
