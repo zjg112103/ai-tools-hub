@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智谱清言好用吗？免费吗？和 Kimi 比哪个好？2026 评测 | AI 工具箱</title>
+    <meta name="description" content="智谱清言使用评测：清华大学技术背景、GLM-4 模型、完全免费、国内直接访问。和 Kimi、豆包、DeepSeek 对比，帮你选最适合的国产 AI 助手。">
+    <meta name="keywords" content="智谱清言, 智谱AI, GLM-4, 国产AI助手, 免费AI, 智谱清言怎么用, ChatGLM">
+    <link rel="canonical" href="https://my-ai-tools-hub.netlify.app/tools/chatglm.html">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        :root{--bg-deep:#0f1117;--bg-card:#1a1c26;--bg-card-hover:#242636;--border:rgba(255,255,255,0.08);--border-hover:rgba(255,255,255,0.16);--text-primary:#f0f0f5;--text-secondary:#9a9ab0;--text-muted:#5e5e78;--accent:#6c5ce7;--accent-glow:rgba(108,92,231,0.3);--gradient-1:linear-gradient(135deg,#6c5ce7,#a29bfe);--shadow-hover:0 8px 40px rgba(108,92,231,0.15);--radius:16px}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC','Outfit',sans-serif;background:var(--bg-deep);color:var(--text-primary);min-height:100vh}
+        .bg-mesh{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 600px 400px at 25% 15%,rgba(0,206,201,0.1),transparent),radial-gradient(ellipse 500px 500px at 75% 60%,rgba(108,92,231,0.1),transparent)}
+        .bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:60px 60px}
+        .navbar{position:sticky;top:0;z-index:100;padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(15,17,23,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+        .logo{display:flex;align-items:center;gap:10px;font-family:'Outfit';font-weight:700;font-size:20px;color:var(--text-primary);text-decoration:none}
+        .logo-icon{width:32px;height:32px;background:var(--gradient-1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px}
+        .back-link{color:var(--text-secondary);font-size:14px;text-decoration:none;transition:color 0.2s}.back-link:hover{color:var(--text-primary)}
+        .container{position:relative;z-index:1;max-width:800px;margin:0 auto;padding:48px 40px 80px}
+        .breadcrumb{font-size:13px;color:var(--text-muted);margin-bottom:24px}.breadcrumb a{color:var(--text-secondary);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+        .hero-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:40px;margin-bottom:32px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
+        .hero-icon{width:72px;height:72px;border-radius:16px;background:rgba(0,206,201,0.12);display:flex;align-items:center;justify-content:center;font-size:36px;flex-shrink:0}
+        .hero-info{flex:1;min-width:240px}.hero-title{font-family:'Outfit';font-size:32px;font-weight:800;margin-bottom:6px}
+        .hero-subtitle{font-size:15px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px}
+        .hero-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+        .badge{font-size:12px;font-weight:600;padding:4px 12px;border-radius:8px}
+        .badge-hot{background:rgba(255,107,107,0.12);color:#ff6b6b}.badge-free{background:rgba(85,239,196,0.12);color:#55efc4}
+        .hero-visit{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:var(--gradient-1);border:none;border-radius:12px;color:white;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;transition:all 0.2s}
+        .hero-visit:hover{opacity:0.9;transform:translateY(-2px);box-shadow:var(--shadow-hover)}
+        .quick-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:32px}
+        .stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+        .stat-val{font-family:'Outfit';font-size:20px;font-weight:700;color:#a29bfe}.stat-lbl{font-size:12px;color:var(--text-muted);margin-top:2px}
+        h2{font-family:'Outfit';font-size:22px;font-weight:700;margin:40px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+        p{font-size:15px;line-height:1.8;color:var(--text-secondary);margin-bottom:14px}
+        ul,ol{font-size:15px;line-height:1.8;color:var(--text-secondary);margin-bottom:14px;padding-left:24px}li{margin-bottom:6px}
+        strong{color:var(--text-primary);font-weight:600}
+        .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:16px 0 24px}
+        .feature-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px}
+        .feature-card h3{margin:0 0 6px;font-size:15px;color:var(--text-primary)}.feature-card p{font-size:13px;margin:0;color:var(--text-muted)}
+        .step-list{counter-reset:step;list-style:none;padding:0}
+        .step-list li{counter-increment:step;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px 20px 16px 56px;margin-bottom:12px;position:relative}
+        .step-list li::before{content:counter(step);position:absolute;left:18px;top:16px;width:26px;height:26px;background:var(--gradient-1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;font-family:'Outfit'}
+        .compare-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:16px 0 24px}
+        .compare-row{display:grid;grid-template-columns:100px 1fr 1fr;border-bottom:1px solid var(--border)}.compare-row:last-child{border-bottom:none}
+        .compare-cell{padding:12px 16px;font-size:14px}.compare-header{font-weight:600;color:var(--text-muted);background:rgba(255,255,255,0.02)}.compare-highlight{color:#55efc4}
+        .faq-item{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden}
+        .faq-q{padding:16px 20px;font-weight:600;font-size:15px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+        .faq-q::after{content:"+";font-size:18px;color:var(--text-muted);transition:transform 0.2s}.faq-item.open .faq-q::after{transform:rotate(45deg)}
+        .faq-a{padding:0 20px;max-height:0;overflow:hidden;transition:all 0.3s}.faq-item.open .faq-a{padding:0 20px 16px;max-height:500px}.faq-a p{font-size:14px;margin:0}
+        .footer{position:relative;z-index:1;text-align:center;padding:32px 40px;border-top:1px solid var(--border);color:var(--text-muted);font-size:13px}
+        .footer a{color:var(--text-secondary);text-decoration:none}.footer a:hover{color:var(--text-primary)}
+        @media(max-width:768px){.navbar{padding:0 20px}.container{padding:32px 20px 60px}.hero-card{padding:24px}.hero-title{font-size:24px}.quick-stats{grid-template-columns:1fr 1fr}}
+    </style>
+</head>
+<body>
+<div class="bg-mesh"></div><div class="bg-grid"></div>
+<nav class="navbar"><a href="../index.html" class="logo"><div class="logo-icon">⚡</div><span>AI 工具箱</span></a><a href="../index.html" class="back-link">← 返回首页</a></nav>
+<div class="container">
+    <div class="breadcrumb"><a href="../index.html">首页</a> / <a href="../index.html">AI 对话</a> / 智谱清言</div>
+
+    <div class="hero-card">
+        <div class="hero-icon">🎓</div>
+        <div class="hero-info">
+            <h1 class="hero-title">智谱清言</h1>
+            <div class="hero-badges"><span class="badge badge-hot">🔥 国产标杆</span><span class="badge badge-free">🆓 完全免费</span></div>
+            <p class="hero-subtitle">清华系 AI 公司智谱 AI 推出的大模型助手，底层模型 GLM-4。背靠清华技术团队，中文能力扎实，<strong>完全免费、国内直接访问</strong>，还有 AI 绘画、代码、数据分析等功能，是国产 AI 的实力派。</p>
+            <a href="https://chatglm.cn" target="_blank" rel="noopener" class="hero-visit">前往智谱清言官网 ↗</a>
+        </div>
+    </div>
+
+    <div class="quick-stats">
+        <div class="stat-card"><div class="stat-val">⭐⭐⭐⭐⭐</div><div class="stat-lbl">综合质量</div></div>
+        <div class="stat-card"><div class="stat-val">⭐⭐⭐⭐⭐</div><div class="stat-lbl">中文支持</div></div>
+        <div class="stat-card"><div class="stat-val">⭐⭐⭐⭐⭐</div><div class="stat-lbl">易用性</div></div>
+        <div class="stat-card"><div class="stat-val">完全免费</div><div class="stat-lbl">免费程度</div></div>
+    </div>
+
+    <h2>📋 智谱清言能做什么？</h2>
+    <div class="feature-grid">
+        <div class="feature-card"><h3>💬 智能对话</h3><p>中文理解准确，表达自然，日常问答、知识查询都很靠谱</p></div>
+        <div class="feature-card"><h3>✍️ 写作助手</h3><p>写文章、公文、邮件、演讲稿，中文写作质量高</p></div>
+        <div class="feature-card"><h3>💻 代码助手</h3><p>写代码、解释代码、找 Bug，支持主流编程语言</p></div>
+        <div class="feature-card"><h3>🎨 AI 绘画</h3><p>内置文生图功能，输入中文描述就能生成图片</p></div>
+        <div class="feature-card"><h3>📊 数据分析</h3><p>上传 Excel/CSV 文件，AI 帮你分析数据、生成图表</p></div>
+        <div class="feature-card"><h3>📄 文档阅读</h3><p>上传 PDF/Word 等文档，AI 帮你总结要点、回答问题</p></div>
+    </div>
+
+    <h2>🎯 适合什么人？</h2>
+    <ul>
+        <li><strong>不想翻墙的用户</strong>：国内直接打开 chatglm.cn 就能用</li>
+        <li><strong>不想花钱的用户</strong>：完全免费，核心功能没有付费墙</li>
+        <li><strong>公务员/体制内</strong>：公文写作、材料整理，中文场景特别强</li>
+        <li><strong>学生</strong>：写论文、查资料、学编程，全部免费</li>
+        <li><strong>企业用户</strong>：有 GLM-4 API 可对接，适合做企业应用</li>
+    </ul>
+
+    <h2>📖 怎么用？</h2>
+    <ol class="step-list">
+        <li><strong>打开官网</strong>：访问 <a href="https://chatglm.cn" target="_blank" style="color:#a29bfe">chatglm.cn</a></li>
+        <li><strong>注册登录</strong>：手机号注册，验证码登录，非常简单</li>
+        <li><strong>选择功能</strong>：首页有对话、写作、绘画、数据分析等入口</li>
+        <li><strong>开始使用</strong>：直接输入问题或上传文件，立刻就能用</li>
+    </ol>
+
+    <h2>🔄 智谱清言 vs DeepSeek vs Kimi</h2>
+    <div class="compare-box">
+        <div class="compare-row"><div class="compare-cell compare-header">对比项</div><div class="compare-cell compare-header">智谱清言</div><div class="compare-cell compare-header">DeepSeek</div></div>
+        <div class="compare-row"><div class="compare-cell">价格</div><div class="compare-cell compare-highlight">完全免费</div><div class="compare-cell compare-highlight">完全免费</div></div>
+        <div class="compare-row"><div class="compare-cell">国内访问</div><div class="compare-cell compare-highlight">直接访问</div><div class="compare-cell compare-highlight">直接访问</div></div>
+        <div class="compare-row"><div class="compare-cell">中文能力</div><div class="compare-cell">优秀</div><div class="compare-cell compare-highlight">优秀</div></div>
+        <div class="compare-row"><div class="compare-cell">代码能力</div><div class="compare-cell">良好</div><div class="compare-cell compare-highlight">优秀</div></div>
+        <div class="compare-row"><div class="compare-cell">数学推理</div><div class="compare-cell">良好</div><div class="compare-cell compare-highlight">极强</div></div>
+        <div class="compare-row"><div class="compare-cell">AI 绘画</div><div class="compare-cell compare-highlight">内置支持</div><div class="compare-cell">不支持</div></div>
+        <div class="compare-row"><div class="compare-cell">API 生态</div><div class="compare-cell compare-highlight">完善</div><div class="compare-cell">开放中</div></div>
+        <div class="compare-row"><div class="compare-cell">学术背景</div><div class="compare-cell compare-highlight">清华系</div><div class="compare-cell">量化背景</div></div>
+    </div>
+    <p><strong>怎么选</strong>：两个都免费、国内都能用，建议都试试。编程/数学选 DeepSeek，写作/绘画/企业应用选智谱清言。日常使用两个体验差距不大。</p>
+
+    <h2>❓ 常见问题</h2>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">智谱清言真的完全免费吗？</div>
+        <div class="faq-a"><p>是的，对话、写作、绘画、数据分析等核心功能完全免费。智谱 AI 还有面向开发者的付费 API 服务，但普通用户使用网页版不收一分钱。</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">GLM-4 是什么水平？</div>
+        <div class="faq-a"><p>GLM-4 是智谱 AI 的第四代大模型，在多项评测中接近 GPT-4 水平。中文能力尤其突出，英文能力也不差。不过具体的体验还是取决于你的使用场景，建议亲自试试。</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">智谱清言和 ChatGPT 比怎么样？</div>
+        <div class="faq-a"><p>日常中文使用体验差距不大。ChatGPT 在插件生态、图片生成、多模态方面更强。但智谱清言免费、国内直接访问、不需要翻墙，对大多数国内用户来说更方便。</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">智谱清言的 AI 绘画质量怎么样？</div>
+        <div class="faq-a"><p>比不上 Midjourney，但作为免费内置功能来说已经不错了。适合快速生成一些配图、插画、社交媒体素材。如果对画质要求很高，还是建议用专门的 AI 绘画工具。</p></div>
+    </div>
+</div>
+<footer class="footer">
+    <p>© 2026 AI 工具箱 · <a href="../index.html">返回首页</a> · <a href="mailto:jiangangzhou@nuaa.edu.cn">联系我们</a></p>
+    <p style="margin-top:8px;font-size:11px;">本页内容仅供参考，智谱清言为智谱 AI 公司的产品。</p>
+</footer>
+</body>
+</html>

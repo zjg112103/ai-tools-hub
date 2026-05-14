@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stable Diffusion 怎么安装？本地部署教程 2026 | AI 工具箱</title>
+    <meta name="description" content="Stable Diffusion 安装使用教程：怎么本地部署、需要什么显卡、和 Midjourney 比哪个好、哪里下载模型。2026 最全 SD 入门指南。">
+    <meta name="keywords" content="Stable Diffusion, SD安装, AI绘画, 本地部署, SD教程, ComfyUI, WebUI, SD和Midjourney">
+    <link rel="canonical" href="https://my-ai-tools-hub.netlify.app/tools/stable-diffusion.html">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        :root{--bg-deep:#0f1117;--bg-card:#1a1c26;--bg-card-hover:#242636;--border:rgba(255,255,255,0.08);--border-hover:rgba(255,255,255,0.16);--text-primary:#f0f0f5;--text-secondary:#9a9ab0;--text-muted:#5e5e78;--accent:#6c5ce7;--accent-glow:rgba(108,92,231,0.3);--gradient-1:linear-gradient(135deg,#6c5ce7,#a29bfe);--shadow-hover:0 8px 40px rgba(108,92,231,0.15);--radius:16px}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC','Outfit',sans-serif;background:var(--bg-deep);color:var(--text-primary);min-height:100vh}
+        .bg-mesh{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 600px 400px at 25% 15%,rgba(162,155,254,0.1),transparent),radial-gradient(ellipse 500px 500px at 75% 60%,rgba(85,239,196,0.08),transparent)}
+        .bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:60px 60px}
+        .navbar{position:sticky;top:0;z-index:100;padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(15,17,23,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+        .logo{display:flex;align-items:center;gap:10px;font-family:'Outfit';font-weight:700;font-size:20px;color:var(--text-primary);text-decoration:none}
+        .logo-icon{width:32px;height:32px;background:var(--gradient-1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px}
+        .back-link{color:var(--text-secondary);font-size:14px;text-decoration:none;transition:color 0.2s}.back-link:hover{color:var(--text-primary)}
+        .container{position:relative;z-index:1;max-width:800px;margin:0 auto;padding:48px 40px 80px}
+        .breadcrumb{font-size:13px;color:var(--text-muted);margin-bottom:24px}.breadcrumb a{color:var(--text-secondary);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+        .hero-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:40px;margin-bottom:32px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
+        .hero-icon{width:72px;height:72px;border-radius:16px;background:rgba(162,155,254,0.12);display:flex;align-items:center;justify-content:center;font-size:36px;flex-shrink:0}
+        .hero-info{flex:1;min-width:240px}.hero-title{font-family:'Outfit';font-size:32px;font-weight:800;margin-bottom:6px}
+        .hero-subtitle{font-size:15px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px}
+        .hero-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+        .badge{font-size:12px;font-weight:600;padding:4px 12px;border-radius:8px}
+        .badge-hot{background:rgba(255,107,107,0.12);color:#ff6b6b}.badge-free{background:rgba(85,239,196,0.12);color:#55efc4}
+        .hero-visit{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:var(--gradient-1);border:none;border-radius:12px;color:white;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;transition:all 0.2s}
+        .hero-visit:hover{opacity:0.9;transform:translateY(-2px);box-shadow:var(--shadow-hover)}
+        .quick-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:32px}
+        .stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+        .stat-val{font-family:'Outfit';font-size:20px;font-weight:700;color:#a29bfe}.stat-lbl{font-size:12px;color:var(--text-muted);margin-top:2px}
+        h2{font-family:'Outfit';font-size:22px;font-weight:700;margin:40px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+        h3{font-family:'Outfit';font-size:17px;font-weight:600;margin:24px 0 10px}
+        p{font-size:15px;line-height:1.8;color:var(--text-secondary);margin-bottom:14px}
+        ul,ol{font-size:15px;line-height:1.8;color:var(--text-secondary);margin-bottom:14px;padding-left:24px}li{margin-bottom:6px}
+        strong{color:var(--text-primary);font-weight:600}
+        .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:16px 0 24px}
+        .feature-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px}
+        .feature-card h3{margin:0 0 6px;font-size:15px;color:var(--text-primary)}.feature-card p{font-size:13px;margin:0;color:var(--text-muted)}
+        .step-list{counter-reset:step;list-style:none;padding:0}
+        .step-list li{counter-increment:step;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px 20px 16px 56px;margin-bottom:12px;position:relative}
+        .step-list li::before{content:counter(step);position:absolute;left:18px;top:16px;width:26px;height:26px;background:var(--gradient-1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;font-family:'Outfit'}
+        .compare-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:16px 0 24px}
+        .compare-row{display:grid;grid-template-columns:100px 1fr 1fr;border-bottom:1px solid var(--border)}.compare-row:last-child{border-bottom:none}
+        .compare-cell{padding:12px 16px;font-size:14px}.compare-header{font-weight:600;color:var(--text-muted);background:rgba(255,255,255,0.02)}.compare-highlight{color:#55efc4}
+        .faq-item{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden}
+        .faq-q{padding:16px 20px;font-weight:600;font-size:15px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+        .faq-q::after{content:"+";font-size:18px;color:var(--text-muted);transition:transform 0.2s}.faq-item.open .faq-q::after{transform:rotate(45deg)}
+        .faq-a{padding:0 20px;max-height:0;overflow:hidden;transition:all 0.3s}.faq-item.open .faq-a{padding:0 20px 16px;max-height:500px}.faq-a p{font-size:14px;margin:0}
+        .footer{position:relative;z-index:1;text-align:center;padding:32px 40px;border-top:1px solid var(--border);color:var(--text-muted);font-size:13px}
+        .footer a{color:var(--text-secondary);text-decoration:none}.footer a:hover{color:var(--text-primary)}
+        @media(max-width:768px){.navbar{padding:0 20px}.container{padding:32px 20px 60px}.hero-card{padding:24px}.hero-title{font-size:24px}.quick-stats{grid-template-columns:1fr 1fr}}
+    </style>
+</head>
+<body>
+<div class="bg-mesh"></div><div class="bg-grid"></div>
+<nav class="navbar"><a href="../index.html" class="logo"><div class="logo-icon">⚡</div><span>AI 工具箱</span></a><a href="../index.html" class="back-link">← 返回首页</a></nav>
+<div class="container">
+    <div class="breadcrumb"><a href="../index.html">首页</a> / <a href="../index.html">AI 绘画</a> / Stable Diffusion</div>
+
+    <div class="hero-card">
+        <div class="hero-icon">🎭</div>
+        <div class="hero-info">
+            <h1 class="hero-title">Stable Diffusion</h1>
+            <div class="hero-badges"><span class="badge badge-hot">🔥 开源之王</span><span class="badge badge-free">🆓 完全免费</span></div>
+            <p class="hero-subtitle">最强大的开源 AI 绘画工具。<strong>完全免费、无限量生成、可以本地运行、可控性极高</strong>。想怎么画就怎么画，没有次数限制，没有审查限制。但需要一定的技术基础和一张独立显卡。</p>
+            <a href="https://stability.ai" target="_blank" rel="noopener" class="hero-visit">前往 Stability AI 官网 ↗</a>
+        </div>
+    </div>
+
+    <div class="quick-stats">
+        <div class="stat-card"><div class="stat-val">⭐⭐⭐⭐⭐</div><div class="stat-lbl">画面质量</div></div>
+        <div class="stat-card"><div class="stat-val">⭐⭐⭐</div><div class="stat-lbl">中文支持</div></div>
+        <div class="stat-card"><div class="stat-val">⭐⭐</div><div class="stat-lbl">易用性</div></div>
+        <div class="stat-card"><div class="stat-val">完全免费</div><div class="stat-lbl">免费程度</div></div>
+    </div>
+
+    <h2>📋 SD 的核心优势</h2>
+    <div class="feature-grid">
+        <div class="feature-card"><h3>🔓 完全开源免费</h3><p>代码开源、模型免费下载，没有使用次数限制</p></div>
+        <div class="feature-card"><h3>🎛️ 极高可控性</h3><p>ControlNet、LoRA、Inpainting……精细控制每一个细节</p></div>
+        <div class="feature-card"><h3>🏠 本地运行</h3><p>图片在自己电脑生成，不需要上传到云端，隐私安全</p></div>
+        <div class="feature-card"><h3>📦 海量模型</h3><p>Civitai 上有上万种社区模型和 LoRA，风格无限</p></div>
+        <div class="feature-card"><h3>✏️ 图片编辑</h3><p>局部重绘、图生图、外延补图，不只是生成，还能改</p></div>
+        <div class="feature-card"><h3>🎥 视频生成</h3><p>结合 SVD 等模型，可以生成短视频和动画</p></div>
+    </div>
+
+    <h2>⚙️ 硬件要求</h2>
+    <p>本地运行 Stable Diffusion 需要一张 NVIDIA 显卡。以下是参考配置：</p>
+    <div class="compare-box">
+        <div class="compare-row"><div class="compare-cell compare-header">配置</div><div class="compare-cell compare-header">显卡</div><div class="compare-cell compare-header">能做什么</div></div>
+        <div class="compare-row"><div class="compare-cell">最低</div><div class="compare-cell">RTX 3060 (8GB)</div><div class="compare-cell">SD 1.5 基础出图</div></div>
+        <div class="compare-row"><div class="compare-cell">推荐</div><div class="compare-cell compare-highlight">RTX 4060/4070 (12GB)</div><div class="compare-cell compare-highlight">SDXL + ControlNet 流畅</div></div>
+        <div class="compare-row"><div class="compare-cell">高端</div><div class="compare-cell">RTX 4080/4090 (16GB+)</div><div class="compare-cell compare-highlight">所有模型无压力</div></div>
+    </div>
+    <p><strong>没有显卡？</strong>可以用云服务（AutoDL、Google Colab）运行 SD，按小时付费，比买显卡便宜。</p>
+
+    <h2>📖 怎么安装？两种方式</h2>
+
+    <h3>方式一：WebUI（推荐新手）</h3>
+    <ol class="step-list">
+        <li><strong>安装 Python 和 Git</strong>：确保电脑装了 Python 3.10+ 和 Git</li>
+        <li><strong>下载 WebUI</strong>：搜索"Stable Diffusion WebUI"，从 GitHub 下载 Automatic1111 版本</li>
+        <li><strong>运行启动脚本</strong>：双击 <code>run.bat</code>（Windows），自动安装依赖和下载模型</li>
+        <li><strong>打开浏览器</strong>：启动完成后浏览器会自动打开 <code>http://127.0.0.1:7860</code></li>
+        <li><strong>开始画图</strong>：在 txt2img 页面输入 Prompt，点击 Generate</li>
+    </ol>
+
+    <h3>方式二：ComfyUI（推荐进阶）</h3>
+    <p>ComfyUI 用节点式工作流，学习曲线陡但可控性更强。适合已经熟悉 SD 基础、想精细控制出图流程的用户。许多最新的模型和工作流（如 Flux）优先支持 ComfyUI。</p>
+
+    <h2>🔄 SD vs Midjourney</h2>
+    <div class="compare-box">
+        <div class="compare-row"><div class="compare-cell compare-header">对比项</div><div class="compare-cell compare-header">Stable Diffusion</div><div class="compare-cell compare-header">Midjourney</div></div>
+        <div class="compare-row"><div class="compare-cell">价格</div><div class="compare-cell compare-highlight">完全免费</div><div class="compare-cell">$10/月起</div></div>
+        <div class="compare-row"><div class="compare-cell">上手难度</div><div class="compare-cell">需要技术背景</div><div class="compare-cell compare-highlight">简单易用</div></div>
+        <div class="compare-row"><div class="compare-cell">可控性</div><div class="compare-cell compare-highlight">极高</div><div class="compare-cell">中等</div></div>
+        <div class="compare-row"><div class="compare-cell">生成数量</div><div class="compare-cell compare-highlight">无限</div><div class="compare-cell">按额度</div></div>
+        <div class="compare-row"><div class="compare-cell">默认画质</div><div class="compare-cell">好（需调参）</div><div class="compare-cell compare-highlight">顶级</div></div>
+        <div class="compare-row"><div class="compare-cell">隐私</div><div class="compare-cell compare-highlight">本地运行</div><div class="compare-cell">云端</div></div>
+        <div class="compare-row"><div class="compare-cell">模型/风格</div><div class="compare-cell compare-highlight">上万种</div><div class="compare-cell">官方统一</div></div>
+    </div>
+    <p><strong>怎么选</strong>：不想折腾、追求最好看 → <a href="midjourney.html" style="color:#a29bfe">Midjourney</a>。想免费、想精细控制、有技术能力 → <strong>Stable Diffusion</strong>。两者也可以配合使用。</p>
+
+    <h2>❓ 常见问题</h2>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">不会编程能用 Stable Diffusion 吗？</div>
+        <div class="faq-a"><p>能。安装 WebUI 后界面和普通网站差不多，不需要写代码。但安装过程需要一些基础操作（安装 Python、运行命令行）。如果这步都嫌麻烦，推荐用 <a href="midjourney.html" style="color:#a29bfe">Midjourney</a> 或者国产的即梦 AI、LiblibAI（网页版，不用本地安装）。</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">模型去哪里下载？</div>
+        <div class="faq-a"><p>主要在 <a href="https://civitai.com" target="_blank" style="color:#a29bfe">Civitai</a>（最大的 SD 模型社区）和 Hugging Face 上下载。Civitai 上有各种风格的大模型和 LoRA（微调模型），可以按分类和评分筛选。下载后放到 WebUI 的 <code>models/Stable-diffusion</code> 文件夹即可。</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">SD XL 和 SD 1.5 有什么区别？</div>
+        <div class="faq-a"><p>SDXL 是更新的模型，画质更好、理解能力更强，但需要更多显存（建议 12GB+）。SD 1.5 是经典版本，社区模型最多、兼容性最好，8GB 显存就能跑。建议新手先从 SDXL 开始（画质直观更好），资源不够再用 SD 1.5。</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Flux 模型怎么样？</div>
+        <div class="faq-a"><p>Flux 是 Black Forest Labs（Stable Diffusion 原班人马创立）推出的新模型，画质和文字渲染能力大幅提升，目前是开源绘画模型中的顶级水平。但需要更好的硬件配置，建议 16GB+ 显存。</p></div>
+    </div>
+</div>
+<footer class="footer">
+    <p>© 2026 AI 工具箱 · <a href="../index.html">返回首页</a> · <a href="mailto:jiangangzhou@nuaa.edu.cn">联系我们</a></p>
+    <p style="margin-top:8px;font-size:11px;">本页内容仅供参考，Stable Diffusion 由 Stability AI 开发并开源。</p>
+</footer>
+</body>
+</html>
