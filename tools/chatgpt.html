@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT 是什么？怎么用？免费吗？2026 最全使用指南 | AI 工具箱</title>
+    <meta name="description" content="ChatGPT 使用教程：怎么注册、免费版和付费版有什么区别、能做什么、有哪些替代工具。2026 年最新最全 ChatGPT 使用指南。">
+    <meta name="keywords" content="ChatGPT, ChatGPT怎么用, ChatGPT免费, ChatGPT教程, ChatGPT注册, AI对话, GPT-4o">
+    <link rel="canonical" href="https://my-ai-tools-hub.netlify.app/tools/chatgpt.html">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        :root {
+            --bg-deep: #0f1117; --bg-card: #1a1c26; --bg-card-hover: #242636;
+            --border: rgba(255,255,255,0.08); --border-hover: rgba(255,255,255,0.16);
+            --text-primary: #f0f0f5; --text-secondary: #9a9ab0; --text-muted: #5e5e78;
+            --accent: #6c5ce7; --accent-glow: rgba(108,92,231,0.3);
+            --gradient-1: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            --shadow-hover: 0 8px 40px rgba(108,92,231,0.15); --radius: 16px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Noto Sans SC','Outfit',sans-serif; background:var(--bg-deep); color:var(--text-primary); min-height:100vh; }
+        .bg-mesh { position:fixed; inset:0; z-index:0; pointer-events:none; background: radial-gradient(ellipse 600px 400px at 20% 10%,rgba(108,92,231,0.12),transparent), radial-gradient(ellipse 500px 500px at 80% 60%,rgba(0,206,201,0.08),transparent); }
+        .bg-grid { position:fixed; inset:0; z-index:0; pointer-events:none; background-image: linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px); background-size:60px 60px; }
+
+        .navbar { position:sticky; top:0; z-index:100; padding:0 40px; height:64px; display:flex; align-items:center; justify-content:space-between; background:rgba(15,17,23,0.85); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); }
+        .logo { display:flex; align-items:center; gap:10px; font-family:'Outfit'; font-weight:700; font-size:20px; color:var(--text-primary); text-decoration:none; }
+        .logo-icon { width:32px; height:32px; background:var(--gradient-1); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px; }
+        .back-link { color:var(--text-secondary); font-size:14px; text-decoration:none; display:flex; align-items:center; gap:6px; transition:color 0.2s; }
+        .back-link:hover { color:var(--text-primary); }
+
+        .container { position:relative; z-index:1; max-width:800px; margin:0 auto; padding:48px 40px 80px; }
+        .breadcrumb { font-size:13px; color:var(--text-muted); margin-bottom:24px; }
+        .breadcrumb a { color:var(--text-secondary); text-decoration:none; }
+        .breadcrumb a:hover { color:var(--accent); }
+
+        .hero-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:40px; margin-bottom:32px; display:flex; gap:24px; align-items:flex-start; flex-wrap:wrap; }
+        .hero-icon { width:72px; height:72px; border-radius:16px; background:rgba(0,206,201,0.12); display:flex; align-items:center; justify-content:center; font-size:36px; flex-shrink:0; }
+        .hero-info { flex:1; min-width:240px; }
+        .hero-title { font-family:'Outfit'; font-size:32px; font-weight:800; margin-bottom:6px; }
+        .hero-subtitle { font-size:15px; color:var(--text-secondary); line-height:1.7; margin-bottom:16px; }
+        .hero-badges { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; }
+        .badge { font-size:12px; font-weight:600; padding:4px 12px; border-radius:8px; }
+        .badge-hot { background:rgba(255,107,107,0.12); color:#ff6b6b; }
+        .badge-free { background:rgba(85,239,196,0.12); color:#55efc4; }
+        .badge-price { background:rgba(108,92,231,0.12); color:#a29bfe; }
+        .hero-visit { display:inline-flex; align-items:center; gap:8px; padding:12px 28px; background:var(--gradient-1); border:none; border-radius:12px; color:white; font-size:15px; font-weight:600; cursor:pointer; text-decoration:none; transition:all 0.2s; }
+        .hero-visit:hover { opacity:0.9; transform:translateY(-2px); box-shadow:var(--shadow-hover); }
+
+        .quick-stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:32px; }
+        .stat-card { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:16px; text-align:center; }
+        .stat-val { font-family:'Outfit'; font-size:20px; font-weight:700; color:#a29bfe; }
+        .stat-lbl { font-size:12px; color:var(--text-muted); margin-top:2px; }
+
+        h2 { font-family:'Outfit'; font-size:22px; font-weight:700; margin:40px 0 16px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+        h3 { font-family:'Outfit'; font-size:17px; font-weight:600; margin:24px 0 10px; }
+        p { font-size:15px; line-height:1.8; color:var(--text-secondary); margin-bottom:14px; }
+        ul, ol { font-size:15px; line-height:1.8; color:var(--text-secondary); margin-bottom:14px; padding-left:24px; }
+        li { margin-bottom:6px; }
+        strong { color:var(--text-primary); font-weight:600; }
+
+        .feature-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin:16px 0 24px; }
+        .feature-card { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:20px; }
+        .feature-card h3 { margin:0 0 6px; font-size:15px; color:var(--text-primary); }
+        .feature-card p { font-size:13px; margin:0; color:var(--text-muted); }
+
+        .step-list { counter-reset:step; list-style:none; padding:0; }
+        .step-list li { counter-increment:step; background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:16px 20px 16px 56px; margin-bottom:12px; position:relative; }
+        .step-list li::before { content:counter(step); position:absolute; left:18px; top:16px; width:26px; height:26px; background:var(--gradient-1); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; color:white; font-family:'Outfit'; }
+
+        .faq-item { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; margin-bottom:10px; overflow:hidden; }
+        .faq-q { padding:16px 20px; font-weight:600; font-size:15px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; }
+        .faq-q::after { content:"+"; font-size:18px; color:var(--text-muted); transition:transform 0.2s; }
+        .faq-item.open .faq-q::after { transform:rotate(45deg); }
+        .faq-a { padding:0 20px; max-height:0; overflow:hidden; transition:all 0.3s; }
+        .faq-item.open .faq-a { padding:0 20px 16px; max-height:500px; }
+        .faq-a p { font-size:14px; margin:0; }
+
+        .compare-box { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; overflow:hidden; margin:16px 0 24px; }
+        .compare-row { display:grid; grid-template-columns:100px 1fr 1fr; border-bottom:1px solid var(--border); }
+        .compare-row:last-child { border-bottom:none; }
+        .compare-cell { padding:12px 16px; font-size:14px; }
+        .compare-header { font-weight:600; color:var(--text-muted); background:rgba(255,255,255,0.02); }
+        .compare-highlight { color:#55efc4; }
+
+        .footer { position:relative; z-index:1; text-align:center; padding:32px 40px; border-top:1px solid var(--border); color:var(--text-muted); font-size:13px; }
+        .footer a { color:var(--text-secondary); text-decoration:none; }
+        .footer a:hover { color:var(--text-primary); }
+
+        @media (max-width:768px) {
+            .navbar { padding:0 20px; }
+            .container { padding:32px 20px 60px; }
+            .hero-card { padding:24px; }
+            .hero-title { font-size:24px; }
+            .quick-stats { grid-template-columns:1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="bg-mesh"></div>
+<div class="bg-grid"></div>
+
+<nav class="navbar">
+    <a href="../index.html" class="logo">
+        <div class="logo-icon">⚡</div>
+        <span>AI 工具箱</span>
+    </a>
+    <a href="../index.html" class="back-link">← 返回首页</a>
+</nav>
+
+<div class="container">
+    <div class="breadcrumb">
+        <a href="../index.html">首页</a> / <a href="../index.html">AI 对话</a> / ChatGPT
+    </div>
+
+    <!-- Hero -->
+    <div class="hero-card">
+        <div class="hero-icon">🤖</div>
+        <div class="hero-info">
+            <h1 class="hero-title">ChatGPT</h1>
+            <div class="hero-badges">
+                <span class="badge badge-hot">🔥 全球最热</span>
+                <span class="badge badge-free">免费可用</span>
+                <span class="badge badge-price">Plus $20/月</span>
+            </div>
+            <p class="hero-subtitle">OpenAI 推出的 AI 对话助手，全球用户量最大的 AI 工具。支持文本生成、代码编写、图片生成、联网搜索、数据分析等，是 AI 领域的标杆产品。</p>
+            <a href="https://chat.openai.com" target="_blank" rel="noopener" class="hero-visit">前往 ChatGPT 官网 ↗</a>
+        </div>
+    </div>
+
+    <!-- 快速评分 -->
+    <div class="quick-stats">
+        <div class="stat-card"><div class="stat-val">⭐⭐⭐⭐⭐</div><div class="stat-lbl">综合质量</div></div>
+        <div class="stat-card"><div class="stat-val">⭐⭐⭐⭐</div><div class="stat-lbl">中文支持</div></div>
+        <div class="stat-card"><div class="stat-val">⭐⭐⭐⭐⭐</div><div class="stat-lbl">易用性</div></div>
+        <div class="stat-card"><div class="stat-val">免费可用</div><div class="stat-lbl">免费程度</div></div>
+    </div>
+
+    <!-- 功能介绍 -->
+    <h2>📋 ChatGPT 能做什么？</h2>
+    <p>ChatGPT 是一个多功能的 AI 助手，几乎可以做任何与文字、代码、图片相关的工作：</p>
+    <div class="feature-grid">
+        <div class="feature-card"><h3>💬 智能对话</h3><p>像和人聊天一样提问，AI 会给出详细、有逻辑的回答</p></div>
+        <div class="feature-card"><h3>✍️ 写作创作</h3><p>写文章、邮件、文案、小说、报告，各种文字内容都能生成</p></div>
+        <div class="feature-card"><h3>💻 编程辅助</h3><p>写代码、找 Bug、解释代码、学习编程，支持所有主流语言</p></div>
+        <div class="feature-card"><h3>🎨 图片生成</h3><p>Plus 用户可用 DALL·E 生成图片，描述你想要什么图就行</p></div>
+        <div class="feature-card"><h3>🔍 联网搜索</h3><p>可以搜索互联网上的最新信息，不局限于训练数据</p></div>
+        <div class="feature-card"><h3>📊 数据分析</h3><p>上传文件（Excel、CSV 等），AI 帮你分析和可视化数据</p></div>
+    </div>
+
+    <!-- 适用场景 -->
+    <h2>🎯 适合什么人用？</h2>
+    <ul>
+        <li><strong>学生</strong>：写论文、查资料、学编程、解题答疑</li>
+        <li><strong>上班族</strong>：写邮件、做 PPT 大纲、总结会议纪要、翻译文档</li>
+        <li><strong>程序员</strong>：写代码、Debug、代码审查、学习新技术</li>
+        <li><strong>内容创作者</strong>：写文章、起标题、改写内容、生成创意</li>
+        <li><strong>创业者/自由职业</strong>：写商业计划、市场分析、营销文案</li>
+        <li><strong>普通人</strong>：回答日常问题、旅游攻略、菜谱推荐、学习新知识</li>
+    </ul>
+
+    <!-- 使用教程 -->
+    <h2>📖 怎么开始使用？</h2>
+    <ol class="step-list">
+        <li><strong>打开官网</strong>：访问 <a href="https://chat.openai.com" target="_blank" style="color:#a29bfe">chat.openai.com</a>，点击"Sign up"注册</li>
+        <li><strong>注册账号</strong>：可以用邮箱、Google 账号或 Apple ID 注册。国内用户可用邮箱注册</li>
+        <li><strong>开始对话</strong>：登录后直接在输入框输入问题，按回车就能得到回答</li>
+        <li><strong>尝试高级功能</strong>：上传文件让 AI 分析、让它画图、让它搜索网络信息</li>
+        <li><strong>升级 Plus（可选）</strong>：每月 $20，可以使用 GPT-4o 模型、DALL·E 画图、更快的响应速度</li>
+    </ol>
+
+    <!-- 免费vs付费 -->
+    <h2>💰 免费版和付费版有什么区别？</h2>
+    <div class="compare-box">
+        <div class="compare-row"><div class="compare-cell compare-header">功能</div><div class="compare-cell compare-header">免费版</div><div class="compare-cell compare-header">Plus（$20/月）</div></div>
+        <div class="compare-row"><div class="compare-cell">基础对话</div><div class="compare-cell compare-highlight">✅ 支持</div><div class="compare-cell compare-highlight">✅ 支持</div></div>
+        <div class="compare-row"><div class="compare-cell">模型</div><div class="compare-cell">GPT-4o mini</div><div class="compare-cell">GPT-4o / GPT-4.5</div></div>
+        <div class="compare-row"><div class="compare-cell">图片生成</div><div class="compare-cell">❌ 不支持</div><div class="compare-cell compare-highlight">✅ DALL·E</div></div>
+        <div class="compare-row"><div class="compare-cell">联网搜索</div><div class="compare-cell">有限</div><div class="compare-cell compare-highlight">✅ 完整</div></div>
+        <div class="compare-row"><div class="compare-cell">文件分析</div><div class="compare-cell">有限</div><div class="compare-cell compare-highlight">✅ 完整</div></div>
+        <div class="compare-row"><div class="compare-cell">响应速度</div><div class="compare-cell">一般</div><div class="compare-cell compare-highlight">更快</div></div>
+        <div class="compare-row"><div class="compare-cell">使用次数</div><div class="compare-cell">有限制</div><div class="compare-cell compare-highlight">更多</div></div>
+    </div>
+    <p><strong>建议</strong>：先用免费版体验，觉得有用再考虑升级 Plus。大多数人免费版就够了。</p>
+
+    <!-- 替代工具 -->
+    <h2>🔄 有哪些替代工具？</h2>
+    <p>如果 ChatGPT 不适合你，试试这些：</p>
+    <ul>
+        <li><strong><a href="deepseek.html" style="color:#a29bfe">DeepSeek</a></strong>：完全免费，中文和代码能力优秀，国内直接访问 👉 <strong>首选替代</strong></li>
+        <li><strong><a href="claude.html" style="color:#a29bfe">Claude</a></strong>：写作和长文本分析更强，适合深度阅读和创作</li>
+        <li><strong>智谱清言</strong>：国产 AI 助手，GLM-4 模型，免费好用</li>
+        <li><strong>Kimi</strong>：超长文本处理，适合读论文和长文档</li>
+        <li><strong>豆包</strong>：字节跳动出品，免费，中文体验好</li>
+    </ul>
+
+    <!-- 常见问题 -->
+    <h2>❓ 常见问题</h2>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">ChatGPT 国内能用吗？</div>
+        <div class="faq-a"><p>官方网站 chat.openai.com 在国内需要科学上网才能访问。如果不想折腾，推荐直接用 <a href="deepseek.html" style="color:#a29bfe">DeepSeek</a>（完全免费，国内直接访问）或智谱清言、豆包等国产工具。</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">ChatGPT 免费版够用吗？</div>
+        <div class="faq-a"><p>大多数人免费版就够了。免费版支持基础对话、写作、代码等核心功能。如果你需要画图、更高级的数据分析或者更聪明的模型，再考虑 Plus。</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">ChatGPT 和 DeepSeek 哪个好？</div>
+        <div class="faq-a"><p>各有优势：ChatGPT 生态更完善、插件丰富、图片生成强；DeepSeek 完全免费、中文更好、国内直接访问。日常使用推荐 DeepSeek，需要高级功能用 ChatGPT Plus。</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">ChatGPT 会泄露我的数据吗？</div>
+        <div class="faq-a"><p>OpenAI 表示不会用用户的对话数据来训练模型（可以在设置中关闭）。但建议不要在对话中输入密码、身份证号等敏感信息。企业用户可以考虑 ChatGPT Team 或 Enterprise 版本，有更强的数据保护。</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">ChatGPT 写的内容能直接用吗？</div>
+        <div class="faq-a"><p>建议不要直接复制粘贴使用。AI 生成的内容可能存在事实错误或表达不够自然。最好把它当作草稿，在此基础上修改润色。学术场景尤其要注意，现在有 AI 检测工具可以识别 AI 生成内容。</p></div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>© 2026 AI 工具箱 · <a href="../index.html">返回首页</a> · <a href="mailto:jiangangzhou@nuaa.edu.cn">联系我们</a></p>
+    <p style="margin-top:8px;font-size:11px;">本页内容仅供参考，ChatGPT 为 OpenAI 的产品。价格信息请以官网为准。</p>
+</footer>
+</body>
+</html>

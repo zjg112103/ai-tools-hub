@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepSeek 怎么用？免费吗？和 ChatGPT 比哪个好？2026 最新评测 | AI 工具箱</title>
+    <meta name="description" content="DeepSeek 深度求索使用教程：完全免费、国内直接访问、中文能力突出、代码和数学推理优秀。和 ChatGPT 对比评测，帮你选择最适合的 AI 工具。">
+    <meta name="keywords" content="DeepSeek, DeepSeek怎么用, DeepSeek免费, 深度求索, DeepSeek和ChatGPT, AI助手, 国产AI">
+    <link rel="canonical" href="https://my-ai-tools-hub.netlify.app/tools/deepseek.html">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        :root { --bg-deep:#0f1117; --bg-card:#1a1c26; --bg-card-hover:#242636; --border:rgba(255,255,255,0.08); --border-hover:rgba(255,255,255,0.16); --text-primary:#f0f0f5; --text-secondary:#9a9ab0; --text-muted:#5e5e78; --accent:#6c5ce7; --accent-glow:rgba(108,92,231,0.3); --gradient-1:linear-gradient(135deg,#6c5ce7,#a29bfe); --shadow-hover:0 8px 40px rgba(108,92,231,0.15); --radius:16px; }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC','Outfit',sans-serif;background:var(--bg-deep);color:var(--text-primary);min-height:100vh}
+        .bg-mesh{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 600px 400px at 20% 10%,rgba(108,92,231,0.12),transparent),radial-gradient(ellipse 500px 500px at 80% 60%,rgba(0,206,201,0.08),transparent)}
+        .bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:60px 60px}
+        .navbar{position:sticky;top:0;z-index:100;padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(15,17,23,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+        .logo{display:flex;align-items:center;gap:10px;font-family:'Outfit';font-weight:700;font-size:20px;color:var(--text-primary);text-decoration:none}
+        .logo-icon{width:32px;height:32px;background:var(--gradient-1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px}
+        .back-link{color:var(--text-secondary);font-size:14px;text-decoration:none;display:flex;align-items:center;gap:6px;transition:color 0.2s}
+        .back-link:hover{color:var(--text-primary)}
+        .container{position:relative;z-index:1;max-width:800px;margin:0 auto;padding:48px 40px 80px}
+        .breadcrumb{font-size:13px;color:var(--text-muted);margin-bottom:24px}
+        .breadcrumb a{color:var(--text-secondary);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+        .hero-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:40px;margin-bottom:32px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
+        .hero-icon{width:72px;height:72px;border-radius:16px;background:rgba(69,170,242,0.12);display:flex;align-items:center;justify-content:center;font-size:36px;flex-shrink:0}
+        .hero-info{flex:1;min-width:240px}
+        .hero-title{font-family:'Outfit';font-size:32px;font-weight:800;margin-bottom:6px}
+        .hero-subtitle{font-size:15px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px}
+        .hero-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+        .badge{font-size:12px;font-weight:600;padding:4px 12px;border-radius:8px}
+        .badge-hot{background:rgba(255,107,107,0.12);color:#ff6b6b}
+        .badge-free{background:rgba(85,239,196,0.12);color:#55efc4}
+        .hero-visit{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:var(--gradient-1);border:none;border-radius:12px;color:white;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;transition:all 0.2s}
+        .hero-visit:hover{opacity:0.9;transform:translateY(-2px);box-shadow:var(--shadow-hover)}
+        .quick-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:32px}
+        .stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+        .stat-val{font-family:'Outfit';font-size:20px;font-weight:700;color:#a29bfe}
+        .stat-lbl{font-size:12px;color:var(--text-muted);margin-top:2px}
+        h2{font-family:'Outfit';font-size:22px;font-weight:700;margin:40px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+        h3{font-family:'Outfit';font-size:17px;font-weight:600;margin:24px 0 10px}
+        p{font-size:15px;line-height:1.8;color:var(--text-secondary);margin-bottom:14px}
+        ul,ol{font-size:15px;line-height:1.8;color:var(--text-secondary);margin-bottom:14px;padding-left:24px}
+        li{margin-bottom:6px}
+        strong{color:var(--text-primary);font-weight:600}
+        .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:16px 0 24px}
+        .feature-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px}
+        .feature-card h3{margin:0 0 6px;font-size:15px;color:var(--text-primary)}
+        .feature-card p{font-size:13px;margin:0;color:var(--text-muted)}
+        .step-list{counter-reset:step;list-style:none;padding:0}
+        .step-list li{counter-increment:step;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px 20px 16px 56px;margin-bottom:12px;position:relative}
+        .step-list li::before{content:counter(step);position:absolute;left:18px;top:16px;width:26px;height:26px;background:var(--gradient-1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;font-family:'Outfit'}
+        .compare-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:16px 0 24px}
+        .compare-row{display:grid;grid-template-columns:100px 1fr 1fr;border-bottom:1px solid var(--border)}
+        .compare-row:last-child{border-bottom:none}
+        .compare-cell{padding:12px 16px;font-size:14px}
+        .compare-header{font-weight:600;color:var(--text-muted);background:rgba(255,255,255,0.02)}
+        .compare-highlight{color:#55efc4}
+        .faq-item{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden}
+        .faq-q{padding:16px 20px;font-weight:600;font-size:15px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+        .faq-q::after{content:"+";font-size:18px;color:var(--text-muted);transition:transform 0.2s}
+        .faq-item.open .faq-q::after{transform:rotate(45deg)}
+        .faq-a{padding:0 20px;max-height:0;overflow:hidden;transition:all 0.3s}
+        .faq-item.open .faq-a{padding:0 20px 16px;max-height:500px}
+        .faq-a p{font-size:14px;margin:0}
+        .footer{position:relative;z-index:1;text-align:center;padding:32px 40px;border-top:1px solid var(--border);color:var(--text-muted);font-size:13px}
+        .footer a{color:var(--text-secondary);text-decoration:none}.footer a:hover{color:var(--text-primary)}
+        @media(max-width:768px){.navbar{padding:0 20px}.container{padding:32px 20px 60px}.hero-card{padding:24px}.hero-title{font-size:24px}.quick-stats{grid-template-columns:1fr 1fr}}
+    </style>
+</head>
+<body>
+<div class="bg-mesh"></div><div class="bg-grid"></div>
+<nav class="navbar">
+    <a href="../index.html" class="logo"><div class="logo-icon">⚡</div><span>AI 工具箱</span></a>
+    <a href="../index.html" class="back-link">← 返回首页</a>
+</nav>
+<div class="container">
+    <div class="breadcrumb"><a href="../index.html">首页</a> / <a href="../index.html">AI 对话</a> / DeepSeek</div>
+    <div class="hero-card">
+        <div class="hero-icon">🔮</div>
+        <div class="hero-info">
+            <h1 class="hero-title">DeepSeek</h1>
+            <div class="hero-badges"><span class="badge badge-hot">🔥 热门</span><span class="badge badge-free">🆓 完全免费</span></div>
+            <p class="hero-subtitle">深度求索推出的 AI 大模型，中文能力突出、代码和数学推理优秀。最关键的是——<strong>完全免费、国内直接访问</strong>，是目前国产 AI 的标杆产品。</p>
+            <a href="https://chat.deepseek.com" target="_blank" rel="noopener" class="hero-visit">前往 DeepSeek 官网 ↗</a>
+        </div>
+    </div>
+
+    <div class="quick-stats">
+        <div class="stat-card"><div class="stat-val">⭐⭐⭐⭐⭐</div><div class="stat-lbl">综合质量</div></div>
+        <div class="stat-card"><div class="stat-val">⭐⭐⭐⭐⭐</div><div class="stat-lbl">中文支持</div></div>
+        <div class="stat-card"><div class="stat-val">⭐⭐⭐⭐⭐</div><div class="stat-lbl">易用性</div></div>
+        <div class="stat-card"><div class="stat-val">完全免费</div><div class="stat-lbl">免费程度</div></div>
+    </div>
+
+    <h2>📋 DeepSeek 能做什么？</h2>
+    <div class="feature-grid">
+        <div class="feature-card"><h3>💬 智能对话</h3><p>中文对话体验极佳，理解和表达都很自然</p></div>
+        <div class="feature-card"><h3>💻 编程写代码</h3><p>代码能力在免费 AI 中名列前茅，支持主流语言</p></div>
+        <div class="feature-card"><h3>🔢 数学推理</h3><p>数学和逻辑推理能力强，适合解题和分析</p></div>
+        <div class="feature-card"><h3>📝 写作翻译</h3><p>写作质量高，翻译准确，中文语境理解优秀</p></div>
+        <div class="feature-card"><h3>📄 文件分析</h3><p>上传文档、代码文件，AI 帮你分析和总结</p></div>
+        <div class="feature-card"><h3>🔍 深度搜索</h3><p>联网搜索功能，可以查找最新信息</p></div>
+    </div>
+
+    <h2>🎯 适合什么人？</h2>
+    <ul>
+        <li><strong>不想花钱的用户</strong>：完全免费，不花一分钱就能用顶级的 AI</li>
+        <li><strong>国内用户</strong>：不用翻墙，直接访问 chat.deepseek.com</li>
+        <li><strong>程序员</strong>：代码能力强，免费帮你写代码、找 Bug</li>
+        <li><strong>学生</strong>：数学推理、解题、写论文，完全免费</li>
+        <li><strong>觉得 ChatGPT 贵的人</strong>：DeepSeek 免费版就接近 ChatGPT Plus 的水平</li>
+    </ul>
+
+    <h2>📖 怎么用？3 步开始</h2>
+    <ol class="step-list">
+        <li><strong>打开官网</strong>：访问 <a href="https://chat.deepseek.com" target="_blank" style="color:#a29bfe">chat.deepseek.com</a>，用手机号或邮箱注册</li>
+        <li><strong>开始聊天</strong>：直接在对话框输入问题，和 ChatGPT 用法一样</li>
+        <li><strong>开启深度思考</strong>：点击输入框下方的"深度思考"按钮，回答质量更高（推理时间稍长）</li>
+    </ol>
+
+    <h2>🔄 DeepSeek vs ChatGPT：哪个好？</h2>
+    <div class="compare-box">
+        <div class="compare-row"><div class="compare-cell compare-header">对比项</div><div class="compare-cell compare-header">DeepSeek</div><div class="compare-cell compare-header">ChatGPT</div></div>
+        <div class="compare-row"><div class="compare-cell">价格</div><div class="compare-cell compare-highlight">完全免费</div><div class="compare-cell">免费 / Plus $20月</div></div>
+        <div class="compare-row"><div class="compare-cell">国内访问</div><div class="compare-cell compare-highlight">直接访问</div><div class="compare-cell">需要科学上网</div></div>
+        <div class="compare-row"><div class="compare-cell">中文能力</div><div class="compare-cell compare-highlight">优秀</div><div class="compare-cell">良好</div></div>
+        <div class="compare-row"><div class="compare-cell">代码能力</div><div class="compare-cell compare-highlight">优秀</div><div class="compare-cell">优秀</div></div>
+        <div class="compare-row"><div class="compare-cell">图片生成</div><div class="compare-cell">不支持</div><div class="compare-cell compare-highlight">DALL·E 3</div></div>
+        <div class="compare-row"><div class="compare-cell">插件生态</div><div class="compare-cell">较少</div><div class="compare-cell compare-highlight">丰富</div></div>
+        <div class="compare-row"><div class="compare-cell">数学推理</div><div class="compare-cell compare-highlight">极强</div><div class="compare-cell">强</div></div>
+    </div>
+    <p><strong>结论</strong>：如果你在国内、不想花钱，<strong>DeepSeek 是首选</strong>。如果你需要图片生成、丰富的插件生态，选 ChatGPT Plus。</p>
+
+    <h2>❓ 常见问题</h2>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">DeepSeek 真的完全免费吗？</div>
+        <div class="faq-a"><p>是的，截至目前 DeepSeek 的对话功能完全免费。没有付费版本，没有使用次数限制。不过高峰期可能需要排队。</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">DeepSeek 安全吗？数据会泄露吗？</div>
+        <div class="faq-a"><p>DeepSeek 是正规公司（深度求索）的产品，已在国内备案。但和所有 AI 工具一样，建议不要在对话中输入身份证号、密码等高度敏感的个人信息。</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">"深度思考"模式是什么？</div>
+        <div class="faq-a"><p>深度思考（DeepThink）是 DeepSeek 的特色功能，开启后 AI 会花更多时间思考，输出更严谨、更有逻辑的回答。适合复杂的推理、数学题、深度分析等场景。日常简单问答不需要开。</p></div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">DeepSeek 能用来写论文吗？</div>
+        <div class="faq-a"><p>可以帮你查资料、梳理思路、润色文字，但<strong>不要直接用 AI 生成的文本当论文提交</strong>。现在学校都有 AI 检测工具，而且 AI 生成的内容可能有事实错误。建议把 DeepSeek 当助手用，而不是替写工具。</p></div>
+    </div>
+</div>
+<footer class="footer">
+    <p>© 2026 AI 工具箱 · <a href="../index.html">返回首页</a> · <a href="mailto:jiangangzhou@nuaa.edu.cn">联系我们</a></p>
+    <p style="margin-top:8px;font-size:11px;">本页内容仅供参考，DeepSeek 为深度求索公司的产品。</p>
+</footer>
+</body>
+</html>

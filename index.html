@@ -475,9 +475,9 @@
 // ========== 工具数据 ==========
 const tools = [
     // ---- AI 对话 ----
-    { name:"ChatGPT", url:"https://chat.openai.com", icon:"🤖", iconColor:"teal", desc:"OpenAI 推出的 AI 对话助手，全球用户量最大，支持文本生成、代码编写、图片生成、联网搜索。", tags:["对话","写作","编程"], cat:["chat","writing"], badges:["hot"], featured:true, price:"免费 / Plus $20/月", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"全能型，生态最完善", weakness:"价格较贵，国内需翻墙" },
+    { name:"ChatGPT", url:"https://chat.openai.com", detail:"tools/chatgpt.html", icon:"🤖", iconColor:"teal", desc:"OpenAI 推出的 AI 对话助手，全球用户量最大，支持文本生成、代码编写、图片生成、联网搜索。", tags:["对话","写作","编程"], cat:["chat","writing"], badges:["hot"], featured:true, price:"免费 / Plus $20/月", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"全能型，生态最完善", weakness:"价格较贵，国内需翻墙" },
     { name:"Claude", url:"https://claude.ai", icon:"🧠", iconColor:"purple", desc:"Anthropic 出品的 AI 助手，擅长长文本分析、深度写作和代码推理，支持 200K+ 超长上下文。", tags:["对话","写作","分析"], cat:["chat","writing"], badges:["hot"], featured:true, price:"免费 / Pro $20/月", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"长文本、安全性、写作质量", weakness:"国内需翻墙" },
-    { name:"DeepSeek", url:"https://chat.deepseek.com", icon:"🔮", iconColor:"blue", desc:"深度求索推出的 AI 大模型，中文和代码能力突出，数学推理表现优秀，完全免费。", tags:["对话","编程","推理"], cat:["chat","writing","code"], badges:["hot"], featured:true, price:"免费", free:"完全免费", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"免费、中文好、代码强", weakness:"高峰期可能排队" },
+    { name:"DeepSeek", url:"https://chat.deepseek.com", detail:"tools/deepseek.html", icon:"🔮", iconColor:"blue", desc:"深度求索推出的 AI 大模型，中文和代码能力突出，数学推理表现优秀，完全免费。", tags:["对话","编程","推理"], cat:["chat","writing","code"], badges:["hot"], featured:true, price:"免费", free:"完全免费", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"免费、中文好、代码强", weakness:"高峰期可能排队" },
     { name:"智谱清言", url:"https://chatglm.cn", icon:"💬", iconColor:"blue", desc:"智谱 AI 推出的智能助手，基于 GLM-4 大模型，支持对话、写作、搜索、AI 画图等。", tags:["对话","中文","GLM"], cat:["chat","writing"], badges:["hot","new"], price:"免费 / Pro 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"国产精品、功能丰富", weakness:"部分高级功能需付费" },
     { name:"Kimi", url:"https://kimi.moonshot.cn", icon:"🌙", iconColor:"purple", desc:"月之暗面推出的 AI 助手，超长上下文处理能力突出，适合阅读和分析长文档。", tags:["长文本","文档","对话"], cat:["chat","writing"], badges:["hot"], price:"免费", free:"完全免费", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"超长文本、文档处理", weakness:"创意写作稍弱" },
     { name:"通义千问", url:"https://tongyi.aliyun.com", icon:"🌟", iconColor:"orange", desc:"阿里巴巴推出的 AI 大模型助手，支持多模态理解（文本/图片/视频），集成阿里生态。", tags:["对话","多模态","阿里"], cat:["chat","writing"], price:"免费 / Pro 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"阿里生态整合、多模态", weakness:"部分功能需登录阿里账号" },
@@ -724,8 +724,11 @@ function renderTools() {
         const checkedClass = selectedTools.has(tool._idx) ? ' checked' : '';
         const delay = Math.min(i * 0.03, 0.4);
 
+        const cardHref = tool.detail ? tool.detail : tool.url;
+        const cardTarget = tool.detail ? '' : ' target="_blank" rel="noopener noreferrer"';
+
         return `
-            <a class="tool-card fade-in${featuredClass}${selectedClass}" href="${tool.url}" target="_blank" rel="noopener noreferrer" data-idx="${tool._idx}" style="animation-delay:${delay}s">
+            <a class="tool-card fade-in${featuredClass}${selectedClass}" href="${cardHref}"${cardTarget} data-idx="${tool._idx}" style="animation-delay:${delay}s">
                 <div class="tool-check${checkedClass}" data-idx="${tool._idx}" onclick="toggleSelect(${tool._idx}, event)" title="勾选加入对比">✓</div>
                 <div class="tool-icon ${tool.iconColor}">${tool.icon}</div>
                 <div class="tool-info">
