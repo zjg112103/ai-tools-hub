@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 工具箱 - 发现最好的 AI 工具</title>
+    <meta name="description" content="精选 AI 工具导航，涵盖 AI 写作、AI 绘画、AI 编程、AI 视频等 20+ 分类，帮你快速找到最适合的 AI 工具。">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+        :root {
+            --bg-deep: #0f1117;
+            --bg-card: #1a1c26;
+            --bg-card-hover: #242636;
+            --border: rgba(255,255,255,0.08);
+            --border-hover: rgba(255,255,255,0.16);
+            --text-primary: #f0f0f5;
+            --text-secondary: #9a9ab0;
+            --text-muted: #5e5e78;
+            --accent: #6c5ce7;
+            --accent-glow: rgba(108,92,231,0.3);
+            --gradient-1: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            --shadow-hover: 0 8px 40px rgba(108,92,231,0.15);
+            --radius: 16px;
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+
+        body {
+            font-family: 'Noto Sans SC', 'Outfit', sans-serif;
+            background: var(--bg-deep); color: var(--text-primary);
+            min-height: 100vh; overflow-x: hidden;
+        }
+
+        .bg-mesh {
+            position:fixed; inset:0; z-index:0; pointer-events:none;
+            background:
+                radial-gradient(ellipse 600px 400px at 20% 10%, rgba(108,92,231,0.12), transparent),
+                radial-gradient(ellipse 500px 500px at 80% 60%, rgba(0,206,201,0.08), transparent),
+                radial-gradient(ellipse 400px 300px at 50% 90%, rgba(253,121,168,0.08), transparent);
+        }
+        .bg-grid {
+            position:fixed; inset:0; z-index:0; pointer-events:none;
+            background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        /* 导航 */
+        .navbar {
+            position:sticky; top:0; z-index:100;
+            padding:0 40px; height:64px;
+            display:flex; align-items:center; justify-content:space-between;
+            background:rgba(10,10,15,0.8); backdrop-filter:blur(20px);
+            border-bottom:1px solid var(--border);
+        }
+        .logo {
+            display:flex; align-items:center; gap:10px;
+            font-family:'Outfit'; font-weight:700; font-size:20px;
+            color:var(--text-primary); text-decoration:none;
+        }
+        .logo-icon {
+            width:32px; height:32px; background:var(--gradient-1); border-radius:8px;
+            display:flex; align-items:center; justify-content:center; font-size:16px;
+        }
+        .nav-actions { display:flex; align-items:center; gap:12px; }
+        .nav-btn {
+            display:flex; align-items:center; gap:6px;
+            background:rgba(255,255,255,0.04); border:1px solid var(--border);
+            border-radius:10px; padding:8px 16px;
+            color:var(--text-secondary); font-size:13px; cursor:pointer; transition:all 0.2s;
+            text-decoration:none;
+        }
+        .nav-btn:hover { background:rgba(255,255,255,0.07); border-color:var(--border-hover); }
+        .nav-btn kbd {
+            background:rgba(255,255,255,0.06); padding:2px 6px; border-radius:4px;
+            font-size:11px; font-family:'Outfit',monospace; color:var(--text-muted);
+        }
+        .compare-badge {
+            background:rgba(108,92,231,0.15); color:#a29bfe; font-size:11px; font-weight:700;
+            padding:2px 8px; border-radius:10px; margin-left:4px; display:none;
+        }
+        .compare-badge.show { display:inline; }
+
+        /* Hero */
+        .hero {
+            position:relative; z-index:1; text-align:center;
+            padding:80px 40px 40px; max-width:800px; margin:0 auto;
+        }
+        .hero-badge {
+            display:inline-flex; align-items:center; gap:6px;
+            background:rgba(108,92,231,0.1); border:1px solid rgba(108,92,231,0.2);
+            border-radius:20px; padding:6px 16px; font-size:13px; color:#a29bfe; margin-bottom:24px;
+        }
+        .hero-badge .dot {
+            width:6px; height:6px; background:#55efc4; border-radius:50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+        @keyframes pulse-dot { 0%,100%{opacity:1} 50%{opacity:0.3} }
+        .hero h1 {
+            font-family:'Outfit'; font-size:52px; font-weight:800;
+            line-height:1.15; margin-bottom:16px; letter-spacing:-1px;
+        }
+        .hero h1 .gradient-text {
+            background:var(--gradient-1);
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+        }
+        .hero p { font-size:17px; color:var(--text-secondary); line-height:1.7; max-width:560px; margin:0 auto; }
+
+        /* 搜索 */
+        .search-container { position:relative; z-index:1; max-width:560px; margin:32px auto 0; }
+        .search-box {
+            width:100%; padding:16px 20px 16px 48px;
+            background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius);
+            color:var(--text-primary); font-size:15px; font-family:inherit; outline:none; transition:all 0.25s;
+        }
+        .search-box::placeholder { color:var(--text-muted); }
+        .search-box:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-glow); }
+        .search-icon { position:absolute; left:18px; top:50%; transform:translateY(-50%); color:var(--text-muted); font-size:16px; pointer-events:none; }
+
+        /* 统计 */
+        .stats { display:flex; justify-content:center; gap:40px; margin-top:40px; position:relative; z-index:1; }
+        .stat-item { text-align:center; }
+        .stat-num {
+            font-family:'Outfit'; font-size:28px; font-weight:700;
+            background:var(--gradient-1); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+        }
+        .stat-label { font-size:13px; color:var(--text-muted); margin-top:2px; }
+
+        /* 分类 */
+        .categories {
+            position:relative; z-index:1; max-width:1200px;
+            margin:48px auto 0; padding:0 40px;
+            display:flex; flex-wrap:wrap; justify-content:center; gap:8px;
+        }
+        .cat-tag {
+            padding:8px 18px; background:rgba(255,255,255,0.03); border:1px solid var(--border);
+            border-radius:20px; font-size:13px; color:var(--text-secondary);
+            cursor:pointer; transition:all 0.2s; user-select:none;
+        }
+        .cat-tag:hover { background:rgba(255,255,255,0.06); color:var(--text-primary); border-color:var(--border-hover); }
+        .cat-tag.active { background:rgba(108,92,231,0.12); border-color:rgba(108,92,231,0.3); color:#a29bfe; }
+
+        /* 对比引导提示条 */
+        .compare-hint {
+            position:relative; z-index:1; max-width:1200px; margin:20px auto 0; padding:0 40px;
+        }
+        .compare-hint > div:first-child,
+        .compare-hint {
+            display:flex; align-items:center; gap:16px;
+        }
+        .compare-hint {
+            background: linear-gradient(135deg, rgba(108,92,231,0.12), rgba(0,206,201,0.06));
+            border:1px solid rgba(108,92,231,0.25);
+            border-radius:14px; padding:16px 24px;
+            justify-content:space-between; flex-wrap:wrap;
+            animation: hintGlow 3s ease-in-out infinite;
+        }
+        @keyframes hintGlow {
+            0%,100% { box-shadow: 0 0 0 0 rgba(108,92,231,0); }
+            50% { box-shadow: 0 0 20px 2px rgba(108,92,231,0.15); }
+        }
+        .compare-hint-left { display:flex; align-items:center; gap:14px; flex:1; min-width:260px; }
+        .compare-hint-icon { font-size:32px; flex-shrink:0; }
+        .compare-hint-title { font-size:15px; font-weight:600; color:var(--text-primary); margin-bottom:2px; }
+        .compare-hint-desc { font-size:13px; color:var(--text-secondary); }
+        .compare-hint-demo { display:flex; align-items:center; gap:8px; flex-shrink:0; }
+        .demo-check {
+            width:22px; height:22px; border-radius:6px; border:1px solid var(--border);
+            background:rgba(255,255,255,0.04); display:flex; align-items:center; justify-content:center;
+            font-size:11px; color:transparent; transition:all 0.3s;
+        }
+        .demo-check.checked { background:var(--accent); border-color:var(--accent); color:white; }
+        .demo-arrow { color:var(--text-muted); font-size:16px; }
+        .demo-btn {
+            background:var(--gradient-1); color:white; font-size:12px; font-weight:600;
+            padding:6px 14px; border-radius:8px;
+        }
+        .compare-hint-close {
+            position:absolute; top:10px; right:14px;
+            background:none; border:none; color:var(--text-muted); font-size:14px;
+            cursor:pointer; padding:4px;
+        }
+        .compare-hint-close:hover { color:var(--text-primary); }
+        @media (max-width:768px) {
+            .compare-hint { margin:16px 20px 0; padding:14px 16px; }
+            .compare-hint-demo { display:none; }
+        }
+
+        /* 工具列表 */
+        .tools-section { position:relative; z-index:1; max-width:1200px; margin:48px auto 0; padding:0 40px 80px; }
+        .section-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; flex-wrap:wrap; gap:12px; }
+        .section-left { display:flex; align-items:center; gap:16px; }
+        .section-title { font-family:'Outfit'; font-size:20px; font-weight:700; color:var(--text-primary); }
+        .section-count { font-size:13px; color:var(--text-muted); }
+        .compare-trigger {
+            padding:8px 20px; background:var(--gradient-1); border:none; border-radius:10px;
+            color:white; font-size:13px; font-weight:600; cursor:pointer; transition:all 0.2s;
+            display:none;
+        }
+        .compare-trigger.show { display:inline-flex; align-items:center; gap:6px; }
+        .compare-trigger:hover { opacity:0.9; }
+
+        .tools-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(340px, 1fr)); gap:20px; }
+
+        /* 卡片 */
+        .tool-card {
+            background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius);
+            padding:24px; cursor:pointer;
+            transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+            display:flex; gap:16px; text-decoration:none; color:inherit;
+            position:relative; overflow:hidden;
+        }
+        .tool-card.featured {
+            border-color:rgba(108,92,231,0.2);
+            background:linear-gradient(135deg, rgba(108,92,231,0.04), var(--bg-card));
+        }
+        .tool-card.featured::after {
+            content:'⭐ 精选'; position:absolute; top:12px; right:-28px;
+            background:var(--gradient-1); color:white; font-size:11px; font-weight:600;
+            padding:3px 32px; transform:rotate(45deg); font-family:'Outfit';
+        }
+        .tool-card::before {
+            content:''; position:absolute; inset:0; opacity:0; transition:opacity 0.3s;
+            background:linear-gradient(135deg, rgba(108,92,231,0.05), transparent);
+        }
+        .tool-card:hover { border-color:var(--border-hover); transform:translateY(-3px); box-shadow:var(--shadow-hover); }
+        .tool-card:hover::before { opacity:1; }
+        .tool-card:hover .visit-arrow { opacity:1; transform:translateX(0); }
+        .tool-card.selected { border-color:rgba(108,92,231,0.5); box-shadow:0 0 0 2px var(--accent-glow); }
+
+        .tool-icon {
+            width:48px; height:48px; border-radius:12px;
+            display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0;
+        }
+        .tool-icon.purple{background:rgba(108,92,231,0.12)} .tool-icon.teal{background:rgba(0,206,201,0.12)}
+        .tool-icon.pink{background:rgba(253,121,168,0.12)} .tool-icon.orange{background:rgba(255,165,2,0.12)}
+        .tool-icon.blue{background:rgba(69,170,242,0.12)} .tool-icon.green{background:rgba(85,239,196,0.12)}
+        .tool-icon.red{background:rgba(255,107,107,0.12)} .tool-icon.yellow{background:rgba(253,203,110,0.12)}
+
+        .tool-info { flex:1; min-width:0; }
+        .tool-name-row { display:flex; align-items:center; gap:8px; margin-bottom:4px; }
+        .tool-name { font-family:'Outfit'; font-size:16px; font-weight:600; color:var(--text-primary); }
+        .badge-free{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;background:rgba(85,239,196,0.12);color:#55efc4;font-family:'Outfit'}
+        .badge-hot{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;background:rgba(255,107,107,0.12);color:#ff6b6b;font-family:'Outfit'}
+        .badge-new{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;background:rgba(108,92,231,0.12);color:#a29bfe;font-family:'Outfit'}
+        .visit-arrow { margin-left:auto; font-size:14px; color:var(--text-muted); opacity:0; transform:translateX(-8px); transition:all 0.25s; flex-shrink:0; align-self:center; }
+        .tool-desc { font-size:13px; color:var(--text-secondary); line-height:1.6; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+        .tool-bottom { display:flex; align-items:center; justify-content:space-between; margin-top:10px; }
+        .tool-tags { display:flex; gap:6px; flex-wrap:wrap; }
+        .tool-tag { font-size:11px; padding:3px 10px; border-radius:6px; background:rgba(255,255,255,0.04); color:var(--text-muted); }
+        .tool-price { font-size:11px; color:var(--text-muted); white-space:nowrap; }
+
+        /* 复选框 */
+        .tool-check {
+            position:absolute; top:12px; right:12px; z-index:2;
+            width:24px; height:24px; border-radius:6px;
+            background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);
+            cursor:pointer; display:flex; align-items:center; justify-content:center;
+            font-size:12px; color:var(--text-muted); transition:all 0.2s;
+        }
+        .tool-check:hover { border-color:var(--accent); background:rgba(108,92,231,0.15); color:white; }
+        .tool-check.checked { background:var(--accent); border-color:var(--accent); color:white; }
+        .tool-card.featured .tool-check { top:28px; }
+
+        /* 对比面板 */
+        .compare-overlay {
+            position:fixed; inset:0; z-index:200;
+            background:rgba(0,0,0,0.7); backdrop-filter:blur(8px);
+            display:none; align-items:center; justify-content:center; padding:20px;
+        }
+        .compare-overlay.active { display:flex; }
+        .compare-panel {
+            background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius);
+            max-width:900px; width:100%; max-height:85vh; overflow-y:auto; padding:32px;
+            position:relative;
+        }
+        .compare-close {
+            position:absolute; top:16px; right:16px; background:none; border:none;
+            color:var(--text-muted); font-size:20px; cursor:pointer;
+        }
+        .compare-close:hover { color:var(--text-primary); }
+        .compare-title { font-family:'Outfit'; font-size:22px; font-weight:700; margin-bottom:24px; }
+        .compare-table { width:100%; border-collapse:collapse; }
+        .compare-table th, .compare-table td {
+            padding:14px 16px; text-align:left; border-bottom:1px solid var(--border);
+            font-size:14px; vertical-align:top;
+        }
+        .compare-table th { color:var(--text-muted); font-weight:500; width:100px; white-space:nowrap; }
+        .compare-table td { color:var(--text-primary); }
+        .compare-table td a { color:#a29bfe; text-decoration:none; }
+        .compare-table td a:hover { text-decoration:underline; }
+        .compare-highlight { background:rgba(85,239,196,0.08); border-radius:4px; padding:2px 6px; }
+        .compare-tip { font-size:12px; color:var(--text-muted); margin-top:20px; text-align:center; }
+
+        /* 页脚 */
+        .footer {
+            position:relative; z-index:1; text-align:center; padding:40px;
+            border-top:1px solid var(--border); color:var(--text-muted); font-size:13px;
+        }
+        .footer a { color:var(--text-secondary); text-decoration:none; }
+        .footer a:hover { color:var(--text-primary); }
+
+        .empty-state { text-align:center; padding:60px 20px; color:var(--text-muted); }
+        .empty-state .icon { font-size:48px; margin-bottom:16px; }
+        .empty-state p { font-size:15px; }
+
+        .back-top {
+            position:fixed; bottom:30px; right:30px; z-index:99;
+            width:44px; height:44px; border-radius:12px;
+            background:var(--bg-card); border:1px solid var(--border);
+            color:var(--text-secondary); display:flex; align-items:center; justify-content:center;
+            cursor:pointer; transition:all 0.2s; opacity:0; pointer-events:none;
+        }
+        .back-top.visible { opacity:1; pointer-events:auto; }
+        .back-top:hover { background:var(--bg-card-hover); border-color:var(--border-hover); color:var(--text-primary); }
+
+        @media (max-width:768px) {
+            .navbar { padding:0 20px; }
+            .nav-search-wrap { display:none; }
+            .hero { padding:48px 20px 24px; }
+            .hero h1 { font-size:32px; }
+            .stats { gap:24px; }
+            .categories { padding:0 20px; }
+            .tools-section { padding:0 20px 60px; }
+            .tools-grid { grid-template-columns:1fr; }
+            .compare-panel { padding:20px; }
+            .compare-table th { width:80px; font-size:12px; }
+            .compare-table td { font-size:13px; }
+        }
+
+        .fade-in { opacity:0; transform:translateY(16px); animation:fadeInUp 0.5s ease forwards; }
+        @keyframes fadeInUp { to { opacity:1; transform:translateY(0); } }
+    </style>
+</head>
+<body>
+
+<div class="bg-mesh"></div>
+<div class="bg-grid"></div>
+
+<nav class="navbar">
+    <a href="index.html" class="logo">
+        <div class="logo-icon">⚡</div>
+        <span>AI 工具箱</span>
+    </a>
+    <div class="nav-actions">
+        <div class="nav-search-wrap">
+            <div class="nav-btn" onclick="document.querySelector('.search-box').focus()">
+                🔍 搜索工具 <kbd>Ctrl+K</kbd>
+            </div>
+        </div>
+        <div class="nav-btn" id="compareNav" onclick="openCompare()" style="display:none">
+            📊 对比 <span class="compare-badge" id="compareCount"></span>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-badge">
+        <span class="dot"></span>
+        持续更新 · 已收录 <span id="total-count-badge"></span> 个工具
+    </div>
+    <h1>发现最好的<br><span class="gradient-text">AI 工具</span></h1>
+    <p>精选优质 AI 工具导航，涵盖写作、绘画、编程、视频、办公等 20+ 分类。<br>勾选工具即可对比，帮你快速找到最适合的 AI 工具。</p>
+    <div class="search-container">
+        <span class="search-icon">🔍</span>
+        <input type="text" class="search-box" id="searchInput" placeholder="搜索 AI 工具名称、功能描述..." oninput="filterTools()">
+    </div>
+</section>
+
+<div class="stats">
+    <div class="stat-item"><div class="stat-num" id="stat-tool-count"></div><div class="stat-label">收录工具</div></div>
+    <div class="stat-item"><div class="stat-num" id="stat-cat-count"></div><div class="stat-label">分类标签</div></div>
+    <div class="stat-item"><div class="stat-num">每周</div><div class="stat-label">更新频率</div></div>
+</div>
+
+<div class="categories" id="categories">
+    <span class="cat-tag active" data-cat="all" onclick="selectCat(this)">全部</span>
+    <span class="cat-tag" data-cat="chat" onclick="selectCat(this)">💬 AI 对话</span>
+    <span class="cat-tag" data-cat="writing" onclick="selectCat(this)">✍️ AI 写作</span>
+    <span class="cat-tag" data-cat="image" onclick="selectCat(this)">🎨 AI 绘画</span>
+    <span class="cat-tag" data-cat="code" onclick="selectCat(this)">💻 AI 编程</span>
+    <span class="cat-tag" data-cat="video" onclick="selectCat(this)">🎬 AI 视频</span>
+    <span class="cat-tag" data-cat="audio" onclick="selectCat(this)">🎵 AI 音频</span>
+    <span class="cat-tag" data-cat="office" onclick="selectCat(this)">📊 AI 办公</span>
+    <span class="cat-tag" data-cat="design" onclick="selectCat(this)">🖼️ AI 设计</span>
+    <span class="cat-tag" data-cat="search" onclick="selectCat(this)">🔎 AI 搜索</span>
+    <span class="cat-tag" data-cat="marketing" onclick="selectCat(this)">📢 AI 营销</span>
+    <span class="cat-tag" data-cat="education" onclick="selectCat(this)">📚 AI 教育</span>
+    <span class="cat-tag" data-cat="translate" onclick="selectCat(this)">🌐 AI 翻译</span>
+    <span class="cat-tag" data-cat="data" onclick="selectCat(this)">📈 数据分析</span>
+    <span class="cat-tag" data-cat="productivity" onclick="selectCat(this)">🚀 效率工具</span>
+    <span class="cat-tag" data-cat="3d" onclick="selectCat(this)">🧊 3D 建模</span>
+    <span class="cat-tag" data-cat="avatar" onclick="selectCat(this)">👤 AI 数字人</span>
+    <span class="cat-tag" data-cat="resume" onclick="selectCat(this)">📄 简历求职</span>
+    <span class="cat-tag" data-cat="prompt" onclick="selectCat(this)">🧠 Prompt 工具</span>
+    <span class="cat-tag" data-cat="api" onclick="selectCat(this)">🔧 API & 模型</span>
+</div>
+
+<!-- 对比引导提示条 -->
+<div class="compare-hint" id="compareHint">
+    <div class="compare-hint-left">
+        <span class="compare-hint-icon">📊</span>
+        <div>
+            <div class="compare-hint-title">找不到合适的工具？试试对比功能</div>
+            <div class="compare-hint-desc">勾选 2~4 个工具，一键对比价格、评分、中文支持、优缺点</div>
+        </div>
+    </div>
+    <div class="compare-hint-demo">
+        <span class="demo-check checked">✓</span>
+        <span class="demo-check checked">✓</span>
+        <span class="demo-check checked">✓</span>
+        <span class="demo-arrow">→</span>
+        <span class="demo-btn">📊 对比</span>
+    </div>
+    <button class="compare-hint-close" onclick="this.parentElement.style.display='none'" title="关闭提示">✕</button>
+</div>
+
+<div class="tools-section">
+    <div class="section-header">
+        <div class="section-left">
+            <h2 class="section-title" id="sectionTitle">全部工具</h2>
+            <span class="section-count" id="sectionCount"></span>
+        </div>
+        <button class="compare-trigger" id="compareTrigger" onclick="openCompare()">
+            📊 对比选中的工具 (<span id="compareTriggerCount">0</span>)
+        </button>
+    </div>
+    <div class="tools-grid" id="toolsGrid"></div>
+    <div class="empty-state" id="emptyState" style="display:none;">
+        <div class="icon">🔍</div>
+        <p>没有找到匹配的工具，试试其他关键词？</p>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>© 2026 AI 工具箱 · 每周更新 · 发现最好的 AI 工具</p>
+    <p style="margin-top:8px">
+        <a href="#" onclick="openContact();return false;">联系我们</a> ·
+        <a href="#" onclick="document.querySelector('.search-box').focus();return false;">搜索</a>
+    </p>
+    <p style="margin-top:12px;font-size:11px;color:var(--text-muted);max-width:600px;margin-left:auto;margin-right:auto;">
+        免责声明：本站仅提供 AI 工具导航服务，所有工具版权归原开发者所有。价格信息仅供参考，请以官网最新信息为准。本站不对其服务质量作任何担保。
+    </p>
+</footer>
+
+<!-- 对比弹窗 -->
+<div class="compare-overlay" id="compareOverlay">
+    <div class="compare-panel">
+        <button class="compare-close" onclick="closeCompare()">✕</button>
+        <div class="compare-title">📊 工具对比</div>
+        <div id="compareContent"></div>
+        <div class="compare-tip">💡 提示：点击右上角 ✕ 或按 ESC 关闭对比面板</div>
+    </div>
+</div>
+
+<!-- 联系我们弹窗 -->
+<div class="compare-overlay" id="contactOverlay">
+    <div class="compare-panel" style="max-width:420px;text-align:center;padding:40px 32px;">
+        <button class="compare-close" onclick="closeContact()">✕</button>
+        <div style="font-size:40px;margin-bottom:16px;">📧</div>
+        <div class="compare-title" style="margin-bottom:12px;">联系我们</div>
+        <p style="color:var(--text-secondary);font-size:14px;margin-bottom:20px;">如有工具收录建议、合作意向或其他问题，欢迎邮件联系</p>
+        <div style="background:var(--bg-deep);border:1px solid var(--border);border-radius:10px;padding:14px 20px;margin-bottom:16px;">
+            <div style="font-size:12px;color:var(--text-muted);margin-bottom:4px;">联系邮箱</div>
+            <a href="mailto:jiangangzhou@nuaa.edu.cn" style="color:#a29bfe;font-size:16px;font-weight:600;text-decoration:none;">jiangangzhou@nuaa.edu.cn</a>
+        </div>
+        <button onclick="copyEmail()" style="background:var(--gradient-1);border:none;border-radius:10px;color:white;padding:10px 28px;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">📋 复制邮箱地址</button>
+        <div id="copyHint" style="font-size:12px;color:#55efc4;margin-top:10px;opacity:0;transition:opacity 0.3s;">✓ 已复制到剪贴板</div>
+    </div>
+</div>
+
+<div class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+
+<script>
+// ========== 工具数据 ==========
+const tools = [
+    // ---- AI 对话 ----
+    { name:"ChatGPT", url:"https://chat.openai.com", icon:"🤖", iconColor:"teal", desc:"OpenAI 推出的 AI 对话助手，全球用户量最大，支持文本生成、代码编写、图片生成、联网搜索。", tags:["对话","写作","编程"], cat:["chat","writing"], badges:["hot"], featured:true, price:"免费 / Plus $20/月", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"全能型，生态最完善", weakness:"价格较贵，国内需翻墙" },
+    { name:"Claude", url:"https://claude.ai", icon:"🧠", iconColor:"purple", desc:"Anthropic 出品的 AI 助手，擅长长文本分析、深度写作和代码推理，支持 200K+ 超长上下文。", tags:["对话","写作","分析"], cat:["chat","writing"], badges:["hot"], featured:true, price:"免费 / Pro $20/月", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"长文本、安全性、写作质量", weakness:"国内需翻墙" },
+    { name:"DeepSeek", url:"https://chat.deepseek.com", icon:"🔮", iconColor:"blue", desc:"深度求索推出的 AI 大模型，中文和代码能力突出，数学推理表现优秀，完全免费。", tags:["对话","编程","推理"], cat:["chat","writing","code"], badges:["hot"], featured:true, price:"免费", free:"完全免费", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"免费、中文好、代码强", weakness:"高峰期可能排队" },
+    { name:"智谱清言", url:"https://chatglm.cn", icon:"💬", iconColor:"blue", desc:"智谱 AI 推出的智能助手，基于 GLM-4 大模型，支持对话、写作、搜索、AI 画图等。", tags:["对话","中文","GLM"], cat:["chat","writing"], badges:["hot","new"], price:"免费 / Pro 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"国产精品、功能丰富", weakness:"部分高级功能需付费" },
+    { name:"Kimi", url:"https://kimi.moonshot.cn", icon:"🌙", iconColor:"purple", desc:"月之暗面推出的 AI 助手，超长上下文处理能力突出，适合阅读和分析长文档。", tags:["长文本","文档","对话"], cat:["chat","writing"], badges:["hot"], price:"免费", free:"完全免费", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"超长文本、文档处理", weakness:"创意写作稍弱" },
+    { name:"通义千问", url:"https://tongyi.aliyun.com", icon:"🌟", iconColor:"orange", desc:"阿里巴巴推出的 AI 大模型助手，支持多模态理解（文本/图片/视频），集成阿里生态。", tags:["对话","多模态","阿里"], cat:["chat","writing"], price:"免费 / Pro 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"阿里生态整合、多模态", weakness:"部分功能需登录阿里账号" },
+    { name:"豆包", url:"https://www.doubao.com", icon:"🫘", iconColor:"red", desc:"字节跳动推出的 AI 助手，已接入 Seedance 2.0 视频模型，中文体验优秀，免费使用。", tags:["对话","写作","视频"], cat:["chat","writing","video"], badges:["new"], price:"免费", free:"完全免费", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"免费、中文好、视频生成", weakness:"深度推理能力待提升" },
+    { name:"文心一言", url:"https://yiyan.baidu.com", icon:"🔵", iconColor:"blue", desc:"百度推出的 AI 智能助手，基于文心大模型，支持对话、画图、文档阅读、翻译等。", tags:["对话","百度","画图"], cat:["chat","writing","image"], price:"免费 / Pro 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"百度生态、中文理解好", weakness:"创意能力稍弱" },
+    { name:"讯飞星火", url:"https://xinghuo.xfyun.cn", icon:"✨", iconColor:"orange", desc:"科大讯飞推出的 AI 助手，支持 PPT 生成、深度研究、语音交互，教育场景突出。", tags:["对话","教育","语音"], cat:["chat","education"], price:"免费 / Pro 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"语音识别、教育场景", weakness:"通用对话稍弱" },
+    { name:"腾讯元宝", url:"https://yuanbao.tencent.com", icon:"🐧", iconColor:"blue", desc:"腾讯推出的免费 AI 智能助手，已接入 DeepSeek-R1，支持深度思考和联网搜索。", tags:["对话","腾讯","搜索"], cat:["chat"], badges:["new"], price:"免费", free:"完全免费", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"免费、腾讯生态、接入 DeepSeek", weakness:"独立创新能力待观察" },
+    { name:"Gemini", url:"https://gemini.google.com", icon:"💎", iconColor:"teal", desc:"Google 推出的多模态 AI 助手，支持文本、图片、视频理解和生成，与 Google 生态深度整合。", tags:["对话","多模态","Google"], cat:["chat","writing"], badges:["hot"], price:"免费 / Advanced $20/月", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐⭐⭐", strength:"多模态、Google 整合", weakness:"国内需翻墙，中文一般" },
+    { name:"Grok", url:"https://grok.com", icon:"🚀", iconColor:"pink", desc:"马斯克旗下 xAI 推出的 AI 助手，风格大胆直接，实时接入 X 平台数据。", tags:["对话","实时","X平台"], cat:["chat"], badges:["new"], price:"免费 / Premium 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐⭐⭐", strength:"实时信息、风格独特", weakness:"中文支持一般" },
+    { name:"MiniMax", url:"https://www.hailuoai.com", icon:"🐚", iconColor:"teal", desc:"MiniMax 推出的 AI 助手海螺 AI，语音合成和视频生成能力突出，支持长上下文。", tags:["对话","语音","视频"], cat:["chat","audio","video"], badges:["new"], price:"免费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"语音合成、视频生成", weakness:"知名度相对较低" },
+
+    // ---- AI 写作 ----
+    { name:"Jasper AI", url:"https://www.jasper.ai", icon:"✨", iconColor:"orange", desc:"专业的 AI 营销写作工具，支持博客、广告文案、社交媒体内容等多种格式生成。", tags:["营销","文案","博客"], cat:["writing","marketing"], price:"$49/月起", free:"付费", quality:"⭐⭐⭐⭐", chinese:"⭐⭐", ease:"⭐⭐⭐⭐", strength:"营销写作专业", weakness:"价格贵、中文弱" },
+    { name:"Copy.ai", url:"https://www.copy.ai", icon:"📝", iconColor:"green", desc:"AI 文案生成工具，快速生成广告语、产品描述、邮件等营销文案。", tags:["文案","营销","邮件"], cat:["writing","marketing"], price:"免费 / Pro $49/月", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"营销文案模板丰富", weakness:"中文支持一般" },
+    { name:"Notion AI", url:"https://www.notion.so", icon:"📋", iconColor:"blue", desc:"Notion 内置 AI 写作助手，支持总结、翻译、改写、头脑风暴等功能。", tags:["笔记","写作","办公"], cat:["writing","office"], price:"$10/月", free:"付费", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"与 Notion 深度整合", weakness:"需 Notion 订阅" },
+
+    // ---- AI 绘画 ----
+    { name:"Midjourney", url:"https://www.midjourney.com", icon:"🎨", iconColor:"pink", desc:"顶级 AI 绘画工具，以惊人的艺术风格和画面质量著称，适合创意设计和概念艺术。", tags:["绘画","设计","艺术"], cat:["image","design"], badges:["hot"], featured:true, price:"$10/月起", free:"付费", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐⭐⭐", strength:"画面质量天花板", weakness:"价格贵、国内需翻墙" },
+    { name:"DALL·E 3", url:"https://openai.com/dall-e-3", icon:"🖼️", iconColor:"green", desc:"OpenAI 的图像生成模型，文本理解能力强，画面细节丰富，集成在 ChatGPT 中。", tags:["绘画","创意","设计"], cat:["image"], price:"集成在 ChatGPT Plus", free:"付费", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"文本理解最好", weakness:"需 ChatGPT Plus 订阅" },
+    { name:"Stable Diffusion", url:"https://stability.ai", icon:"🌌", iconColor:"purple", desc:"开源 AI 绘画模型，可本地部署，社区活跃，模型和插件生态极其丰富。", tags:["开源","绘画","本地部署"], cat:["image"], badges:["free"], price:"免费开源", free:"完全免费", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐", strength:"完全免费、可定制性极强", weakness:"需一定技术门槛" },
+    { name:"即梦 AI", url:"https://jimeng.jianying.com", icon:"🌈", iconColor:"orange", desc:"剪映旗下 AI 创作平台，支持文生图、文生视频、图生视频，国产工具中体验优秀。", tags:["绘画","视频","国产"], cat:["image","video"], badges:["new"], price:"免费 / 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"国产、中文友好、图片视频一体化", weakness:"部分功能需付费" },
+    { name:"LiblibAI", url:"https://www.liblib.art", icon:"📚", iconColor:"red", desc:"国内领先的 AI 图像创作平台和模型分享社区，支持 SD/FLUX 在线生图。", tags:["绘画","社区","国产"], cat:["image"], badges:["new"], price:"免费 / 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐", strength:"国内最大 AI 绘画社区", weakness:"高质量模型需积分" },
+    { name:"通义万相", url:"https://tongyi.aliyun.com/wanxiang", icon:"🌍", iconColor:"orange", desc:"阿里推出的 AI 创意内容生成平台，支持文生图、图生图、风格迁移等。", tags:["绘画","阿里","创意"], cat:["image"], price:"免费 / 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"免费额度多、中文好", weakness:"创意上限不如 MJ" },
+
+    // ---- AI 编程 ----
+    { name:"GitHub Copilot", url:"https://github.com/features/copilot", icon:"👩‍💻", iconColor:"green", desc:"GitHub 与 OpenAI 联合推出的 AI 编程助手，支持代码补全、生成和解释，行业标杆。", tags:["编程","代码补全","IDE"], cat:["code"], badges:["hot"], price:"$10/月", free:"付费", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐", strength:"行业标杆、IDE 集成", weakness:"需付费" },
+    { name:"Cursor", url:"https://www.cursor.com", icon:"🖱️", iconColor:"blue", desc:"AI 原生代码编辑器，内置 AI 对话编程，支持整个项目上下文理解和修改。", tags:["编辑器","编程","AI对话"], cat:["code"], badges:["hot","new"], price:"免费 / Pro $20/月", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐", strength:"AI 原生编辑器体验", weakness:"需适应新编辑器" },
+    { name:"TRAE", url:"https://www.trae.ai", icon:"🔧", iconColor:"orange", desc:"字节跳动推出的 AI 编程 IDE，Vibe Coding 风格，中文场景体验出色。", tags:["编辑器","编程","国产"], cat:["code"], badges:["new"], price:"免费", free:"完全免费", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"免费、中文好、Vibe Coding", weakness:"新工具，生态待完善" },
+    { name:"Codeium", url:"https://codeium.com", icon:"⚙️", iconColor:"teal", desc:"免费的 AI 代码补全工具，支持 70+ 编程语言和 40+ IDE，性价比极高。", tags:["免费","代码补全","多语言"], cat:["code"], badges:["free"], price:"免费", free:"完全免费", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"完全免费、支持多 IDE", weakness:"高级功能不如 Copilot" },
+    { name:"Replit AI", url:"https://replit.com", icon:"⚡", iconColor:"orange", desc:"在线 IDE + AI 编程助手，支持多语言，适合快速原型和学习编程。", tags:["在线IDE","编程","学习"], cat:["code","education"], price:"免费 / Pro 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"零配置在线编程", weakness:"免费版资源有限" },
+
+    // ---- AI 视频 ----
+    { name:"Runway", url:"https://runwayml.com", icon:"🎬", iconColor:"pink", desc:"领先的 AI 视频生成和编辑平台，支持文生视频、图生视频等多种创作模式。", tags:["视频生成","编辑","创意"], cat:["video"], badges:["hot"], price:"免费 / Pro $12/月", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐⭐⭐", strength:"视频生成质量顶级", weakness:"国内需翻墙、价格贵" },
+    { name:"可灵 AI", url:"https://klingai.com", icon:"🌈", iconColor:"orange", desc:"快手推出的 AI 视频生成工具，支持长视频生成和图片/视频生成视频，国产最强之一。", tags:["视频生成","国产","长视频"], cat:["video"], badges:["hot","new"], price:"免费 / 付费", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"国产最强、长视频、免费", weakness:"排队时间有时较长" },
+    { name:"Seedance", url:"https://jimeng.jianying.com", icon:"🌱", iconColor:"green", desc:"字节跳动 Seed 团队推出的多模态 AI 视频生成模型，已接入豆包和即梦平台。", tags:["视频生成","字节","多模态"], cat:["video"], badges:["new"], price:"免费 / 付费", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"真人素材支持好、质量高", weakness:"新上线，功能迭代中" },
+    { name:"Pika", url:"https://pika.art", icon:"🎥", iconColor:"yellow", desc:"AI 视频生成工具，支持文本和图片生成短视频，操作简单，效果惊艳。", tags:["视频生成","短视频","动画"], cat:["video"], badges:["new"], price:"免费 / Pro 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"操作简单、效果好", weakness:"视频时长有限" },
+    { name:"HeyGen", url:"https://www.heygen.com", icon:"🗣️", iconColor:"blue", desc:"AI 数字人视频生成平台，支持多语言口播视频制作，适合营销和培训。", tags:["数字人","视频","营销"], cat:["video","avatar","marketing"], price:"免费试用 / $24/月起", free:"免费试用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"数字人视频专业", weakness:"价格较贵" },
+    { name:"Vidu", url:"https://www.vidu.studio", icon:"🎯", iconColor:"purple", desc:"生数科技推出的 AI 视频生成大模型，支持文生视频和图生视频，国产新锐。", tags:["视频生成","国产","大模型"], cat:["video"], badges:["new"], price:"免费 / 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"国产新锐、效果好", weakness:"免费额度有限" },
+
+    // ---- AI 音频 ----
+    { name:"ElevenLabs", url:"https://elevenlabs.io", icon:"🎙️", iconColor:"purple", desc:"顶级 AI 语音合成平台，声音自然逼真，支持声音克隆和多语言配音。", tags:["语音合成","配音","克隆"], cat:["audio"], price:"免费 / Pro $5/月起", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"语音质量天花板", weakness:"中文声音选择较少" },
+    { name:"Suno AI", url:"https://suno.com", icon:"🎵", iconColor:"pink", desc:"AI 音乐生成工具，输入描述即可创作完整歌曲，支持多种风格和语言。", tags:["音乐","创作","歌曲"], cat:["audio"], badges:["hot"], price:"免费 / Pro $10/月", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"AI 音乐创作标杆", weakness:"版权灰色地带" },
+    { name:"Udio", url:"https://www.udio.com", icon:"🎶", iconColor:"teal", desc:"AI 音乐生成平台，音质出色，支持多风格音乐创作和歌词生成。", tags:["音乐","创作","高质量"], cat:["audio"], badges:["new"], price:"免费 / Pro 付费", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"音质出色", weakness:"中文歌曲一般" },
+
+    // ---- AI 办公 ----
+    { name:"AiPPT", url:"https://www.aippt.cn", icon:"📊", iconColor:"purple", desc:"AI 快速生成高质量 PPT，输入主题即可自动生成完整演示文稿。", tags:["PPT","演示","国产"], cat:["office"], badges:["hot","new"], price:"免费 / 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"国产 PPT 生成标杆", weakness:"模板有限" },
+    { name:"Gamma", url:"https://gamma.app", icon:"📊", iconColor:"purple", desc:"AI 一键生成精美 PPT 演示文稿，支持从文本/文档自动生成幻灯片，设计感强。", tags:["PPT","演示","设计"], cat:["office","design"], price:"免费 / Pro $10/月", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"设计感强、国际化", weakness:"中文支持一般" },
+    { name:"飞书 AI", url:"https://www.feishu.cn", icon:"🐦", iconColor:"blue", desc:"飞书内置 AI 助手，支持会议总结、文档润色、数据分析等办公场景。", tags:["办公","协作","会议"], cat:["office"], price:"免费 / 企业版付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"办公协作一体化", weakness:"需使用飞书生态" },
+    { name:"百度文库 AI", url:"https://wenku.baidu.com", icon:"📖", iconColor:"blue", desc:"基于文心大模型的一站式智能文档助手，支持文档生成、PPT 制作、思维导图等。", tags:["文档","PPT","百度"], cat:["office"], badges:["new"], price:"免费 / VIP 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"文档生态丰富", weakness:"高级功能需 VIP" },
+
+    // ---- AI 搜索 ----
+    { name:"Perplexity", url:"https://www.perplexity.ai", icon:"🔎", iconColor:"teal", desc:"AI 搜索引擎，直接给出答案而非链接，附带来源引用，研究效率神器。", tags:["搜索","研究","引用"], cat:["search"], badges:["hot"], featured:true, price:"免费 / Pro $20/月", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"答案+来源引用", weakness:"国内访问不稳定" },
+    { name:"秘塔 AI 搜索", url:"https://metaso.cn", icon:"🧭", iconColor:"blue", desc:"中文 AI 搜索引擎，没有广告，深度理解中文语境，结构化搜索结果。", tags:["搜索","中文","无广告"], cat:["search"], badges:["hot","new"], price:"免费 / Pro 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"无广告、中文搜索优秀", weakness:"国际信息覆盖一般" },
+
+    // ---- AI 翻译 ----
+    { name:"DeepL", url:"https://www.deepl.com", icon:"🌐", iconColor:"blue", desc:"AI 驱动的高质量翻译工具，翻译自然流畅，业界公认翻译质量最高。", tags:["翻译","多语言","高质量"], cat:["translate"], badges:["hot"], price:"免费 / Pro €7.49/月", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"翻译质量天花板", weakness:"免费版字数限制" },
+    { name:"沉浸式翻译", url:"https://immersivetranslate.com", icon:"📖", iconColor:"green", desc:"浏览器翻译插件，双语对照显示，支持网页、PDF、视频字幕等多种场景。", tags:["翻译","浏览器插件","双语"], cat:["translate"], badges:["free"], price:"免费 / Pro 付费", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"双语对照、多场景", weakness:"需安装插件" },
+
+    // ---- AI 设计 ----
+    { name:"Canva AI", url:"https://www.canva.com", icon:"🎨", iconColor:"purple", desc:"设计平台 Canva 内置 AI 功能，支持一键生成设计、抠图、魔法编辑等。", tags:["设计","模板","图片编辑"], cat:["design","image"], price:"免费 / Pro $13/月", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"模板最丰富、上手快", weakness:"高级模板需付费" },
+    { name:"Figma AI", url:"https://www.figma.com", icon:"🖌️", iconColor:"pink", desc:"Figma 设计工具内置 AI，支持自动布局、内容生成、设计建议等智能功能。", tags:["UI设计","原型","协作"], cat:["design"], price:"免费 / Pro $15/月", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐", strength:"UI 设计行业标准", weakness:"需 Figma 基础" },
+
+    // ---- AI 营销 ----
+    { name:"Writesonic", url:"https://writesonic.com", icon:"✏️", iconColor:"green", desc:"AI 写作和营销工具，支持 SEO 文章、广告文案、产品描述等内容生成。", tags:["SEO","文案","营销"], cat:["marketing","writing"], price:"免费试用 / $16/月起", free:"免费试用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐⭐⭐", strength:"SEO 写作专业", weakness:"中文支持一般" },
+
+    // ---- AI 教育 ----
+    { name:"Duolingo Max", url:"https://www.duolingo.com", icon:"🦉", iconColor:"green", desc:"语言学习平台 Duolingo 的 AI 增强版，提供个性化对话练习和解释。", tags:["语言学习","对话","个性化"], cat:["education"], price:"免费 / Super $7/月", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"语言学习标杆", weakness:"中文课程较少" },
+
+    // ---- 数据分析 ----
+    { name:"ChatExcel", url:"https://chatexcel.com", icon:"📈", iconColor:"green", desc:"用对话方式操作 Excel，无需公式，直接用中文描述需求即可处理数据。", tags:["Excel","数据分析","对话"], cat:["data","office"], badges:["free"], price:"免费", free:"完全免费", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"完全免费、中文友好", weakness:"复杂分析能力有限" },
+    { name:"Julius AI", url:"https://julius.ai", icon:"📊", iconColor:"orange", desc:"AI 数据分析助手，上传数据即可自动生成图表、洞察和报告。", tags:["数据分析","图表","报告"], cat:["data"], price:"免费 / Pro $20/月", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"数据分析可视化", weakness:"中文支持一般" },
+
+    // ---- 效率工具 ----
+    { name:"Raycast AI", url:"https://www.raycast.com", icon:"🚀", iconColor:"purple", desc:"Mac 效率启动器 Raycast 的 AI 功能，快速调用 AI 处理选中文字和文件。", tags:["Mac","效率","启动器"], cat:["productivity"], price:"免费 / Pro $8/月", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐", strength:"Mac 效率神器", weakness:"仅限 Mac" },
+    { name:"Otter.ai", url:"https://otter.ai", icon:"🦦", iconColor:"teal", desc:"AI 会议记录工具，实时转录语音、提取要点、生成会议纪要。", tags:["会议","转录","笔记"], cat:["productivity","office"], price:"免费 / Pro $17/月", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"英文会议转录标杆", weakness:"中文支持一般" },
+
+    // ---- 3D 建模 ----
+    { name:"Meshy", url:"https://www.meshy.ai", icon:"🧊", iconColor:"blue", desc:"AI 3D 模型生成工具，支持文本/图片生成 3D 模型，适合游戏和设计。", tags:["3D","建模","游戏"], cat:["3d"], badges:["new"], price:"免费 / Pro 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐⭐⭐", strength:"AI 3D 建模便捷", weakness:"模型精度有限" },
+    { name:"Luma AI", url:"https://lumalabs.ai", icon:"💎", iconColor:"purple", desc:"AI 3D 生成平台，支持 NeRF 和 3D 重建，可从视频/照片创建 3D 场景。", tags:["3D","重建","NeRF"], cat:["3d"], price:"免费 / 付费", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐⭐⭐", strength:"3D 重建质量高", weakness:"处理时间较长" },
+
+    // ---- AI 数字人 ----
+    { name:"D-ID", url:"https://www.d-id.com", icon:"👤", iconColor:"pink", desc:"AI 数字人制作平台，上传一张照片即可生成会说话的数字人视频。", tags:["数字人","视频","照片驱动"], cat:["avatar","video"], price:"免费试用 / $6/月起", free:"免费试用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"一键生成数字人", weakness:"免费额度少" },
+
+    // ---- 简历求职 ----
+    { name:"Kickresume", url:"https://www.kickresume.com", icon:"📄", iconColor:"green", desc:"AI 驱动的简历和求职信生成工具，提供专业模板和 AI 内容优化建议。", tags:["简历","求职","模板"], cat:["resume"], price:"免费 / Pro $5/月", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"模板丰富、价格低", weakness:"中文模板少" },
+
+    // ---- Prompt 工具 ----
+    { name:"PromptPerfect", url:"https://promptperfect.jina.ai", icon:"🧠", iconColor:"yellow", desc:"AI Prompt 优化工具，自动改进提示词质量，提升 AI 输出效果。", tags:["Prompt","优化","提示词"], cat:["prompt"], price:"免费 / Pro 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"Prompt 优化专业", weakness:"高级功能需付费" },
+
+    // ---- API & 模型 ----
+    { name:"OpenAI API", url:"https://platform.openai.com", icon:"🔑", iconColor:"green", desc:"OpenAI 官方 API 平台，提供 GPT-4o、DALL·E、Whisper 等模型接口。", tags:["API","GPT","开发者"], cat:["api"], price:"按量付费", free:"按量付费", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐", strength:"最全面的 AI API", weakness:"价格较高" },
+    { name:"Hugging Face", url:"https://huggingface.co", icon:"🤗", iconColor:"yellow", desc:"最大的 AI 模型和数据集开源社区，提供模型托管和推理 API。", tags:["开源","模型","社区"], cat:["api"], badges:["free"], price:"免费 / Pro $9/月", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐⭐", strength:"开源模型生态最大", weakness:"需技术背景" },
+    { name:"Replicate", url:"https://replicate.com", icon:"🔄", iconColor:"orange", desc:"云端 AI 模型运行平台，一行代码调用数千个开源 AI 模型。", tags:["API","开源模型","云端"], cat:["api"], price:"按量付费", free:"按量付费", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐⭐", strength:"模型丰富、使用便捷", weakness:"费用可能累积" },
+];
+
+// ========== 对比功能 ==========
+let selectedTools = new Set();
+
+function toggleSelect(idx, event) {
+    event.preventDefault();
+    event.stopPropagation();
+    if (selectedTools.has(idx)) {
+        selectedTools.delete(idx);
+    } else {
+        if (selectedTools.size >= 4) {
+            alert('最多同时对比 4 个工具，请先取消已选的工具');
+            return;
+        }
+        selectedTools.add(idx);
+    }
+    updateCompareUI();
+}
+
+function updateCompareUI() {
+    const count = selectedTools.size;
+    const navBtn = document.getElementById('compareNav');
+    const badge = document.getElementById('compareCount');
+    const trigger = document.getElementById('compareTrigger');
+    const triggerCount = document.getElementById('compareTriggerCount');
+
+    if (count >= 2) {
+        navBtn.style.display = 'inline-flex';
+        badge.textContent = count;
+        badge.classList.add('show');
+        trigger.classList.add('show');
+        triggerCount.textContent = count;
+    } else {
+        navBtn.style.display = 'none';
+        badge.classList.remove('show');
+        trigger.classList.remove('show');
+    }
+
+    // 更新卡片选中状态
+    document.querySelectorAll('.tool-check').forEach(el => {
+        const idx = parseInt(el.dataset.idx);
+        el.classList.toggle('checked', selectedTools.has(idx));
+    });
+    document.querySelectorAll('.tool-card').forEach(el => {
+        const idx = parseInt(el.dataset.idx);
+        el.classList.toggle('selected', selectedTools.has(idx));
+    });
+}
+
+function openCompare() {
+    if (selectedTools.size < 2) { alert('请至少选择 2 个工具进行对比'); return; }
+    const overlay = document.getElementById('compareOverlay');
+    const content = document.getElementById('compareContent');
+    const selected = [...selectedTools].map(i => tools[i]);
+
+    const fields = [
+        { label:'工具', key:'name', type:'name' },
+        { label:'价格', key:'price', type:'text' },
+        { label:'免费程度', key:'free', type:'text' },
+        { label:'综合质量', key:'quality', type:'star' },
+        { label:'中文支持', key:'chinese', type:'star' },
+        { label:'易用性', key:'ease', type:'star' },
+        { label:'核心优势', key:'strength', type:'text' },
+        { label:'不足之处', key:'weakness', type:'text' },
+    ];
+
+    let html = `<table class="compare-table"><thead><tr><th></th>`;
+    selected.forEach(t => {
+        html += `<th><a href="${t.url}" target="_blank" rel="noopener">${t.icon} ${t.name}</a></th>`;
+    });
+    html += `</tr></thead><tbody>`;
+
+    fields.forEach(f => {
+        html += `<tr><td>${f.label}</td>`;
+        selected.forEach(t => {
+            let val = t[f.key] || '-';
+            if (f.type === 'name') val = `<a href="${t.url}" target="_blank" rel="noopener">${t.icon} ${t.name} ↗</a>`;
+            html += `<td>${val}</td>`;
+        });
+        html += `</tr>`;
+    });
+
+    html += `</tbody></table>`;
+    content.innerHTML = html;
+    overlay.classList.add('active');
+}
+
+function closeCompare() {
+    document.getElementById('compareOverlay').classList.remove('active');
+}
+
+function openContact() {
+    document.getElementById('contactOverlay').classList.add('active');
+}
+function closeContact() {
+    document.getElementById('contactOverlay').classList.remove('active');
+}
+function copyEmail() {
+    navigator.clipboard.writeText('jiangangzhou@nuaa.edu.cn').then(function() {
+        var hint = document.getElementById('copyHint');
+        hint.style.opacity = '1';
+        setTimeout(function() { hint.style.opacity = '0'; }, 2000);
+    });
+}
+
+// ========== 渲染逻辑 ==========
+let currentCat = 'all';
+let searchTerm = '';
+
+function updateStats() {
+    const allCats = new Set();
+    tools.forEach(t => t.cat.forEach(c => allCats.add(c)));
+    document.getElementById('stat-tool-count').textContent = tools.length;
+    document.getElementById('stat-cat-count').textContent = allCats.size;
+    document.getElementById('total-count-badge').textContent = tools.length;
+}
+
+function renderTools() {
+    const grid = document.getElementById('toolsGrid');
+    const empty = document.getElementById('emptyState');
+    const titleEl = document.getElementById('sectionTitle');
+    const countEl = document.getElementById('sectionCount');
+
+    let filtered = tools.map((t, i) => ({...t, _idx: i}));
+
+    if (currentCat !== 'all') filtered = filtered.filter(t => t.cat.includes(currentCat));
+    if (searchTerm) {
+        const term = searchTerm.toLowerCase();
+        filtered = filtered.filter(t =>
+            t.name.toLowerCase().includes(term) || t.desc.toLowerCase().includes(term) ||
+            t.tags.some(tag => tag.toLowerCase().includes(term))
+        );
+    }
+
+    const catLabels = { all:'全部工具', chat:'AI 对话', writing:'AI 写作', image:'AI 绘画', code:'AI 编程', video:'AI 视频', audio:'AI 音频', office:'AI 办公', design:'AI 设计', search:'AI 搜索', marketing:'AI 营销', education:'AI 教育', productivity:'效率工具', translate:'AI 翻译', data:'数据分析', '3d':'3D 建模', avatar:'AI 数字人', resume:'简历求职', prompt:'Prompt 工具', api:'API & 模型' };
+    titleEl.textContent = catLabels[currentCat] || '全部工具';
+    countEl.textContent = `共 ${filtered.length} 个工具`;
+
+    if (!filtered.length) { grid.style.display='none'; empty.style.display='block'; return; }
+    grid.style.display='grid'; empty.style.display='none';
+
+    grid.innerHTML = filtered.map((tool, i) => {
+        const badgesHtml = (tool.badges||[]).map(b => {
+            const labels = {hot:'🔥 热门',free:'🆓 免费',new:'✨ 新品'};
+            return `<span class="badge-${b}">${labels[b]}</span>`;
+        }).join('');
+        const tagsHtml = tool.tags.map(tag => `<span class="tool-tag">${tag}</span>`).join('');
+        const featuredClass = tool.featured ? ' featured' : '';
+        const selectedClass = selectedTools.has(tool._idx) ? ' selected' : '';
+        const checkedClass = selectedTools.has(tool._idx) ? ' checked' : '';
+        const delay = Math.min(i * 0.03, 0.4);
+
+        return `
+            <a class="tool-card fade-in${featuredClass}${selectedClass}" href="${tool.url}" target="_blank" rel="noopener noreferrer" data-idx="${tool._idx}" style="animation-delay:${delay}s">
+                <div class="tool-check${checkedClass}" data-idx="${tool._idx}" onclick="toggleSelect(${tool._idx}, event)" title="勾选加入对比">✓</div>
+                <div class="tool-icon ${tool.iconColor}">${tool.icon}</div>
+                <div class="tool-info">
+                    <div class="tool-name-row">
+                        <span class="tool-name">${tool.name}</span> ${badgesHtml}
+                    </div>
+                    <div class="tool-desc">${tool.desc}</div>
+                    <div class="tool-bottom">
+                        <div class="tool-tags">${tagsHtml}</div>
+                        <div class="tool-price">${tool.price || ''}</div>
+                    </div>
+                </div>
+                <div class="visit-arrow">↗</div>
+            </a>`;
+    }).join('');
+}
+
+function selectCat(el) {
+    document.querySelectorAll('.cat-tag').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    currentCat = el.dataset.cat;
+    renderTools();
+}
+
+function filterTools() {
+    searchTerm = document.getElementById('searchInput').value.trim();
+    renderTools();
+}
+
+// 快捷键
+document.addEventListener('keydown', function(e) {
+    if ((e.ctrlKey||e.metaKey) && e.key==='k') { e.preventDefault(); document.getElementById('searchInput').focus(); }
+    if (e.key==='Escape') { closeCompare(); closeContact(); }
+});
+
+document.getElementById('compareOverlay').addEventListener('click', function(e) { if (e.target===this) closeCompare(); });
+document.getElementById('contactOverlay').addEventListener('click', function(e) { if (e.target===this) closeContact(); });
+
+window.addEventListener('scroll', function() {
+    document.getElementById('backTop').classList.toggle('visible', window.scrollY > 400);
+});
+
+updateStats();
+renderTools();
+</script>
+
+</body>
+</html>
