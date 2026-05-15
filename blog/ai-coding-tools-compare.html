@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 编程工具对比 2026：Cursor vs Copilot vs TRAE，该选哪个？| AI 工具箱</title>
+    <meta name="description" content="2026 年三大 AI 编程工具对比：Cursor（AI原生编辑器）、GitHub Copilot（行业标杆）、TRAE（免费国产）。从价格、项目理解、易用性帮你选最适合的 AI 编程工具。">
+    <meta name="keywords" content="AI编程工具对比, Cursor vs Copilot, AI代码工具, TRAE, Vibe Coding, AI编程哪个好">
+    <link rel="canonical" href="https://my-ai-tools-hub.netlify.app/blog/ai-coding-tools-compare.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "AI 编程工具对比 2026：Cursor vs Copilot vs TRAE，该选哪个？",
+      "description": "2026 年三大 AI 编程工具对比：Cursor、GitHub Copilot、TRAE。",
+      "datePublished": "2026-05-15",
+      "dateModified": "2026-05-15",
+      "author": {"@type":"Organization","name":"AI 工具箱"},
+      "publisher": {"@type":"Organization","name":"AI 工具箱","url":"https://my-ai-tools-hub.netlify.app/"}
+    }
+    </script>
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AI 编程工具对比 2026：Cursor vs Copilot vs TRAE">
+    <meta property="og:description" content="2026 年三大 AI 编程工具对比：Cursor、GitHub Copilot、TRAE。">
+    <meta property="og:url" content="https://my-ai-tools-hub.netlify.app/blog/ai-coding-tools-compare.html">
+    <meta property="og:site_name" content="AI 工具箱">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AI 编程工具对比 2026：Cursor vs Copilot vs TRAE">
+    <meta name="twitter:description" content="2026 年三大 AI 编程工具对比。">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        :root{--bg-deep:#0f1117;--bg-card:#1a1c26;--border:rgba(255,255,255,0.08);--text-primary:#f0f0f5;--text-secondary:#9a9ab0;--text-muted:#5e5e78;--accent:#6c5ce7;--gradient-1:linear-gradient(135deg,#6c5ce7,#a29bfe);--radius:16px}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC','Outfit',sans-serif;background:var(--bg-deep);color:var(--text-primary);min-height:100vh}
+        .bg-mesh{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 600px 400px at 20% 10%,rgba(69,170,242,0.1),transparent),radial-gradient(ellipse 500px 500px at 80% 60%,rgba(85,239,196,0.08),transparent)}
+        .bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:60px 60px}
+        .navbar{position:sticky;top:0;z-index:100;padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(15,17,23,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+        .logo{display:flex;align-items:center;gap:10px;font-family:'Outfit';font-weight:700;font-size:20px;color:var(--text-primary);text-decoration:none}
+        .logo-icon{width:32px;height:32px;background:var(--gradient-1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px}
+        .back-link{color:var(--text-secondary);font-size:14px;text-decoration:none;transition:color 0.2s}.back-link:hover{color:var(--text-primary)}
+        .container{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:48px 40px 80px}
+        .breadcrumb{font-size:13px;color:var(--text-muted);margin-bottom:24px}.breadcrumb a{color:var(--text-secondary);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+        h1{font-family:'Outfit';font-size:30px;font-weight:800;line-height:1.3;margin-bottom:16px}
+        h1 .accent{background:var(--gradient-1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .meta{font-size:13px;color:var(--text-muted);margin-bottom:36px;display:flex;gap:16px;flex-wrap:wrap}
+        h2{font-family:'Outfit';font-size:20px;font-weight:700;margin:36px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+        p{font-size:15px;line-height:1.9;color:var(--text-secondary);margin-bottom:16px}
+        strong{color:var(--text-primary);font-weight:600}
+        ul{margin:0 0 16px 20px;font-size:15px;line-height:2;color:var(--text-secondary)}
+        .compare-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:16px 0 24px}
+        .compare-row{display:grid;grid-template-columns:100px 1fr 1fr 1fr;border-bottom:1px solid var(--border)}.compare-row:last-child{border-bottom:none}
+        .compare-cell{padding:10px 14px;font-size:13px;color:var(--text-secondary)}.compare-header{font-weight:600;color:var(--text-muted);background:rgba(255,255,255,0.02);font-size:12px}.compare-highlight{color:#55efc4;font-weight:500}
+        .tool-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:20px 24px;margin:16px 0;transition:border-color 0.2s}
+        .tool-card h3{font-size:16px;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+        .tool-card h3 a{color:var(--text-primary);text-decoration:none}.tool-card h3 a:hover{color:var(--accent)}
+        .tool-card p{font-size:14px;margin:6px 0 0}
+        .badge-free{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;background:rgba(85,239,196,0.12);color:#55efc4;font-family:'Outfit'}
+        .badge-paid{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;background:rgba(253,203,110,0.12);color:#fdcb6e;font-family:'Outfit'}
+        .verdict-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:20px 24px;margin:16px 0;display:flex;gap:14px;align-items:flex-start}
+        .verdict-icon{font-size:24px;flex-shrink:0}.verdict-body h3{font-size:15px;margin-bottom:4px}.verdict-body p{font-size:14px;margin:0}
+        .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin:32px 0}
+        .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border-radius:12px;color:white;font-size:14px;font-weight:600;text-decoration:none;transition:all 0.2s}.btn:hover{opacity:0.9;transform:translateY(-1px)}
+        .btn-purple{background:var(--gradient-1)}.btn-green{background:linear-gradient(135deg,#55efc4,#00b894)}
+        .footer{position:relative;z-index:1;text-align:center;padding:32px 40px;border-top:1px solid var(--border);color:var(--text-muted);font-size:13px}
+        .footer a{color:var(--text-secondary);text-decoration:none}.footer a:hover{color:var(--text-primary)}
+        @media(max-width:768px){.navbar{padding:0 20px}.container{padding:32px 20px 60px}h1{font-size:22px}.compare-row{grid-template-columns:70px 1fr 1fr 1fr}.compare-cell{padding:8px;font-size:11px}}
+    </style>
+</head>
+<body>
+<div class="bg-mesh"></div><div class="bg-grid"></div>
+<nav class="navbar"><a href="../index.html" class="logo"><div class="logo-icon">⚡</div><span>AI 工具箱</span></a><a href="../index.html" class="back-link">← 返回首页</a></nav>
+<div class="container">
+    <div class="breadcrumb"><a href="../index.html">首页</a> / 博客 / AI 编程工具对比</div>
+
+    <h1>AI 编程工具对比 2026：<br><span class="accent">Cursor vs Copilot vs TRAE</span></h1>
+    <div class="meta">
+        <span>📅 2026 年 5 月</span>
+        <span>⏱️ 阅读约 7 分钟</span>
+        <span>🏷️ AI编程 · 工具对比</span>
+    </div>
+
+    <p>2026 年，AI 编程工具已经不是"要不要用"的问题，而是"用哪个"的问题。Cursor、GitHub Copilot、TRAE 是目前最热门的三个选择。这篇文章帮你搞清楚它们的区别，选到最适合自己的。</p>
+
+    <h2>📊 三者核心对比</h2>
+    <div class="compare-box">
+        <div class="compare-row"><div class="compare-cell compare-header">对比项</div><div class="compare-cell compare-header">Cursor</div><div class="compare-cell compare-header">Copilot</div><div class="compare-cell compare-header">TRAE</div></div>
+        <div class="compare-row"><div class="compare-cell">产品形态</div><div class="compare-cell">独立编辑器</div><div class="compare-cell">VS Code 插件</div><div class="compare-cell">独立 IDE</div></div>
+        <div class="compare-row"><div class="compare-cell">价格</div><div class="compare-cell">免费/Pro $20月</div><div class="compare-cell">免费/Pro $10月</div><div class="compare-cell compare-highlight">完全免费</div></div>
+        <div class="compare-row"><div class="compare-cell">项目理解</div><div class="compare-cell compare-highlight">整个项目</div><div class="compare-cell">当前文件为主</div><div class="compare-cell">整个项目</div></div>
+        <div class="compare-row"><div class="compare-cell">多文件编辑</div><div class="compare-cell compare-highlight">Composer 很强</div><div class="compare-cell">支持（Pro）</div><div class="compare-cell">支持</div></div>
+        <div class="compare-row"><div class="compare-cell">代码补全</div><div class="compare-cell">优秀</div><div class="compare-cell compare-highlight">优秀（鼻祖）</div><div class="compare-cell">优秀</div></div>
+        <div class="compare-row"><div class="compare-cell">国内使用</div><div class="compare-cell compare-highlight">直接可用</div><div class="compare-cell compare-highlight">直接可用</div><div class="compare-cell compare-highlight">直接可用</div></div>
+        <div class="compare-row"><div class="compare-cell">插件兼容</div><div class="compare-cell compare-highlight">VS Code 插件</div><div class="compare-cell">原生 VS Code</div><div class="compare-cell">VS Code 插件</div></div>
+        <div class="compare-row"><div class="compare-cell">适合谁</div><div class="compare-cell">重度 AI 编程</div><div class="compare-cell">日常辅助编程</div><div class="compare-cell">免费用户首选</div></div>
+    </div>
+
+    <h2>🖱️ Cursor：AI 原生编辑器</h2>
+    <div class="tool-card">
+        <h3>🖱️ <a href="../tools/cursor.html">Cursor</a> <span class="badge-paid">Pro $20/月</span></h3>
+        <p>Cursor 是一个独立的代码编辑器（基于 VS Code 改造），AI 能力深度集成到编辑器的每个角落。</p>
+        <p><strong>核心亮点</strong>：用 @codebase 让 AI 搜索整个项目的代码上下文；Composer 模式可以同时修改多个文件，保持逻辑一致性；支持 Claude 和 GPT-4o 等多种模型。</p>
+        <p><strong>适合</strong>：想让 AI 深度参与开发全流程的人——从搭建项目到重构代码，不只是补全，而是"AI 写代码你审核"。</p>
+    </div>
+
+    <h2>🤝 GitHub Copilot：行业标杆</h2>
+    <div class="tool-card">
+        <h3>🤝 <a href="../tools/copilot.html">GitHub Copilot</a> <span class="badge-paid">Pro $10/月</span></h3>
+        <p>Copilot 是最早的 AI 编程工具之一，以 VS Code 插件的形式存在，安装即用。</p>
+        <p><strong>核心亮点</strong>：实时代码补全最成熟；Copilot Chat 支持在编辑器里直接对话；和 GitHub PR、Issues 深度集成；学生和开源维护者免费。</p>
+        <p><strong>适合</strong>：不想换编辑器、只要 AI 帮忙补全和解释代码的人。$10/月的性价比很高。</p>
+    </div>
+
+    <h2>🔧 TRAE：免费国产 AI IDE</h2>
+    <div class="tool-card">
+        <h3>🔧 TRAE <span class="badge-free">完全免费</span></h3>
+        <p>字节跳动推出的 AI 编程 IDE，体验类似 Cursor，但完全免费。</p>
+        <p><strong>核心亮点</strong>：零成本使用 AI 编程；中文场景优化好；Vibe Coding 风格——用自然语言描述需求就能生成代码；兼容 VS Code 插件。</p>
+        <p><strong>适合</strong>：不想花钱、想体验 AI 编程的开发者。作为入门工具非常合适。</p>
+    </div>
+
+    <h2>✅ 结论：你该选哪个？</h2>
+
+    <div class="verdict-card"><div class="verdict-icon">🏆</div><div class="verdict-body"><h3>不想花钱 → TRAE</h3><p>完全免费、功能齐全、中文好。先装上试试 AI 编程是什么感觉。</p></div></div>
+    <div class="verdict-card"><div class="verdict-icon">🏆</div><div class="verdict-body"><h3>日常辅助编程、不想换编辑器 → Copilot</h3><p>$10/月，装个插件就搞定。学习成本最低，体验不变。学生免费。</p></div></div>
+    <div class="verdict-card"><div class="verdict-icon">🏆</div><div class="verdict-body"><h3>想让 AI 帮你写大功能 → Cursor Pro</h3><p>$20/月，Composer 多文件编辑 + 项目级理解。适合专业开发者让 AI 深度参与编码。</p></div></div>
+    <div class="verdict-card"><div class="verdict-icon">💡</div><div class="verdict-body"><h3>最佳策略</h3><p>先用 TRAE（免费）体验 AI 编程 → 觉得有用再升级到 Copilot（$10/月日常辅助）或 Cursor Pro（$20/月深度编程）。</p></div></div>
+
+    <div class="btn-row">
+        <a href="../compare/cursor-vs-copilot.html" class="btn btn-purple">Cursor vs Copilot 详细对比 →</a>
+        <a href="../best/ai-code.html" class="btn btn-green">AI 编程工具排行 →</a>
+    </div>
+</div>
+<footer class="footer"><p>© 2026 AI 工具箱 · <a href="../index.html">返回首页</a> · <a href="mailto:jiangangzhou@nuaa.edu.cn">联系我们</a></p><p style="margin-top:8px;font-size:11px;">本文基于 2026 年 5 月实测体验，工具价格和功能可能随时变化。</p></footer>
+</body>
+</html>
