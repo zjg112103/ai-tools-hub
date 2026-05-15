@@ -23,14 +23,14 @@
 **为什么重要**：用户搜"ChatGPT vs DeepSeek"、"可灵 vs Runway"这种对比词的非常多，搜索意图明确，转化率高。
 
 **要做的事**：
-- [ ] `compare/chatgpt-vs-deepseek.html` → ChatGPT 和 DeepSeek 全面对比
-- [ ] `compare/midjourney-vs-stable-diffusion.html` → AI 绘画两大巨头对比
-- [ ] `compare/cursor-vs-copilot.html` → AI 编程工具对比
-- [ ] `compare/klingai-vs-runway.html` → AI 视频工具对比
-- [ ] `compare/deepseek-vs-chatglm.html` → 国产免费 AI 对比
-- [ ] `compare/kimi-vs-deepseek.html` → 读论文 vs 编程，两个免费工具对比
-- [ ] 每个页面做成横向深度对比：表格 + 结论 + 推荐
-- [ ] 更新 sitemap 加入对比页
+- [x] `compare/chatgpt-vs-deepseek.html` → ChatGPT 和 DeepSeek 全面对比
+- [x] `compare/midjourney-vs-stable-diffusion.html` → AI 绘画两大巨头对比
+- [x] `compare/cursor-vs-copilot.html` → AI 编程工具对比
+- [x] `compare/klingai-vs-runway.html` → AI 视频工具对比
+- [x] `compare/deepseek-vs-chatglm.html` → 国产免费 AI 对比
+- [x] `compare/kimi-vs-deepseek.html` → 读论文 vs 编程，两个免费工具对比
+- [x] 每个页面做成横向深度对比：表格 + 结论 + 推荐
+- [x] 更新 sitemap 加入对比页
 
 **每个对比页包含**：
 - 标题含两个工具名（SEO）
