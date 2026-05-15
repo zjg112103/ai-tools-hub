@@ -56,10 +56,11 @@
 **为什么重要**：帮助 Google/Bing 更好理解网站内容，搜索结果可能显示星级、面包屑等富文本，点击率更高。
 
 **要做的事**：
-- [ ] 在首页 `<head>` 加 JSON-LD Schema.org 标记
-- [ ] 类型：`WebSite` + `ItemList`（工具列表）
-- [ ] 包含网站名称、URL、描述
-- [ ] 详情页也加 `SoftwareApplication` + `AggregateRating`
+- [x] 在首页 `<head>` 加 JSON-LD Schema.org 标记
+- [x] 类型：`WebSite` + `ItemList`（工具列表）
+- [x] 包含网站名称、URL、描述
+- [x] 详情页也加 `SoftwareApplication` + `AggregateRating`
+- [x] 排行榜和对比页加 `Article` schema
 
 ---
 
