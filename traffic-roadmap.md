@@ -86,9 +86,9 @@
 **为什么重要**：用户分享到微信/微博/知乎时显示好看的预览卡片，提升点击率。
 
 **要做的事**：
-- [ ] 所有页面 `<head>` 加 Open Graph 标签（og:title, og:description, og:image, og:url）
+- [x] 所有页面 `<head>` 加 Open Graph 标签（og:title, og:description, og:url, og:site_name, og:locale）
 - [ ] 设计一个默认分享图（1200x630px），可以用 AI 生成
-- [ ] 加 Twitter Card 标签
+- [x] 加 Twitter Card 标签
 - [ ] 加微信分享缩略图支持
 
 ---
