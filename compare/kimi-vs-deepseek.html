@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kimi vs DeepSeek：免费 AI 哪个更好？一个读论文一个写代码 | AI 工具箱</title>
+    <meta name="description" content="Kimi 和 DeepSeek 对比：都免费都国内可用。Kimi 超长文本读论文最强，DeepSeek 编程数学推理最强。帮你选最适合的免费 AI。">
+    <meta name="keywords" content="Kimi vs DeepSeek, Kimi和DeepSeek哪个好, 免费AI对比, AI读论文, AI编程, 月之暗面 vs 深度求索">
+    <link rel="canonical" href="https://my-ai-tools-hub.netlify.app/compare/kimi-vs-deepseek.html">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        :root{--bg-deep:#0f1117;--bg-card:#1a1c26;--border:rgba(255,255,255,0.08);--text-primary:#f0f0f5;--text-secondary:#9a9ab0;--text-muted:#5e5e78;--accent:#6c5ce7;--gradient-1:linear-gradient(135deg,#6c5ce7,#a29bfe);--radius:16px}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC','Outfit',sans-serif;background:var(--bg-deep);color:var(--text-primary);min-height:100vh}
+        .bg-mesh{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 600px 400px at 20% 10%,rgba(116,185,255,0.1),transparent),radial-gradient(ellipse 500px 500px at 80% 60%,rgba(0,206,201,0.08),transparent)}
+        .bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:60px 60px}
+        .navbar{position:sticky;top:0;z-index:100;padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(15,17,23,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+        .logo{display:flex;align-items:center;gap:10px;font-family:'Outfit';font-weight:700;font-size:20px;color:var(--text-primary);text-decoration:none}
+        .logo-icon{width:32px;height:32px;background:var(--gradient-1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px}
+        .back-link{color:var(--text-secondary);font-size:14px;text-decoration:none;transition:color 0.2s}.back-link:hover{color:var(--text-primary)}
+        .container{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:48px 40px 80px}
+        .breadcrumb{font-size:13px;color:var(--text-muted);margin-bottom:24px}.breadcrumb a{color:var(--text-secondary);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+        .vs-header{display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:32px;flex-wrap:wrap}
+        .vs-tool{text-align:center;padding:24px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);flex:1;min-width:200px}
+        .vs-tool-icon{font-size:48px;margin-bottom:8px}.vs-tool-name{font-family:'Outfit';font-size:24px;font-weight:800}.vs-tool-tag{font-size:13px;color:var(--text-secondary);margin-top:4px}
+        .vs-badge{font-family:'Outfit';font-size:16px;font-weight:700;padding:8px 16px;border-radius:10px;background:rgba(85,239,196,0.12);color:#55efc4;flex-shrink:0}
+        h2{font-family:'Outfit';font-size:20px;font-weight:700;margin:36px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+        p{font-size:15px;line-height:1.8;color:var(--text-secondary);margin-bottom:14px}strong{color:var(--text-primary);font-weight:600}
+        .compare-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:16px 0 24px}
+        .compare-row{display:grid;grid-template-columns:120px 1fr 1fr;border-bottom:1px solid var(--border)}.compare-row:last-child{border-bottom:none}
+        .compare-cell{padding:12px 16px;font-size:14px;color:var(--text-secondary)}.compare-header{font-weight:600;color:var(--text-muted);background:rgba(255,255,255,0.02);font-size:13px}.compare-highlight{color:#55efc4;font-weight:500}
+        .verdict-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin:16px 0;display:flex;gap:16px;align-items:flex-start}
+        .verdict-icon{font-size:28px;flex-shrink:0}.verdict-body h3{font-size:16px;margin-bottom:6px;color:var(--text-primary)}.verdict-body p{font-size:14px;margin:0}
+        .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}
+        .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border-radius:12px;color:white;font-size:14px;font-weight:600;text-decoration:none;transition:all 0.2s}.btn:hover{opacity:0.9;transform:translateY(-1px)}
+        .btn-purple{background:var(--gradient-1)}.btn-blue{background:linear-gradient(135deg,#74b9ff,#0984e3)}
+        .footer{position:relative;z-index:1;text-align:center;padding:32px 40px;border-top:1px solid var(--border);color:var(--text-muted);font-size:13px}.footer a{color:var(--text-secondary);text-decoration:none}.footer a:hover{color:var(--text-primary)}
+        @media(max-width:768px){.navbar{padding:0 20px}.container{padding:32px 20px 60px}.vs-header{gap:12px}.vs-tool{padding:16px;min-width:140px}.compare-row{grid-template-columns:80px 1fr 1fr}.compare-cell{padding:10px 10px;font-size:13px}}
+    </style>
+</head>
+<body>
+<div class="bg-mesh"></div><div class="bg-grid"></div>
+<nav class="navbar"><a href="../index.html" class="logo"><div class="logo-icon">⚡</div><span>AI 工具箱</span></a><a href="../index.html" class="back-link">← 返回首页</a></nav>
+<div class="container">
+    <div class="breadcrumb"><a href="../index.html">首页</a> / 对比 / Kimi vs DeepSeek</div>
+    <div class="vs-header">
+        <div class="vs-tool"><div class="vs-tool-icon">🌙</div><div class="vs-tool-name">Kimi</div><div class="vs-tool-tag">月之暗面 · 完全免费</div></div>
+        <div class="vs-badge">VS</div>
+        <div class="vs-tool"><div class="vs-tool-icon">🔮</div><div class="vs-tool-name">DeepSeek</div><div class="vs-tool-tag">深度求索 · 完全免费</div></div>
+    </div>
+
+    <h2>📊 核心指标对比</h2>
+    <div class="compare-box">
+        <div class="compare-row"><div class="compare-cell compare-header">对比项</div><div class="compare-cell compare-header">Kimi</div><div class="compare-cell compare-header">DeepSeek</div></div>
+        <div class="compare-row"><div class="compare-cell">价格</div><div class="compare-cell compare-highlight">完全免费</div><div class="compare-cell compare-highlight">完全免费</div></div>
+        <div class="compare-row"><div class="compare-cell">国内访问</div><div class="compare-cell compare-highlight">直接访问</div><div class="compare-cell compare-highlight">直接访问</div></div>
+        <div class="compare-row"><div class="compare-cell">长文本处理</div><div class="compare-cell compare-highlight">极强（200万字）</div><div class="compare-cell">强（约12万字）</div></div>
+        <div class="compare-row"><div class="compare-cell">读论文</div><div class="compare-cell compare-highlight">最佳</div><div class="compare-cell">好</div></div>
+        <div class="compare-row"><div class="compare-cell">代码能力</div><div class="compare-cell">良好</div><div class="compare-cell compare-highlight">优秀</div></div>
+        <div class="compare-row"><div class="compare-cell">数学推理</div><div class="compare-cell">良好</div><div class="compare-cell compare-highlight">极强</div></div>
+        <div class="compare-row"><div class="compare-cell">网页总结</div><div class="compare-cell compare-highlight">✅ 输入网址即读</div><div class="compare-cell">有深度搜索</div></div>
+        <div class="compare-row"><div class="compare-cell">多文件上传</div><div class="compare-cell compare-highlight">✅ 支持多文件</div><div class="compare-cell">支持</div></div>
+        <div class="compare-row"><div class="compare-cell">文件格式</div><div class="compare-cell compare-highlight">PDF/Word/Excel/TXT</div><div class="compare-cell">PDF/代码/图片</div></div>
+        <div class="compare-row"><div class="compare-cell">深度思考</div><div class="compare-cell">无</div><div class="compare-cell compare-highlight">✅ DeepThink</div></div>
+    </div>
+
+    <h2>🔍 分场景对比</h2>
+    <div class="verdict-card"><div class="verdict-icon">📚</div><div class="verdict-body"><h3>读论文/长文档 → Kimi 胜</h3><p>Kimi 一次能处理 200 万字，相当于好几本书。上传 PDF 论文，提问回答非常准确。这是 Kimi 的核心优势，DeepSeek 比不了。</p></div></div>
+    <div class="verdict-card"><div class="verdict-icon">💻</div><div class="verdict-body"><h3>编程写代码 → DeepSeek 胜</h3><p>DeepSeek 代码能力在免费 AI 中最强，支持所有主流语言。Kimi 也能写代码，但复杂编程任务 DeepSeek 更靠谱。</p></div></div>
+    <div class="verdict-card"><div class="verdict-icon">⚖️</div><div class="verdict-body"><h3>法律/合同分析 → Kimi 胜</h3><p>长篇合同、法律文件一次全部上传，Kimi 帮你找出关键条款和风险点。DeepSeek 处理不了这么长的文件。</p></div></div>
+    <div class="verdict-card"><div class="verdict-icon">🔢</div><div class="verdict-body"><h3>数学/推理 → DeepSeek 胜</h3><p>DeepSeek 的深度思考模式在数学推理上极强。考试、竞赛、复杂逻辑题，DeepSeek 更适合。</p></div></div>
+    <div class="verdict-card"><div class="verdict-icon">🌐</div><div class="verdict-body"><h3>网页内容抓取 → Kimi 胜</h3><p>直接粘贴网址，Kimi 自动读取网页内容并总结。DeepSeek 有深度搜索功能，但网页抓取不如 Kimi 方便。</p></div></div>
+
+    <h2>✅ 结论</h2>
+    <div class="verdict-card"><div class="verdict-icon">🏆</div><div class="verdict-body"><h3>读论文/长文档/法律 → Kimi</h3><p>超长文本处理无敌，免费、国内可用。学术党、律师、分析师的首选。</p></div></div>
+    <div class="verdict-card"><div class="verdict-icon">🏆</div><div class="verdict-body"><h3>编程/数学/推理 → DeepSeek</h3><p>代码和数学推理在免费 AI 中最强。程序员和学生的首选。</p></div></div>
+    <div class="verdict-card"><div class="verdict-icon">💡</div><div class="verdict-body"><h3>最佳方案：搭配使用</h3><p>读论文用 Kimi，写代码用 DeepSeek。两个都免费、国内可用，没有冲突。</p></div></div>
+
+    <div class="btn-row">
+        <a href="../tools/kimi.html" class="btn btn-blue">Kimi 详细评测 →</a>
+        <a href="../tools/deepseek.html" class="btn btn-purple">DeepSeek 详细评测 →</a>
+    </div>
+</div>
+<footer class="footer"><p>© 2026 AI 工具箱 · <a href="../index.html">返回首页</a> · <a href="mailto:jiangangzhou@nuaa.edu.cn">联系我们</a></p><p style="margin-top:8px;font-size:11px;">对比基于 2026 年 5 月实测体验，仅供参考。</p></footer>
+</body>
+</html>
