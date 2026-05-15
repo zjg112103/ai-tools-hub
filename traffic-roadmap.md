@@ -70,10 +70,10 @@
 **为什么重要**：长期流量最大的来源。教程类文章覆盖长尾搜索词，持续带来流量。
 
 **要写的文章**：
-- [ ] `blog/free-ai-tools-2026.html` → "2026 年 15 个免费 AI 工具推荐（不用花一分钱）"
-- [ ] `blog/ai-tools-no-vpn.html` → "不用翻墙也能用的 AI 工具汇总（国内直接访问）"
+- [x] `blog/free-ai-tools-2026.html` → "2026 年 15 个免费 AI 工具推荐（不用花一分钱）"
+- [x] `blog/ai-tools-no-vpn.html` → "不用翻墙也能用的 AI 工具汇总（国内直接访问）"
 - [ ] `blog/midjourney-beginner-guide.html` → "AI 绘画入门：从零开始学 Midjourney"
-- [ ] `blog/ai-coding-tools-compare.html` → "AI 编程工具对比：Cursor vs Copilot vs TRAE"
+- [x] `blog/ai-coding-tools-compare.html` → "AI 编程工具对比：Cursor vs Copilot vs TRAE"
 - [ ] `blog/ai-video-tools-guide.html` → "AI 视频生成入门：5 个工具让你做出短视频"
 - [ ] `blog/best-ai-for-students.html` → "学生必备 AI 工具：论文/编程/学习全部免费"
 - [ ] `blog/best-ai-for-work.html` → "上班族 AI 工具推荐：写邮件/做PPT/翻译提效"
