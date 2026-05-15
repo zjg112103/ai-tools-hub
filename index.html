@@ -297,6 +297,28 @@
         .tool-tag { font-size:11px; padding:3px 10px; border-radius:6px; background:rgba(255,255,255,0.04); color:var(--text-muted); }
         .tool-price { font-size:11px; color:var(--text-muted); white-space:nowrap; }
 
+        /* 用户评分 */
+        .tool-rating { display:flex; align-items:center; gap:6px; margin:6px 0; cursor:pointer; }
+        .tool-rating .stars { display:flex; gap:2px; }
+        .tool-rating .star { font-size:13px; color:var(--text-muted); transition:color 0.15s; }
+        .tool-rating .star.on { color:#ffa502; }
+        .tool-rating .star.hovered { color:#ffeaa7; }
+        .tool-rating .rating-count { font-size:11px; color:var(--text-muted); }
+        .tool-rating .rating-value { font-size:11px; color:#ffa502; font-weight:600; }
+        .rating-tooltip {
+            position:absolute; z-index:10; background:var(--bg-card); border:1px solid var(--border);
+            border-radius:10px; padding:12px 14px; box-shadow:0 8px 24px rgba(0,0,0,0.4);
+            min-width:140px; display:none;
+        }
+        .rating-tooltip.active { display:block; }
+        .rating-tooltip-title { font-size:12px; color:var(--text-muted); margin-bottom:8px; }
+        .rating-tooltip-stars { display:flex; gap:4px; justify-content:center; margin-bottom:10px; }
+        .rating-tooltip-star { font-size:22px; color:var(--text-muted); cursor:pointer; transition:color 0.15s; }
+        .rating-tooltip-star:hover,
+        .rating-tooltip-star.active { color:#ffa502; }
+        .rating-tooltip-done { font-size:11px; color:#55efc4; text-align:center; display:none; }
+        .rating-tooltip-done.show { display:block; }
+
         /* 复选框 */
         .tool-check {
             position:absolute; top:12px; right:12px; z-index:2;
@@ -790,6 +812,42 @@ function updateStats() {
     document.getElementById('total-count-badge').textContent = tools.length;
 }
 
+// ========== 用户评分 ==========
+const RATINGS_KEY = 'ai-tools-hub-ratings';
+function getRatings() { try { return JSON.parse(localStorage.getItem(RATINGS_KEY)||'{}'); } catch { return {}; } }
+function saveRatings(data) { localStorage.setItem(RATINGS_KEY, JSON.stringify(data)); }
+function getToolRating(idx) {
+    const all = getRatings();
+    return all[idx] || null;
+}
+function rateTool(idx, stars) {
+    const all = getRatings();
+    if (!all[idx]) all[idx] = { total: 0, count: 0 };
+    all[idx].total += stars;
+    all[idx].count += 1;
+    saveRatings(all);
+}
+function getAvgRating(idx) {
+    const r = getToolRating(idx);
+    if (!r || r.count === 0) return null;
+    return r.total / r.count;
+}
+function getRatingCount(idx) {
+    const r = getToolRating(idx);
+    return r ? r.count : 0;
+}
+function renderStars(value, interactive, idx) {
+    const rounded = value ? Math.round(value) : 0;
+    const hoverCls = interactive ? ' rating-star-hover' : '';
+    let html = '';
+    for (let i = 1; i <= 5; i++) {
+        const cls = i <= rounded ? ' on' : '';
+        const data = interactive ? `data-stars="${i}" onclick="handleRate(${idx},${i})" onmouseover="hoverStar(this,${i})" onmouseout="resetStars(this)"` : '';
+        html += `<span class="star${cls}"${data}>★</span>`;
+    }
+    return html;
+}
+
 function renderTools() {
     const grid = document.getElementById('toolsGrid');
     const empty = document.getElementById('emptyState');
@@ -828,15 +886,24 @@ function renderTools() {
         const cardHref = tool.detail ? tool.detail : tool.url;
         const cardTarget = tool.detail ? '' : ' target="_blank" rel="noopener noreferrer"';
 
+        const avg = getAvgRating(tool._idx);
+        const cnt = getRatingCount(tool._idx);
+        let ratingHtml;
+        if (avg !== null) {
+            ratingHtml = `<div class="tool-rating" onclick="showRatingTooltip(${tool._idx}, this)">${renderStars(avg, false, tool._idx)}<span class="rating-value">${avg.toFixed(1)}</span><span class="rating-count">(${cnt})</span></div>`;
+        } else {
+            ratingHtml = `<div class="tool-rating" onclick="showRatingTooltip(${tool._idx}, this)">${renderStars(0, false, tool._idx)}<span class="rating-count">评分</span></div>`;
+        }
         return `
             <a class="tool-card fade-in${featuredClass}${selectedClass}" href="${cardHref}"${cardTarget} data-idx="${tool._idx}" style="animation-delay:${delay}s">
                 <div class="tool-check${checkedClass}" data-idx="${tool._idx}" onclick="toggleSelect(${tool._idx}, event)" title="勾选加入对比">✓</div>
                 <div class="tool-icon ${tool.iconColor}">${tool.icon}</div>
-                <div class="tool-info">
+                <div class="tool-info" style="position:relative;">
                     <div class="tool-name-row">
                         <span class="tool-name">${tool.name}</span> ${badgesHtml}
                     </div>
                     <div class="tool-desc">${tool.desc}</div>
+                    ${ratingHtml}
                     <div class="tool-bottom">
                         <div class="tool-tags">${tagsHtml}</div>
                         <div class="tool-price">${tool.price || ''}</div>
@@ -852,6 +919,42 @@ function selectCat(el) {
     el.classList.add('active');
     currentCat = el.dataset.cat;
     renderTools();
+}
+
+// ========== 评分交互 ==========
+let activeRatingTooltip = null;
+function showRatingTooltip(idx, el) {
+    closeRatingTooltip();
+    const avg = getAvgRating(idx);
+    const cnt = getRatingCount(idx);
+    const tooltip = document.createElement('div');
+    tooltip.className = 'rating-tooltip active';
+    tooltip.id = 'ratingTooltip';
+    tooltip.style.position = 'absolute';
+    tooltip.style.top = '50%';
+    tooltip.style.left = '50%';
+    tooltip.style.transform = 'translate(-50%, -50%)';
+    const starsHtml = [1,2,3,4,5].map(n => `<span class="rating-tooltip-star" data-stars="${n}" onmouseover="this.classList.add('active')" onmouseout="this.classList.remove('active')" onclick="handleRate(${idx},${n})">★</span>`).join('');
+    tooltip.innerHTML = `
+        <div class="rating-tooltip-title">为「${tools[idx].name}」评分</div>
+        <div class="rating-tooltip-stars">${starsHtml}</div>
+        ${avg !== null ? `<div style="font-size:11px;color:var(--text-muted);text-align:center;">当前 ${avg.toFixed(1)} ★（${cnt}人评分）</div>` : ''}
+        <div class="rating-tooltip-done" id="ratingDone">✓ 感谢评分！</div>`;
+    el.closest('.tool-info').appendChild(tooltip);
+    activeRatingTooltip = tooltip;
+    setTimeout(() => { document.addEventListener('click', closeRatingTooltip, { once: true }); }, 0);
+}
+function closeRatingTooltip() {
+    const t = document.getElementById('ratingTooltip');
+    if (t) t.remove();
+    activeRatingTooltip = null;
+}
+function handleRate(idx, stars) {
+    rateTool(idx, stars);
+    closeRatingTooltip();
+    renderTools();
+    const cards = document.querySelectorAll('.tool-card[data-idx="'+idx+'"]');
+    cards.forEach(c => c.scrollIntoView({ behavior:'smooth', block:'center' }));
 }
 
 function filterTools() {
