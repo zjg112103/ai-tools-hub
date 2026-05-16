@@ -9,11 +9,11 @@
 
 | 维度 | 数量 |
 |------|------|
-| 总页面 | 31（首页+15详情+4排行+6对比+3博客+sitemap+robots+404） |
+| 总页面 | 49（首页+25详情+4排行+10对比+3博客+sitemap+robots+404） |
 | 工具收录 | 60 个 |
-| 有详情页的工具 | 15/60（25%）— **最大短板** |
-| 无详情页的工具 | 45 个（点进去是外链，没有站内页面） |
-| 移动端 | 基本可用，但排行榜4宫格和双栏卡片在手机上需要适配 |
+| 有详情页的工具 | 25/60（42%）|
+| 对比页 | 10 个 |
+| 设计风格 | 亮色主题 ✅ |
 
 ---
 
@@ -24,27 +24,23 @@
 
 按搜索量排序，优先做：
 
-- [ ] `tools/gemini.html` — Google 出品，国际搜索量极高
-- [ ] `tools/grok.html` — 马斯克出品，话题性强
-- [ ] `tools/trae.html` — 字节 AI IDE，完全免费，国内开发者关注
-- [ ] `tools/perplexity.html` — AI 搜索标杆
-- [ ] `tools/suno.html` — AI 音乐，社交传播力强
-- [ ] `tools/elevenlabs.html` — AI 语音合成天花板
-- [ ] `tools/gamma.html` — AI 生成 PPT，职场刚需
-- [ ] `tools/aippt.html` — 国产 PPT 生成
-- [ ] `tools/codeium.html` — 免费代码补全
-- [ ] `tools/liblibai.html` — 国内 AI 绘画社区
+- [x] `tools/gemini.html` — Google 出品，国际搜索量极高
+- [x] `tools/grok.html` — 马斯克出品，话题性强
+- [x] `tools/trae.html` — 字节 AI IDE，完全免费，国内开发者关注
+- [x] `tools/perplexity.html` — AI 搜索标杆
+- [x] `tools/suno.html` — AI 音乐，社交传播力强
+- [x] `tools/elevenlabs.html` — AI 语音合成天花板
+- [x] `tools/gamma.html` — AI 生成 PPT，职场刚需
+- [x] `tools/aippt.html` — 国产 PPT 生成
+- [x] `tools/codeium.html` — 免费代码补全
+- [x] `tools/liblibai.html` — 国内 AI 绘画社区
 
-做完这 10 个 → 详情页从 15 → 25，站内页面从 31 → 41。
+### 2. 更多对比页（"XX vs XX"搜索意图极强）✅ 已完成
 
-### 2. 更多对比页（"XX vs XX"搜索意图极强）
-对比页是目前转化率最高的页面类型——搜对比词的用户已经到了决策阶段。
-
-- [ ] `compare/chatgpt-vs-claude.html` — 两大 AI 巨头对比
-- [ ] `compare/deepseek-vs-chatgpt.html` → 已有 chatgpt-vs-deepseek，但标题反过来也能覆盖不同搜索词？不，不需要重复。
-- [ ] `compare/kimi-vs-chatglm.html` — 两个免费国产读文档 AI
-- [ ] `compare/midjourney-vs-dalle.html` — MJ vs DALL·E，绘画界经典对比
-- [ ] `compare/perplexity-vs-chatgpt.html` — AI 搜索 vs AI 对话
+- [x] `compare/chatgpt-vs-claude.html` — 两大 AI 巨头对比
+- [x] `compare/kimi-vs-chatglm.html` — 两个免费国产读文档 AI
+- [x] `compare/midjourney-vs-dalle.html` — MJ vs DALL·E，绘画界经典对比
+- [x] `compare/perplexity-vs-chatgpt.html` — AI 搜索 vs AI 对话
 
 ### 3. 更多博客文章（覆盖长尾搜索词）
 
