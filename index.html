@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -608,8 +608,8 @@ const tools = [
     { name:"文心一言", url:"https://yiyan.baidu.com", icon:"🔵", iconColor:"blue", desc:"百度推出的 AI 智能助手，基于文心大模型，支持对话、画图、文档阅读、翻译等。", tags:["对话","百度","画图"], cat:["chat","writing","image"], price:"免费 / Pro 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"百度生态、中文理解好", weakness:"创意能力稍弱" },
     { name:"讯飞星火", url:"https://xinghuo.xfyun.cn", icon:"✨", iconColor:"orange", desc:"科大讯飞推出的 AI 助手，支持 PPT 生成、深度研究、语音交互，教育场景突出。", tags:["对话","教育","语音"], cat:["chat","education"], price:"免费 / Pro 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"语音识别、教育场景", weakness:"通用对话稍弱" },
     { name:"腾讯元宝", url:"https://yuanbao.tencent.com", icon:"🐧", iconColor:"blue", desc:"腾讯推出的免费 AI 智能助手，已接入 DeepSeek-R1，支持深度思考和联网搜索。", tags:["对话","腾讯","搜索"], cat:["chat"], badges:["new"], price:"免费", free:"完全免费", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"免费、腾讯生态、接入 DeepSeek", weakness:"独立创新能力待观察" },
-    { name:"Gemini", url:"https://gemini.google.com", icon:"💎", iconColor:"teal", desc:"Google 推出的多模态 AI 助手，支持文本、图片、视频理解和生成，与 Google 生态深度整合。", tags:["对话","多模态","Google"], cat:["chat","writing"], badges:["hot"], price:"免费 / Advanced $20/月", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐⭐⭐", strength:"多模态、Google 整合", weakness:"国内需翻墙，中文一般" },
-    { name:"Grok", url:"https://grok.com", icon:"🚀", iconColor:"pink", desc:"马斯克旗下 xAI 推出的 AI 助手，风格大胆直接，实时接入 X 平台数据。", tags:["对话","实时","X平台"], cat:["chat"], badges:["new"], price:"免费 / Premium 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐⭐⭐", strength:"实时信息、风格独特", weakness:"中文支持一般" },
+    { name:"Gemini", url:"https://gemini.google.com", detail:"tools/gemini.html", icon:"💎", iconColor:"teal", desc:"Google 推出的多模态 AI 助手，支持文本、图片、视频理解和生成，与 Google 生态深度整合。", tags:["对话","多模态","Google"], cat:["chat","writing"], badges:["hot"], price:"免费 / Advanced $20/月", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐⭐⭐", strength:"多模态、Google 整合", weakness:"国内需翻墙，中文一般" },
+    { name:"Grok", url:"https://grok.com", detail:"tools/grok.html", icon:"🚀", iconColor:"pink", desc:"马斯克旗下 xAI 推出的 AI 助手，风格大胆直接，实时接入 X 平台数据。", tags:["对话","实时","X平台"], cat:["chat"], badges:["new"], price:"免费 / Premium 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐⭐⭐", strength:"实时信息、风格独特", weakness:"中文支持一般" },
     { name:"MiniMax", url:"https://www.hailuoai.com", icon:"🐚", iconColor:"teal", desc:"MiniMax 推出的 AI 助手海螺 AI，语音合成和视频生成能力突出，支持长上下文。", tags:["对话","语音","视频"], cat:["chat","audio","video"], badges:["new"], price:"免费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"语音合成、视频生成", weakness:"知名度相对较低" },
 
     // ---- AI 写作 ----
@@ -622,14 +622,14 @@ const tools = [
     { name:"DALL·E 3", url:"https://openai.com/dall-e-3", detail:"tools/dalle.html", icon:"🖼️", iconColor:"green", desc:"OpenAI 的图像生成模型，文本理解能力强，画面细节丰富，集成在 ChatGPT 中。", tags:["绘画","创意","设计"], cat:["image"], price:"集成在 ChatGPT Plus", free:"付费", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"文本理解最好", weakness:"需 ChatGPT Plus 订阅" },
     { name:"Stable Diffusion", url:"https://stability.ai", detail:"tools/stable-diffusion.html", icon:"🌌", iconColor:"purple", desc:"开源 AI 绘画模型，可本地部署，社区活跃，模型和插件生态极其丰富。", tags:["开源","绘画","本地部署"], cat:["image"], badges:["free"], price:"免费开源", free:"完全免费", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐", strength:"完全免费、可定制性极强", weakness:"需一定技术门槛" },
     { name:"即梦 AI", url:"https://jimeng.jianying.com", icon:"🌈", iconColor:"orange", desc:"剪映旗下 AI 创作平台，支持文生图、文生视频、图生视频，国产工具中体验优秀。", tags:["绘画","视频","国产"], cat:["image","video"], badges:["new"], price:"免费 / 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"国产、中文友好、图片视频一体化", weakness:"部分功能需付费" },
-    { name:"LiblibAI", url:"https://www.liblib.art", icon:"📚", iconColor:"red", desc:"国内领先的 AI 图像创作平台和模型分享社区，支持 SD/FLUX 在线生图。", tags:["绘画","社区","国产"], cat:["image"], badges:["new"], price:"免费 / 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐", strength:"国内最大 AI 绘画社区", weakness:"高质量模型需积分" },
+    { name:"LiblibAI", url:"https://www.liblib.art", detail:"tools/liblibai.html", icon:"📚", iconColor:"red", desc:"国内领先的 AI 图像创作平台和模型分享社区，支持 SD/FLUX 在线生图。", tags:["绘画","社区","国产"], cat:["image"], badges:["new"], price:"免费 / 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐", strength:"国内最大 AI 绘画社区", weakness:"高质量模型需积分" },
     { name:"通义万相", url:"https://tongyi.aliyun.com/wanxiang", icon:"🌍", iconColor:"orange", desc:"阿里推出的 AI 创意内容生成平台，支持文生图、图生图、风格迁移等。", tags:["绘画","阿里","创意"], cat:["image"], price:"免费 / 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"免费额度多、中文好", weakness:"创意上限不如 MJ" },
 
     // ---- AI 编程 ----
     { name:"GitHub Copilot", url:"https://github.com/features/copilot", detail:"tools/copilot.html", icon:"👩‍💻", iconColor:"green", desc:"GitHub 与 OpenAI 联合推出的 AI 编程助手，支持代码补全、生成和解释，行业标杆。", tags:["编程","代码补全","IDE"], cat:["code"], badges:["hot"], price:"$10/月", free:"付费", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐", strength:"行业标杆、IDE 集成", weakness:"需付费" },
     { name:"Cursor", url:"https://www.cursor.com", detail:"tools/cursor.html", icon:"🖱️", iconColor:"blue", desc:"AI 原生代码编辑器，内置 AI 对话编程，支持整个项目上下文理解和修改。", tags:["编辑器","编程","AI对话"], cat:["code"], badges:["hot","new"], price:"免费 / Pro $20/月", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐", strength:"AI 原生编辑器体验", weakness:"需适应新编辑器" },
-    { name:"TRAE", url:"https://www.trae.ai", icon:"🔧", iconColor:"orange", desc:"字节跳动推出的 AI 编程 IDE，Vibe Coding 风格，中文场景体验出色。", tags:["编辑器","编程","国产"], cat:["code"], badges:["new"], price:"免费", free:"完全免费", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"免费、中文好、Vibe Coding", weakness:"新工具，生态待完善" },
-    { name:"Codeium", url:"https://codeium.com", icon:"⚙️", iconColor:"teal", desc:"免费的 AI 代码补全工具，支持 70+ 编程语言和 40+ IDE，性价比极高。", tags:["免费","代码补全","多语言"], cat:["code"], badges:["free"], price:"免费", free:"完全免费", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"完全免费、支持多 IDE", weakness:"高级功能不如 Copilot" },
+    { name:"TRAE", url:"https://www.trae.ai", detail:"tools/trae.html", icon:"🔧", iconColor:"orange", desc:"字节跳动推出的 AI 编程 IDE，Vibe Coding 风格，中文场景体验出色。", tags:["编辑器","编程","国产"], cat:["code"], badges:["new"], price:"免费", free:"完全免费", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"免费、中文好、Vibe Coding", weakness:"新工具，生态待完善" },
+    { name:"Codeium", url:"https://codeium.com", detail:"tools/codeium.html", icon:"⚙️", iconColor:"teal", desc:"免费的 AI 代码补全工具，支持 70+ 编程语言和 40+ IDE，性价比极高。", tags:["免费","代码补全","多语言"], cat:["code"], badges:["free"], price:"免费", free:"完全免费", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"完全免费、支持多 IDE", weakness:"高级功能不如 Copilot" },
     { name:"Replit AI", url:"https://replit.com", icon:"⚡", iconColor:"orange", desc:"在线 IDE + AI 编程助手，支持多语言，适合快速原型和学习编程。", tags:["在线IDE","编程","学习"], cat:["code","education"], price:"免费 / Pro 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"零配置在线编程", weakness:"免费版资源有限" },
 
     // ---- AI 视频 ----
@@ -641,18 +641,18 @@ const tools = [
     { name:"Vidu", url:"https://www.vidu.studio", icon:"🎯", iconColor:"purple", desc:"生数科技推出的 AI 视频生成大模型，支持文生视频和图生视频，国产新锐。", tags:["视频生成","国产","大模型"], cat:["video"], badges:["new"], price:"免费 / 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"国产新锐、效果好", weakness:"免费额度有限" },
 
     // ---- AI 音频 ----
-    { name:"ElevenLabs", url:"https://elevenlabs.io", icon:"🎙️", iconColor:"purple", desc:"顶级 AI 语音合成平台，声音自然逼真，支持声音克隆和多语言配音。", tags:["语音合成","配音","克隆"], cat:["audio"], price:"免费 / Pro $5/月起", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"语音质量天花板", weakness:"中文声音选择较少" },
-    { name:"Suno AI", url:"https://suno.com", icon:"🎵", iconColor:"pink", desc:"AI 音乐生成工具，输入描述即可创作完整歌曲，支持多种风格和语言。", tags:["音乐","创作","歌曲"], cat:["audio"], badges:["hot"], price:"免费 / Pro $10/月", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"AI 音乐创作标杆", weakness:"版权灰色地带" },
+    { name:"ElevenLabs", url:"https://elevenlabs.io", detail:"tools/elevenlabs.html", icon:"🎙️", iconColor:"purple", desc:"顶级 AI 语音合成平台，声音自然逼真，支持声音克隆和多语言配音。", tags:["语音合成","配音","克隆"], cat:["audio"], price:"免费 / Pro $5/月起", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"语音质量天花板", weakness:"中文声音选择较少" },
+    { name:"Suno AI", url:"https://suno.com", detail:"tools/suno.html", icon:"🎵", iconColor:"pink", desc:"AI 音乐生成工具，输入描述即可创作完整歌曲，支持多种风格和语言。", tags:["音乐","创作","歌曲"], cat:["audio"], badges:["hot"], price:"免费 / Pro $10/月", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"AI 音乐创作标杆", weakness:"版权灰色地带" },
     { name:"Udio", url:"https://www.udio.com", icon:"🎶", iconColor:"teal", desc:"AI 音乐生成平台，音质出色，支持多风格音乐创作和歌词生成。", tags:["音乐","创作","高质量"], cat:["audio"], badges:["new"], price:"免费 / Pro 付费", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"音质出色", weakness:"中文歌曲一般" },
 
     // ---- AI 办公 ----
-    { name:"AiPPT", url:"https://www.aippt.cn", icon:"📊", iconColor:"purple", desc:"AI 快速生成高质量 PPT，输入主题即可自动生成完整演示文稿。", tags:["PPT","演示","国产"], cat:["office"], badges:["hot","new"], price:"免费 / 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"国产 PPT 生成标杆", weakness:"模板有限" },
-    { name:"Gamma", url:"https://gamma.app", icon:"📊", iconColor:"purple", desc:"AI 一键生成精美 PPT 演示文稿，支持从文本/文档自动生成幻灯片，设计感强。", tags:["PPT","演示","设计"], cat:["office","design"], price:"免费 / Pro $10/月", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"设计感强、国际化", weakness:"中文支持一般" },
+    { name:"AiPPT", url:"https://www.aippt.cn", detail:"tools/aippt.html", icon:"📊", iconColor:"purple", desc:"AI 快速生成高质量 PPT，输入主题即可自动生成完整演示文稿。", tags:["PPT","演示","国产"], cat:["office"], badges:["hot","new"], price:"免费 / 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"国产 PPT 生成标杆", weakness:"模板有限" },
+    { name:"Gamma", url:"https://gamma.app", detail:"tools/gamma.html", icon:"📊", iconColor:"purple", desc:"AI 一键生成精美 PPT 演示文稿，支持从文本/文档自动生成幻灯片，设计感强。", tags:["PPT","演示","设计"], cat:["office","design"], price:"免费 / Pro $10/月", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"设计感强、国际化", weakness:"中文支持一般" },
     { name:"飞书 AI", url:"https://www.feishu.cn", icon:"🐦", iconColor:"blue", desc:"飞书内置 AI 助手，支持会议总结、文档润色、数据分析等办公场景。", tags:["办公","协作","会议"], cat:["office"], price:"免费 / 企业版付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"办公协作一体化", weakness:"需使用飞书生态" },
     { name:"百度文库 AI", url:"https://wenku.baidu.com", icon:"📖", iconColor:"blue", desc:"基于文心大模型的一站式智能文档助手，支持文档生成、PPT 制作、思维导图等。", tags:["文档","PPT","百度"], cat:["office"], badges:["new"], price:"免费 / VIP 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"文档生态丰富", weakness:"高级功能需 VIP" },
 
     // ---- AI 搜索 ----
-    { name:"Perplexity", url:"https://www.perplexity.ai", icon:"🔎", iconColor:"teal", desc:"AI 搜索引擎，直接给出答案而非链接，附带来源引用，研究效率神器。", tags:["搜索","研究","引用"], cat:["search"], badges:["hot"], featured:true, price:"免费 / Pro $20/月", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"答案+来源引用", weakness:"国内访问不稳定" },
+    { name:"Perplexity", url:"https://www.perplexity.ai", detail:"tools/perplexity.html", icon:"🔎", iconColor:"teal", desc:"AI 搜索引擎，直接给出答案而非链接，附带来源引用，研究效率神器。", tags:["搜索","研究","引用"], cat:["search"], badges:["hot"], featured:true, price:"免费 / Pro $20/月", free:"免费可用", quality:"⭐⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"答案+来源引用", weakness:"国内访问不稳定" },
     { name:"秘塔 AI 搜索", url:"https://metaso.cn", icon:"🧭", iconColor:"blue", desc:"中文 AI 搜索引擎，没有广告，深度理解中文语境，结构化搜索结果。", tags:["搜索","中文","无广告"], cat:["search"], badges:["hot","new"], price:"免费 / Pro 付费", free:"免费可用", quality:"⭐⭐⭐⭐", chinese:"⭐⭐⭐⭐⭐", ease:"⭐⭐⭐⭐⭐", strength:"无广告、中文搜索优秀", weakness:"国际信息覆盖一般" },
 
     // ---- AI 翻译 ----
@@ -981,3 +981,5 @@ renderTools();
 
 </body>
 </html>
+
+

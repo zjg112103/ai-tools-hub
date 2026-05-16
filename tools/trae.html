@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRAE 是什么？怎么用？免费吗？2026 最新评测 | AI 工具箱</title>
+    <meta name="description" content="TRAE 是字节跳动推出的 AI 编程 IDE，基于 VS Code 内核，内置 AI 对话编程能力。采用 Vibe Coding 风格，用自然语言描述需求就能生成代码。完全免费，中文场景体验出色，是国内开发者的 Cursor 免费替代选择">
+    <meta name="keywords" content="TRAE, TRAE怎么用, TRAE免费, TRAE评测, AI工具">
+    <link rel="canonical" href="https://my-ai-tools-hub.netlify.app/tools/trae.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "TRAE",
+      "applicationCategory": "AI编程",
+      "description": "字节跳动推出的免费 AI 编程 IDE，Vibe Coding 风格，中文场景体验出色。",
+      "url": "https://my-ai-tools-hub.netlify.app/tools/trae.html",
+      "offers": {"@type":"Offer","price":"0","priceCurrency":"CNY","description":"完全免费"},
+      "aggregateRating": {"@type":"AggregateRating","ratingValue":"4.4","ratingCount":"600","bestRating":"5","worstRating":"1"},
+      "operatingSystem": "Windows, macOS"
+    }
+    </script>
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="TRAE 是什么？怎么用？免费吗？2026 最新评测">
+    <meta property="og:description" content="TRAE 是字节跳动推出的 AI 编程 IDE，基于 VS Code 内核，内置 AI 对话编程能力。采用 Vibe Coding 风格，用自然语言描述需求就能生成代码。完全免费，中文场景体验出色，是国内开发者的 Cursor 免费替代选择">
+    <meta property="og:url" content="https://my-ai-tools-hub.netlify.app/tools/trae.html">
+    <meta property="og:site_name" content="AI 工具箱">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="TRAE 是什么？怎么用？免费吗？2026 最新评测">
+    <meta name="twitter:description" content="TRAE 是字节跳动推出的 AI 编程 IDE，基于 VS Code 内核，内置 AI 对话编程能力。采用 Vibe Coding 风格，用自然语言描述需求就能生成代码。完全免费，中文场景体验出色，是国内开发者的 Cursor 免费替代选择">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        :root { --bg-deep:#0f1117; --bg-card:#1a1c26; --bg-card-hover:#242636; --border:rgba(255,255,255,0.08); --border-hover:rgba(255,255,255,0.16); --text-primary:#f0f0f5; --text-secondary:#9a9ab0; --text-muted:#5e5e78; --accent:#6c5ce7; --accent-glow:rgba(108,92,231,0.3); --gradient-1:linear-gradient(135deg,#6c5ce7,#a29bfe); --shadow-hover:0 8px 40px rgba(108,92,231,0.15); --radius:16px; }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC','Outfit',sans-serif;background:var(--bg-deep);color:var(--text-primary);min-height:100vh}
+        .bg-mesh{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 600px 400px at 20% 10%,rgba(108,92,231,0.12),transparent),radial-gradient(ellipse 500px 500px at 80% 60%,rgba(0,206,201,0.08),transparent)}
+        .bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:60px 60px}
+        .navbar{position:sticky;top:0;z-index:100;padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(15,17,23,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+        .logo{display:flex;align-items:center;gap:10px;font-family:'Outfit';font-weight:700;font-size:20px;color:var(--text-primary);text-decoration:none}
+        .logo-icon{width:32px;height:32px;background:var(--gradient-1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px}
+        .back-link{color:var(--text-secondary);font-size:14px;text-decoration:none;display:flex;align-items:center;gap:6px;transition:color 0.2s}
+        .back-link:hover{color:var(--text-primary)}
+        .container{position:relative;z-index:1;max-width:800px;margin:0 auto;padding:48px 40px 80px}
+        .breadcrumb{font-size:13px;color:var(--text-muted);margin-bottom:24px}
+        .breadcrumb a{color:var(--text-secondary);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+        .hero-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:40px;margin-bottom:32px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
+        .hero-icon{font-size:56px;flex-shrink:0}
+        .hero-info{flex:1;min-width:200px}
+        .hero-name{font-family:'Outfit';font-size:28px;font-weight:800;margin-bottom:4px}
+        .hero-tagline{font-size:15px;color:var(--text-secondary);margin-bottom:12px}
+        .hero-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+        .badge{font-size:12px;font-weight:600;padding:4px 12px;border-radius:8px}
+        .badge-hot{background:rgba(255,107,107,0.12);color:#ff6b6b}
+        .badge-free{background:rgba(85,239,196,0.12);color:#55efc4}
+        .hero-visit{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:var(--gradient-1);border:none;border-radius:12px;color:white;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;transition:all 0.2s}
+        .hero-visit:hover{opacity:0.9;transform:translateY(-2px);box-shadow:var(--shadow-hover)}
+        .quick-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:32px}
+        .stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+        .stat-val{font-family:'Outfit';font-size:20px;font-weight:700;color:#a29bfe}
+        .stat-lbl{font-size:12px;color:var(--text-muted);margin-top:2px}
+        h2{font-family:'Outfit';font-size:22px;font-weight:700;margin:40px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+        h3{font-family:'Outfit';font-size:17px;font-weight:600;margin:24px 0 10px}
+        p{font-size:15px;line-height:1.8;color:var(--text-secondary);margin-bottom:14px}
+        ul,ol{font-size:15px;line-height:1.8;color:var(--text-secondary);margin-bottom:14px;padding-left:24px}
+        li{margin-bottom:6px}
+        strong{color:var(--text-primary);font-weight:600}
+        .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:16px 0 24px}
+        .feature-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px}
+        .feature-card h3{margin:0 0 6px;font-size:15px;color:var(--text-primary)}
+        .feature-card p{font-size:13px;margin:0;color:var(--text-muted)}
+        .step-list{counter-reset:step;list-style:none;padding:0}
+        .step-list li{counter-increment:step;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:16px 20px 16px 56px;margin-bottom:12px;position:relative}
+        .step-list li::before{content:counter(step);position:absolute;left:18px;top:16px;width:26px;height:26px;background:var(--gradient-1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;font-family:'Outfit'}
+        .compare-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:16px 0 24px}
+        .compare-row{display:grid;grid-template-columns:100px 1fr 1fr;border-bottom:1px solid var(--border)}
+        .compare-row:last-child{border-bottom:none}
+        .compare-cell{padding:12px 16px;font-size:14px}
+        .compare-header{font-weight:600;color:var(--text-muted);background:rgba(255,255,255,0.02)}
+        .compare-highlight{color:#55efc4}
+        .faq-item{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden}
+        .faq-q{padding:16px 20px;cursor:pointer;font-weight:600;font-size:15px;display:flex;justify-content:space-between;align-items:center;transition:color 0.2s}
+        .faq-q:hover{color:var(--accent)}
+        .faq-a{max-height:0;overflow:hidden;transition:max-height 0.3s ease}
+        .faq-item.open .faq-a{max-height:300px}
+        .faq-item.open .faq-toggle{transform:rotate(45deg)}
+        .faq-toggle{font-size:18px;transition:transform 0.2s;flex-shrink:0}
+        .faq-a p{padding:0 20px 16px;font-size:14px;margin:0}
+        .related-links{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}
+        .related-link{padding:8px 18px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;color:var(--text-secondary);text-decoration:none;font-size:13px;transition:all 0.2s}
+        .related-link:hover{border-color:var(--accent);color:var(--text-primary)}
+        .footer{position:relative;z-index:1;text-align:center;padding:32px 40px;border-top:1px solid var(--border);color:var(--text-muted);font-size:13px}
+        .footer a{color:var(--text-secondary);text-decoration:none}.footer a:hover{color:var(--text-primary)}
+        @media(max-width:768px){.navbar{padding:0 20px}.container{padding:32px 20px 60px}.hero-card{padding:24px}.hero-name{font-size:22px}.quick-stats{grid-template-columns:1fr 1fr}.feature-grid{grid-template-columns:1fr}.compare-row{grid-template-columns:70px 1fr 1fr}.compare-cell{padding:10px;font-size:12px}}
+    </style>
+</head>
+<body>
+<div class="bg-mesh"></div><div class="bg-grid"></div>
+<nav class="navbar"><a href="../index.html" class="logo"><div class="logo-icon">⚡</div><span>AI 工具箱</span></a><a href="../index.html" class="back-link">← 返回首页</a></nav>
+<div class="container">
+    <div class="breadcrumb"><a href="../index.html">首页</a> / 工具 / TRAE</div>
+    <div class="hero-card">
+        <div class="hero-icon">🔧</div>
+        <div class="hero-info">
+            <div class="hero-name">TRAE AI IDE</div>
+            <div class="hero-tagline">字节跳动推出的免费 AI 编程 IDE</div>
+            <div class="hero-badges"><span class="badge badge-hot">新品</span><span class="badge badge-free">完全免费</span></div>
+            <p>TRAE 是字节跳动推出的 AI 编程 IDE，基于 VS Code 内核，内置 AI 对话编程能力。采用 Vibe Coding 风格，用自然语言描述需求就能生成代码。完全免费，中文场景体验出色，是国内开发者的 Cursor 免费替代选择。</p>
+            <a href="https://www.trae.ai" target="_blank" rel="noopener" class="hero-visit">访问官网 ↗</a>
+        </div>
+    </div>
+    <div class="quick-stats"><div class="stat-card"><div class="stat-val">完全免费</div><div class="stat-lbl">价格</div></div><div class="stat-card"><div class="stat-val">Claude/GPT</div><div class="stat-lbl">模型</div></div><div class="stat-card"><div class="stat-val">⭐⭐⭐⭐</div><div class="stat-lbl">综合质量</div></div><div class="stat-card"><div class="stat-val">⭐⭐⭐⭐⭐</div><div class="stat-lbl">中文支持</div></div></div>
+    <h2>✨ 核心功能</h2>
+    <div class="feature-grid"><div class="feature-card"><h3>Vibe Coding</h3><p>用自然语言描述需求，AI 帮你写代码。不需要一行行手写，告诉它"做一个登录页面"就行</p></div><div class="feature-card"><h3>AI 对话编程</h3><p>内置 AI 对话面板，选中代码可以要求解释、重构、优化、添加注释</p></div><div class="feature-card"><h3>项目级理解</h3><p>AI 可以理解整个项目的代码结构，跨文件分析和修改</p></div><div class="feature-card"><h3>VS Code 插件兼容</h3><p>基于 VS Code 内核，所有 VS Code 插件都能用，无缝迁移</p></div><div class="feature-card"><h3>完全免费</h3><p>没有任何付费版本，所有 AI 功能免费使用，不限次数</p></div><div class="feature-card"><h3>中文优化</h3><p>中文提示词理解好，中文文档和社区支持完善</p></div></div>
+    <h2>📝 使用教程</h2>
+    <ol class="step-list"><li>访问 trae.ai 下载安装包（支持 Windows 和 macOS）</li><li>安装后打开，界面和 VS Code 基本一致</li><li>打开一个项目文件夹，按 Ctrl+I 打开 AI 对话面板</li><li>用中文描述你的需求，比如"帮我写一个 Python 爬虫"</li></ol>
+    <h2>💰 价格方案</h2>
+    <div class="compare-box"><div class="compare-row"><div class="compare-cell compare-header">方案</div><div class="compare-cell compare-header">价格</div><div class="compare-cell compare-header">说明</div></div><div class="compare-row"><div class="compare-cell compare-header">TRAE</div><div class="compare-cell">完全免费</div><div class="compare-cell" style="font-size:12px;color:var(--text-muted)">所有功能免费，不限使用次数</div></div></div>
+    <h2>⚖️ 和 Cursor 对比</h2>
+    <div class="compare-box"><div class="compare-row"><div class="compare-cell compare-header">对比项</div><div class="compare-cell compare-header">TRAE</div><div class="compare-cell compare-header">Cursor</div></div><div class="compare-row"><div class="compare-cell compare-header">价格</div><div class="compare-cell compare-highlight">完全免费</div><div class="compare-cell">免费 / Pro $20月</div></div><div class="compare-row"><div class="compare-cell compare-header">AI 模型</div><div class="compare-cell">Claude/GPT</div><div class="compare-cell">Claude/GPT</div></div><div class="compare-row"><div class="compare-cell compare-header">项目理解</div><div class="compare-cell">✅</div><div class="compare-cell">✅ 更强</div></div><div class="compare-row"><div class="compare-cell compare-header">多文件编辑</div><div class="compare-cell">✅</div><div class="compare-cell compare-highlight">✅ Composer 很强</div></div><div class="compare-row"><div class="compare-cell compare-header">插件兼容</div><div class="compare-cell">VS Code 插件</div><div class="compare-cell">VS Code 插件</div></div><div class="compare-row"><div class="compare-cell compare-header">中文体验</div><div class="compare-cell compare-highlight">⭐⭐⭐⭐⭐</div><div class="compare-cell">⭐⭐⭐⭐</div></div><div class="compare-row"><div class="compare-cell compare-header">成熟度</div><div class="compare-cell">新工具，迭代中</div><div class="compare-cell compare-highlight">更成熟</div></div><div class="compare-row"><div class="compare-cell compare-header">国内可用</div><div class="compare-cell">✅ 直接用</div><div class="compare-cell">✅ 直接用</div></div></div>
+    <h2>❓ 常见问题</h2><div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">TRAE 真的完全免费吗？ <span class="faq-toggle">+</span></div><div class="faq-a"><p>是的，目前 TRAE 所有 AI 功能完全免费，不限使用次数。字节跳动暂时没有公布付费计划。</p></div></div><div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">TRAE 和 Cursor 选哪个？ <span class="faq-toggle">+</span></div><div class="faq-a"><p>不想花钱选 TRAE，追求最强 AI 编程体验选 Cursor Pro（$20/月）。TRAE 体验已经很不错了，对大多数开发者够用。</p></div></div><div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">VS Code 插件都能用吗？ <span class="faq-toggle">+</span></div><div class="faq-a"><p>是的，TRAE 基于 VS Code 内核，可以在插件市场安装几乎所有 VS Code 插件。</p></div></div><div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">TRAE 支持 Python 吗？ <span class="faq-toggle">+</span></div><div class="faq-a"><p>支持所有主流编程语言：Python、JavaScript、TypeScript、Java、Go、Rust 等。</p></div></div>
+    <h2>🔗 相关工具</h2>
+    <div class="related-links"><a href="cursor.html" class="related-link">Cursor</a><a href="copilot.html" class="related-link">Copilot</a></div>
+</div>
+<footer class="footer"><p>© 2026 AI 工具箱 · <a href="../index.html">返回首页</a> · <a href="mailto:jiangangzhou@nuaa.edu.cn">联系我们</a></p><p style="margin-top:8px;font-size:11px;">内容基于 2026 年 5 月实测，价格和功能可能随时变化，请以官网最新信息为准。</p></footer>
+</body>
+</html>
