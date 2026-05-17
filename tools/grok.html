@@ -21,18 +21,25 @@
       "operatingSystem": "Web"
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://my-ai-tools-hub.netlify.app/"},{"@type":"ListItem","position":2,"name":"工具","item":"https://my-ai-tools-hub.netlify.app/#tools"},{"@type":"ListItem","position":3,"name":"xAI Grok"}]}
+    </script>
+    
     <meta property="og:type" content="article">
     <meta property="og:title" content="Grok 是什么？怎么用？免费吗？2026 最新评测">
     <meta property="og:description" content="Grok 是马斯克旗下 xAI 公司推出的 AI 助手，风格大胆直接，不回避敏感话题。实时接入 X（Twitter）平台数据，在获取最新资讯和社交媒体动态方面有独特优势。2026 年已开放免费使用。">
     <meta property="og:url" content="https://my-ai-tools-hub.netlify.app/tools/grok.html">
     <meta property="og:site_name" content="AI 工具箱">
     <meta property="og:locale" content="zh_CN">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="https://my-ai-tools-hub.netlify.app/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Grok 是什么？怎么用？免费吗？2026 最新评测">
     <meta name="twitter:description" content="Grok 是马斯克旗下 xAI 公司推出的 AI 助手，风格大胆直接，不回避敏感话题。实时接入 X（Twitter）平台数据，在获取最新资讯和社交媒体动态方面有独特优势。2026 年已开放免费使用。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
-        :root { --bg-deep:#f5f7fb; --bg-card:#ffffff; --bg-card-hover:#f0f2f8; --border:rgba(0,0,0,0.07); --border-hover:rgba(0,0,0,0.13); --text-primary:#1a1a2e; --text-secondary:#5a5a7a; --text-muted:#8888a8; --accent:#6c5ce7; --accent-glow:rgba(108,92,231,0.3); --gradient-1:linear-gradient(135deg,#6c5ce7,#a29bfe); --shadow-hover:0 8px 40px rgba(108,92,231,0.15); --radius:16px; }
+:root { --bg-deep:#f5f7fb; --bg-card:#ffffff; --bg-card-hover:#f0f2f8; --border:rgba(0,0,0,0.07); --border-hover:rgba(0,0,0,0.13); --text-primary:#1a1a2e; --text-secondary:#5a5a7a; --text-muted:#8888a8; --accent:#6c5ce7; --accent-glow:rgba(108,92,231,0.3); --gradient-1:linear-gradient(135deg,#6c5ce7,#a29bfe); --shadow-hover:0 8px 40px rgba(108,92,231,0.15); --radius:16px; }
         *{margin:0;padding:0;box-sizing:border-box}
         body{font-family:'Noto Sans SC','Outfit',sans-serif;background:var(--bg-deep);color:var(--text-primary);min-height:100vh}
         .bg-mesh{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 600px 400px at 20% 10%,rgba(108,92,231,0.05),transparent),radial-gradient(ellipse 600px 600px at 85% 50%,rgba(0,206,201,0.04),transparent)}
@@ -94,6 +101,10 @@
         .footer a{color:var(--text-secondary);text-decoration:none}.footer a:hover{color:var(--text-primary)}
         @media(max-width:768px){.navbar{padding:0 20px}.container{padding:32px 20px 60px}.hero-card{padding:24px}.hero-name{font-size:22px}.quick-stats{grid-template-columns:1fr 1fr}.feature-grid{grid-template-columns:1fr}.compare-row{grid-template-columns:70px 1fr 1fr}.compare-cell{padding:10px;font-size:12px}}
     </style>
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Grok 免费版有什么限制？","acceptedAnswer":{"@type":"Answer","text":"免费版每日有使用次数限制，但模型能力和付费版基本一致。对日常使用来说免费版就够用了。"}},{"@type":"Question","name":"Grok 和 ChatGPT 的最大区别是什么？","acceptedAnswer":{"@type":"Answer","text":"Grok 最大特色是实时接入 X 平台数据，获取新闻和社交媒体信息更快更准。回答风格也更直接大胆。"}},{"@type":"Question","name":"Grok 国内能用吗？","acceptedAnswer":{"@type":"Answer","text":"需要翻墙。grok.com 在国内无法直接访问。"}},{"@type":"Question","name":"Grok 适合什么人用？","acceptedAnswer":{"@type":"Answer","text":"适合经常关注 X/Twitter 新闻的人、喜欢直白回答风格的用户、以及想尝试 ChatGPT 之外选择的用户。"}}]}
+    </script>
 </head>
 <body>
 <div class="bg-mesh"></div><div class="bg-grid"></div>
@@ -120,7 +131,18 @@
     <h2>⚖️ 和 ChatGPT 对比</h2>
     <div class="compare-box"><div class="compare-row"><div class="compare-cell compare-header">对比项</div><div class="compare-cell compare-header">Grok</div><div class="compare-cell compare-header">ChatGPT</div></div><div class="compare-row"><div class="compare-cell compare-header">价格</div><div class="compare-cell compare-highlight">免费 / $16月</div><div class="compare-cell">免费 / $20月</div></div><div class="compare-row"><div class="compare-cell compare-header">国内可用</div><div class="compare-cell">需翻墙</div><div class="compare-cell">需翻墙</div></div><div class="compare-row"><div class="compare-cell compare-header">实时信息</div><div class="compare-cell compare-highlight">✅ X平台实时数据</div><div class="compare-cell">✅ 联网搜索</div></div><div class="compare-row"><div class="compare-cell compare-header">回答风格</div><div class="compare-cell">大胆直接</div><div class="compare-cell">稳重保守</div></div><div class="compare-row"><div class="compare-cell compare-header">图片生成</div><div class="compare-cell">✅ Aurora</div><div class="compare-cell">✅ DALL·E 3</div></div><div class="compare-row"><div class="compare-cell compare-header">中文能力</div><div class="compare-cell">⭐⭐⭐</div><div class="compare-cell compare-highlight">⭐⭐⭐⭐</div></div><div class="compare-row"><div class="compare-cell compare-header">代码能力</div><div class="compare-cell">良好</div><div class="compare-cell compare-highlight">优秀</div></div><div class="compare-row"><div class="compare-cell compare-header">插件生态</div><div class="compare-cell">无</div><div class="compare-cell compare-highlight">GPT Store</div></div></div>
     <h2>❓ 常见问题</h2><div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Grok 免费版有什么限制？ <span class="faq-toggle">+</span></div><div class="faq-a"><p>免费版每日有使用次数限制，但模型能力和付费版基本一致。对日常使用来说免费版就够用了。</p></div></div><div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Grok 和 ChatGPT 的最大区别是什么？ <span class="faq-toggle">+</span></div><div class="faq-a"><p>Grok 最大特色是实时接入 X 平台数据，获取新闻和社交媒体信息更快更准。回答风格也更直接大胆。</p></div></div><div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Grok 国内能用吗？ <span class="faq-toggle">+</span></div><div class="faq-a"><p>需要翻墙。grok.com 在国内无法直接访问。</p></div></div><div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Grok 适合什么人用？ <span class="faq-toggle">+</span></div><div class="faq-a"><p>适合经常关注 X/Twitter 新闻的人、喜欢直白回答风格的用户、以及想尝试 ChatGPT 之外选择的用户。</p></div></div>
-    <h2>🔗 相关工具</h2>
+    
+    <h2>📂 同类工具推荐</h2>
+    <div class="related-links">
+        <a href="chatgpt.html" class="related-link">ChatGPT</a>
+            <a href="gemini.html" class="related-link">Gemini</a>
+            <a href="deepseek.html" class="related-link">DeepSeek</a>
+    </div>
+    <h2>⚖️ 相关对比</h2>
+    <div class="related-links">
+        <a href="../compare/chatgpt-vs-claude.html" class="related-link">ChatGPT vs Claude 对比 →</a>
+    </div>
+    <h2>🔗 更多工具</h2>
     <div class="related-links"><a href="chatgpt.html" class="related-link">ChatGPT</a><a href="gemini.html" class="related-link">gemini</a><a href="deepseek.html" class="related-link">DeepSeek</a></div>
 </div>
 <footer class="footer"><p>© 2026 AI 工具箱 · <a href="../index.html">返回首页</a> · <a href="mailto:jiangangzhou@nuaa.edu.cn">联系我们</a></p><p style="margin-top:8px;font-size:11px;">内容基于 2026 年 5 月实测，价格和功能可能随时变化，请以官网最新信息为准。</p></footer>

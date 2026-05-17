@@ -21,18 +21,25 @@
       "operatingSystem": "Web, iOS, Android"
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://my-ai-tools-hub.netlify.app/"},{"@type":"ListItem","position":2,"name":"工具","item":"https://my-ai-tools-hub.netlify.app/#tools"},{"@type":"ListItem","position":3,"name":"Suno"}]}
+    </script>
+    
     <meta property="og:type" content="article">
     <meta property="og:title" content="Suno AI 是什么？怎么用？免费吗？2026 最新评测">
     <meta property="og:description" content="Suno 是当前最火的 AI 音乐生成工具。输入一段文字描述或歌词，就能在几秒内生成一首完整的歌曲，包含人声、旋律、编曲。支持流行、摇滚、电子、古典等多种风格。免费版每天可生成多首歌曲。">
     <meta property="og:url" content="https://my-ai-tools-hub.netlify.app/tools/suno.html">
     <meta property="og:site_name" content="AI 工具箱">
     <meta property="og:locale" content="zh_CN">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="https://my-ai-tools-hub.netlify.app/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Suno AI 是什么？怎么用？免费吗？2026 最新评测">
     <meta name="twitter:description" content="Suno 是当前最火的 AI 音乐生成工具。输入一段文字描述或歌词，就能在几秒内生成一首完整的歌曲，包含人声、旋律、编曲。支持流行、摇滚、电子、古典等多种风格。免费版每天可生成多首歌曲。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
-        :root { --bg-deep:#f5f7fb; --bg-card:#ffffff; --bg-card-hover:#f0f2f8; --border:rgba(0,0,0,0.07); --border-hover:rgba(0,0,0,0.13); --text-primary:#1a1a2e; --text-secondary:#5a5a7a; --text-muted:#8888a8; --accent:#6c5ce7; --accent-glow:rgba(108,92,231,0.3); --gradient-1:linear-gradient(135deg,#6c5ce7,#a29bfe); --shadow-hover:0 8px 40px rgba(108,92,231,0.15); --radius:16px; }
+:root { --bg-deep:#f5f7fb; --bg-card:#ffffff; --bg-card-hover:#f0f2f8; --border:rgba(0,0,0,0.07); --border-hover:rgba(0,0,0,0.13); --text-primary:#1a1a2e; --text-secondary:#5a5a7a; --text-muted:#8888a8; --accent:#6c5ce7; --accent-glow:rgba(108,92,231,0.3); --gradient-1:linear-gradient(135deg,#6c5ce7,#a29bfe); --shadow-hover:0 8px 40px rgba(108,92,231,0.15); --radius:16px; }
         *{margin:0;padding:0;box-sizing:border-box}
         body{font-family:'Noto Sans SC','Outfit',sans-serif;background:var(--bg-deep);color:var(--text-primary);min-height:100vh}
         .bg-mesh{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 600px 400px at 20% 10%,rgba(108,92,231,0.05),transparent),radial-gradient(ellipse 600px 600px at 85% 50%,rgba(0,206,201,0.04),transparent)}
@@ -94,6 +101,10 @@
         .footer a{color:var(--text-secondary);text-decoration:none}.footer a:hover{color:var(--text-primary)}
         @media(max-width:768px){.navbar{padding:0 20px}.container{padding:32px 20px 60px}.hero-card{padding:24px}.hero-name{font-size:22px}.quick-stats{grid-template-columns:1fr 1fr}.feature-grid{grid-template-columns:1fr}.compare-row{grid-template-columns:70px 1fr 1fr}.compare-cell{padding:10px;font-size:12px}}
     </style>
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Suno 生成的音乐有版权吗？","acceptedAnswer":{"@type":"Answer","text":"免费版生成的音乐 Suno 保留版权，不可商用。Pro 版用户获得商业使用许可。具体版权政策请查看 Suno 官网说明。"}},{"@type":"Question","name":"Suno 能做中文歌吗？","acceptedAnswer":{"@type":"Answer","text":"能！中文歌词输入和中文演唱都支持，效果在 AI 音乐工具中属于最好的。"}},{"@type":"Question","name":"免费版一天能做几首？","acceptedAnswer":{"@type":"Answer","text":"大约 10 首左右（50 积分，每首消耗约 5 积分）。对个人娱乐来说完全够用。"}},{"@type":"Question","name":"Suno 生成的音乐质量怎么样？","acceptedAnswer":{"@type":"Answer","text":"令人惊讶地好。旋律、编曲、人声都已经达到了可以分享的水平。当然和专业音乐制作还有差距，但作为快速创作工具已经很惊艳了。"}}]}
+    </script>
 </head>
 <body>
 <div class="bg-mesh"></div><div class="bg-grid"></div>
@@ -120,7 +131,12 @@
     <h2>⚖️ 和 Udio 对比</h2>
     <div class="compare-box"><div class="compare-row"><div class="compare-cell compare-header">对比项</div><div class="compare-cell compare-header">Suno AI</div><div class="compare-cell compare-header">Udio</div></div><div class="compare-row"><div class="compare-cell compare-header">价格</div><div class="compare-cell">免费 / $10月</div><div class="compare-cell">免费 / 付费</div></div><div class="compare-row"><div class="compare-cell compare-header">音乐质量</div><div class="compare-cell">⭐⭐⭐⭐⭐</div><div class="compare-cell">⭐⭐⭐⭐⭐</div></div><div class="compare-row"><div class="compare-cell compare-header">中文歌曲</div><div class="compare-cell">⭐⭐⭐⭐</div><div class="compare-cell">⭐⭐⭐</div></div><div class="compare-row"><div class="compare-cell compare-header">人声质量</div><div class="compare-cell compare-highlight">自然</div><div class="compare-cell">自然</div></div><div class="compare-row"><div class="compare-cell compare-header">风格多样性</div><div class="compare-cell">非常丰富</div><div class="compare-cell">丰富</div></div><div class="compare-row"><div class="compare-cell compare-header">免费额度</div><div class="compare-cell">每天约 10 首</div><div class="compare-cell">每天有额度</div></div></div>
     <h2>❓ 常见问题</h2><div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Suno 生成的音乐有版权吗？ <span class="faq-toggle">+</span></div><div class="faq-a"><p>免费版生成的音乐 Suno 保留版权，不可商用。Pro 版用户获得商业使用许可。具体版权政策请查看 Suno 官网说明。</p></div></div><div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Suno 能做中文歌吗？ <span class="faq-toggle">+</span></div><div class="faq-a"><p>能！中文歌词输入和中文演唱都支持，效果在 AI 音乐工具中属于最好的。</p></div></div><div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">免费版一天能做几首？ <span class="faq-toggle">+</span></div><div class="faq-a"><p>大约 10 首左右（50 积分，每首消耗约 5 积分）。对个人娱乐来说完全够用。</p></div></div><div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Suno 生成的音乐质量怎么样？ <span class="faq-toggle">+</span></div><div class="faq-a"><p>令人惊讶地好。旋律、编曲、人声都已经达到了可以分享的水平。当然和专业音乐制作还有差距，但作为快速创作工具已经很惊艳了。</p></div></div>
-    <h2>🔗 相关工具</h2>
+    
+    <h2>📂 同类工具推荐</h2>
+    <div class="related-links">
+        <a href="elevenlabs.html" class="related-link">ElevenLabs</a>
+    </div>
+    <h2>🔗 更多工具</h2>
     <div class="related-links"><a href="deepseek.html" class="related-link">DeepSeek</a><a href="chatgpt.html" class="related-link">ChatGPT</a></div>
 </div>
 <footer class="footer"><p>© 2026 AI 工具箱 · <a href="../index.html">返回首页</a> · <a href="mailto:jiangangzhou@nuaa.edu.cn">联系我们</a></p><p style="margin-top:8px;font-size:11px;">内容基于 2026 年 5 月实测，价格和功能可能随时变化，请以官网最新信息为准。</p></footer>

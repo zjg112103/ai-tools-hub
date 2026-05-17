@@ -21,18 +21,25 @@
       "operatingSystem": "Web, API"
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://my-ai-tools-hub.netlify.app/"},{"@type":"ListItem","position":2,"name":"工具","item":"https://my-ai-tools-hub.netlify.app/#tools"},{"@type":"ListItem","position":3,"name":"ElevenLabs"}]}
+    </script>
+    
     <meta property="og:type" content="article">
     <meta property="og:title" content="ElevenLabs 是什么？怎么用？免费吗？2026 最新评测">
     <meta property="og:description" content="ElevenLabs 是目前 AI 语音合成领域的天花板。声音自然逼真，几乎听不出是 AI 生成的。支持声音克隆、多语言配音、有声读物制作。适合视频创作者、播客制作者、有声书作者等。">
     <meta property="og:url" content="https://my-ai-tools-hub.netlify.app/tools/elevenlabs.html">
     <meta property="og:site_name" content="AI 工具箱">
     <meta property="og:locale" content="zh_CN">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="https://my-ai-tools-hub.netlify.app/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ElevenLabs 是什么？怎么用？免费吗？2026 最新评测">
     <meta name="twitter:description" content="ElevenLabs 是目前 AI 语音合成领域的天花板。声音自然逼真，几乎听不出是 AI 生成的。支持声音克隆、多语言配音、有声读物制作。适合视频创作者、播客制作者、有声书作者等。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
-        :root { --bg-deep:#f5f7fb; --bg-card:#ffffff; --bg-card-hover:#f0f2f8; --border:rgba(0,0,0,0.07); --border-hover:rgba(0,0,0,0.13); --text-primary:#1a1a2e; --text-secondary:#5a5a7a; --text-muted:#8888a8; --accent:#6c5ce7; --accent-glow:rgba(108,92,231,0.3); --gradient-1:linear-gradient(135deg,#6c5ce7,#a29bfe); --shadow-hover:0 8px 40px rgba(108,92,231,0.15); --radius:16px; }
+:root { --bg-deep:#f5f7fb; --bg-card:#ffffff; --bg-card-hover:#f0f2f8; --border:rgba(0,0,0,0.07); --border-hover:rgba(0,0,0,0.13); --text-primary:#1a1a2e; --text-secondary:#5a5a7a; --text-muted:#8888a8; --accent:#6c5ce7; --accent-glow:rgba(108,92,231,0.3); --gradient-1:linear-gradient(135deg,#6c5ce7,#a29bfe); --shadow-hover:0 8px 40px rgba(108,92,231,0.15); --radius:16px; }
         *{margin:0;padding:0;box-sizing:border-box}
         body{font-family:'Noto Sans SC','Outfit',sans-serif;background:var(--bg-deep);color:var(--text-primary);min-height:100vh}
         .bg-mesh{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 600px 400px at 20% 10%,rgba(108,92,231,0.05),transparent),radial-gradient(ellipse 600px 600px at 85% 50%,rgba(0,206,201,0.04),transparent)}
@@ -94,6 +101,10 @@
         .footer a{color:var(--text-secondary);text-decoration:none}.footer a:hover{color:var(--text-primary)}
         @media(max-width:768px){.navbar{padding:0 20px}.container{padding:32px 20px 60px}.hero-card{padding:24px}.hero-name{font-size:22px}.quick-stats{grid-template-columns:1fr 1fr}.feature-grid{grid-template-columns:1fr}.compare-row{grid-template-columns:70px 1fr 1fr}.compare-cell{padding:10px;font-size:12px}}
     </style>
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"ElevenLabs 免费版够用吗？","acceptedAnswer":{"@type":"Answer","text":"每月 10000 字符约 10 分钟音频。用于试听和少量制作够用，批量生产需要付费。"}},{"@type":"Question","name":"声音克隆怎么做？","acceptedAnswer":{"@type":"Answer","text":"在 Voice Lab 中上传 1-5 分钟的录音样本，系统自动克隆。Starter 及以上版本可用。"}},{"@type":"Question","name":"中文效果怎么样？","acceptedAnswer":{"@type":"Answer","text":"中文语音质量不错，但可选的中文音色比英文少。英文语音效果最好。"}},{"@type":"Question","name":"生成的语音能商用吗？","acceptedAnswer":{"@type":"Answer","text":"免费版不可商用。付费版本根据等级有不同的商用许可，请查看官网版权说明。"}}]}
+    </script>
 </head>
 <body>
 <div class="bg-mesh"></div><div class="bg-grid"></div>
@@ -120,7 +131,12 @@
     <h2>⚖️ 和 系统自带 TTS 对比</h2>
     <div class="compare-box"><div class="compare-row"><div class="compare-cell compare-header">对比项</div><div class="compare-cell compare-header">ElevenLabs</div><div class="compare-cell compare-header">系统自带 TTS</div></div><div class="compare-row"><div class="compare-cell compare-header">语音自然度</div><div class="compare-cell">⭐⭐⭐⭐⭐</div><div class="compare-cell">⭐⭐</div></div><div class="compare-row"><div class="compare-cell compare-header">多语言</div><div class="compare-cell">32 种语言</div><div class="compare-cell">取决于系统</div></div><div class="compare-row"><div class="compare-cell compare-header">声音克隆</div><div class="compare-cell compare-highlight">✅</div><div class="compare-cell">❌</div></div><div class="compare-row"><div class="compare-cell compare-header">情感控制</div><div class="compare-cell compare-highlight">✅</div><div class="compare-cell">❌</div></div><div class="compare-row"><div class="compare-cell compare-header">价格</div><div class="compare-cell">免费 / $5月</div><div class="compare-cell compare-highlight">免费</div></div><div class="compare-row"><div class="compare-cell compare-header">中文支持</div><div class="compare-cell">⭐⭐⭐⭐</div><div class="compare-cell compare-highlight">⭐⭐⭐⭐⭐</div></div></div>
     <h2>❓ 常见问题</h2><div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">ElevenLabs 免费版够用吗？ <span class="faq-toggle">+</span></div><div class="faq-a"><p>每月 10000 字符约 10 分钟音频。用于试听和少量制作够用，批量生产需要付费。</p></div></div><div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">声音克隆怎么做？ <span class="faq-toggle">+</span></div><div class="faq-a"><p>在 Voice Lab 中上传 1-5 分钟的录音样本，系统自动克隆。Starter 及以上版本可用。</p></div></div><div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">中文效果怎么样？ <span class="faq-toggle">+</span></div><div class="faq-a"><p>中文语音质量不错，但可选的中文音色比英文少。英文语音效果最好。</p></div></div><div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">生成的语音能商用吗？ <span class="faq-toggle">+</span></div><div class="faq-a"><p>免费版不可商用。付费版本根据等级有不同的商用许可，请查看官网版权说明。</p></div></div>
-    <h2>🔗 相关工具</h2>
+    
+    <h2>📂 同类工具推荐</h2>
+    <div class="related-links">
+        <a href="suno.html" class="related-link">Suno AI</a>
+    </div>
+    <h2>🔗 更多工具</h2>
     <div class="related-links"><a href="deepseek.html" class="related-link">DeepSeek</a><a href="chatgpt.html" class="related-link">ChatGPT</a></div>
 </div>
 <footer class="footer"><p>© 2026 AI 工具箱 · <a href="../index.html">返回首页</a> · <a href="mailto:jiangangzhou@nuaa.edu.cn">联系我们</a></p><p style="margin-top:8px;font-size:11px;">内容基于 2026 年 5 月实测，价格和功能可能随时变化，请以官网最新信息为准。</p></footer>
