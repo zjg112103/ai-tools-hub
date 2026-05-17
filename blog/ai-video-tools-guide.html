@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 视频生成入门：从文字到视频的完整指南 | AI 工具箱</title>
+    <meta name="description" content="AI 视频生成入门指南：可灵 AI、Runway、Pika、Seedance 工具对比。教你用文字和图片生成短视频，零基础也能做出好视频。">
+    <meta name="keywords" content="AI视频生成, AI做视频, 文字生成视频, 可灵AI教程, Runway教程, AI视频入门">
+    <link rel="canonical" href="https://my-ai-tools-hub.netlify.app/blog/ai-video-tools-guide.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "AI 视频生成入门：从文字到视频的完整指南",
+      "description": "AI 视频生成入门指南：可灵 AI、Runway、Pika、Seedance 工具对比。教你用文字和图片生成短视频，零基础也能做出好视频。",
+      "datePublished": "2026-05-17",
+      "dateModified": "2026-05-17",
+      "author": {"@type":"Organization","name":"AI 工具箱"},
+      "publisher": {"@type":"Organization","name":"AI 工具箱","url":"https://my-ai-tools-hub.netlify.app/"}
+    }
+    </script>
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AI 视频生成入门：从文字到视频的完整指南">
+    <meta property="og:description" content="AI 视频生成入门指南：可灵 AI、Runway、Pika、Seedance 工具对比。教你用文字和图片生成短视频，零基础也能做出好视频。">
+    <meta property="og:url" content="https://my-ai-tools-hub.netlify.app/blog/ai-video-tools-guide.html">
+    <meta property="og:site_name" content="AI 工具箱">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AI 视频生成入门：从文字到视频的完整指南">
+    <meta name="twitter:description" content="AI 视频生成入门指南：可灵 AI、Runway、Pika、Seedance 工具对比。教你用文字和图片生成短视频，零基础也能做出好视频。">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+:root{--bg-deep:#f5f7fb;--bg-card:#ffffff;--border:rgba(0,0,0,0.07);--text-primary:#1a1a2e;--text-secondary:#5a5a7a;--text-muted:#8888a8;--accent:#6c5ce7;--gradient-1:linear-gradient(135deg,#6c5ce7,#a29bfe);--radius:16px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans SC','Outfit',sans-serif;background:var(--bg-deep);color:var(--text-primary);min-height:100vh}
+.bg-mesh{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 600px 400px at 20% 10%,rgba(108,92,231,0.05),transparent),radial-gradient(ellipse 500px 500px at 80% 60%,rgba(0,206,201,0.04),transparent)}
+.bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(0,0,0,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.018) 1px,transparent 1px);background-size:60px 60px}
+.navbar{position:sticky;top:0;z-index:100;padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(245,247,251,0.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Outfit';font-weight:700;font-size:20px;color:var(--text-primary);text-decoration:none}
+.logo-icon{width:32px;height:32px;background:var(--gradient-1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px}
+.back-link{color:var(--text-secondary);font-size:14px;text-decoration:none;transition:color 0.2s}.back-link:hover{color:var(--text-primary)}
+.container{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:48px 40px 80px}
+.breadcrumb{font-size:13px;color:var(--text-muted);margin-bottom:24px}.breadcrumb a{color:var(--text-secondary);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+h1{font-family:'Outfit';font-size:32px;font-weight:800;line-height:1.3;margin-bottom:16px}
+h1 .accent{background:var(--gradient-1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.meta{font-size:13px;color:var(--text-muted);margin-bottom:36px;display:flex;gap:16px;flex-wrap:wrap}
+h2{font-family:'Outfit';font-size:20px;font-weight:700;margin:36px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+p{font-size:15px;line-height:1.9;color:var(--text-secondary);margin-bottom:16px}
+strong{color:var(--text-primary);font-weight:600}
+ul{margin:0 0 16px 20px;font-size:15px;line-height:2;color:var(--text-secondary)}
+.tool-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:20px 24px;margin:16px 0;display:flex;gap:16px;align-items:flex-start;transition:border-color 0.2s;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.tool-num{font-family:'Outfit';font-size:24px;font-weight:800;background:var(--gradient-1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;flex-shrink:0;width:32px}
+.tool-body h3{font-size:16px;font-weight:600;margin-bottom:4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.tool-body h3 a{color:var(--text-primary);text-decoration:none}.tool-body h3 a:hover{color:var(--accent)}
+.tool-body p{font-size:14px;margin:6px 0 0}
+.badge-free{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;background:rgba(40,180,100,0.12);color:#1a9956;font-family:'Outfit'}
+.badge-partial{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;background:rgba(210,170,40,0.12);color:#b8860b;font-family:'Outfit'}
+.summary-box{background:linear-gradient(135deg,rgba(108,92,231,0.06),rgba(0,206,201,0.04));border:1px solid rgba(108,92,231,0.15);border-radius:14px;padding:24px;margin:32px 0}
+.summary-box h3{font-size:16px;margin-bottom:10px;color:var(--text-primary)}
+.summary-box ul{margin:0 0 0 16px}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;margin:32px 0}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border-radius:12px;color:white;font-size:14px;font-weight:600;text-decoration:none;transition:all 0.2s}.btn:hover{opacity:0.9;transform:translateY(-1px)}
+.btn-purple{background:var(--gradient-1)}.btn-teal{background:linear-gradient(135deg,#00a8a8,#3dd9a8)}
+.footer{position:relative;z-index:1;text-align:center;padding:32px 40px;border-top:1px solid var(--border);color:var(--text-muted);font-size:13px}
+.footer a{color:var(--text-secondary);text-decoration:none}.footer a:hover{color:var(--text-primary)}
+@media(max-width:768px){.navbar{padding:0 20px}.container{padding:32px 20px 60px}h1{font-size:24px}.tool-card{padding:16px}.tool-num{font-size:20px}}
+
+    </style>
+</head>
+<body>
+<div class="bg-mesh"></div><div class="bg-grid"></div>
+<nav class="navbar"><a href="../index.html" class="logo"><div class="logo-icon">⚡</div><span>AI 工具箱</span></a><a href="../index.html" class="back-link">← 返回首页</a></nav>
+<div class="container">
+    <div class="breadcrumb"><a href="../index.html">首页</a> / 博客 / AI 视频入门</div>
+    <h1>AI 视频生成入门：<span class="accent">从文字到视频</span>的完整指南</h1>
+    <div class="meta">
+        <span>📅 2026 年 5 月</span>
+        <span>⏱️ 阅读约 7 分钟</span>
+        <span>🏷️ AI 视频 · 入门教程 · 工具推荐</span>
+    </div>
+    
+    <p>2026 年，AI 视频生成已经从"能看"进化到了"好看"。输入一段文字描述或一张图片，几十秒就能生成一段高质量短视频。做短视频、做宣传片、做创意视频，<strong>不需要任何视频剪辑基础</strong>。这篇文章帮你选对工具、快速上手。</p>
+
+    <h2>🎬 先选工具</h2>
+    <div class="tool-card"><div class="tool-num">1</div><div class="tool-body"><h3><a href="../tools/klingai.html">可灵 AI</a> <span class="badge-partial">免费可用</span></h3><p>国产最强视频 AI。支持文生视频和图生视频，国内直连，免费体验额度够试好几条。支持生成较长视频（5-10 秒），画质在国产工具里最好。新手首选。</p></div></div>
+    <div class="tool-card"><div class="tool-num">2</div><div class="tool-body"><h3><a href="../tools/runway.html">Runway</a> <span class="badge-partial">免费可用</span></h3><p>全球领先的 AI 视频平台。视频质量顶级，功能丰富（文生视频、图生视频、视频编辑）。需要翻墙，免费版有水印和时长限制。追求国际一流画质选它。</p></div></div>
+    <div class="tool-card"><div class="tool-num">3</div><div class="tool-body"><h3>Pika <span class="badge-partial">免费可用</span></h3><p>操作最简单的 AI 视频工具。输入文字或上传图片，一键生成短视频。适合快速出片，效果不错。免费版有生成次数限制。</p></div></div>
+    <div class="tool-card"><div class="tool-num">4</div><div class="tool-body"><h3>Seedance <span class="badge-partial">免费可用</span></h3><p>字节跳动 Seed 团队出品，已接入豆包和即梦平台。真人素材效果好，人物动作自然。国产新锐，发展很快。</p></div></div>
+
+    <div class="summary-box">
+        <h3>🎯 快速选择</h3>
+        <ul>
+            <li><strong>在国内、免费体验</strong> → 可灵 AI（国产最强，直连）</li>
+            <li><strong>追求最高画质</strong> → Runway（需翻墙）</li>
+            <li><strong>最简单上手</strong> → Pika（一键出片）</li>
+            <li><strong>真人素材</strong> → Seedance（人物动作自然）</li>
+        </ul>
+    </div>
+
+    <h2>📝 怎么写视频 Prompt</h2>
+    <p>和 AI 绘画类似，AI 视频也需要好的提示词。区别在于视频需要描述<strong>动态和镜头</strong>：</p>
+    <ul>
+        <li><strong>场景描述</strong>：一只金毛犬在草地上奔跑，阳光明媚</li>
+        <li><strong>镜头运动</strong>：缓慢推进、跟随拍摄、俯拍、环绕</li>
+        <li><strong>氛围</strong>：电影质感、暖色调、柔光</li>
+        <li><strong>风格</strong>：写实、动画、复古胶片</li>
+    </ul>
+    <p><strong>新手建议</strong>：先用简单描述试，比如"一只猫在窗台上打盹，阳光洒进来，柔和暖色调"。AI 视频生成有一定随机性，同一个 Prompt 多生成几次选最好的。</p>
+
+    <h2>🚀 上手步骤（以可灵 AI 为例）</h2>
+    <ul>
+        <li><strong>第一步</strong>：访问 klingai.com，注册登录（免费）</li>
+        <li><strong>第二步</strong>：选择"文生视频"或"图生视频"</li>
+        <li><strong>第三步</strong>：输入描述（如"一个女孩在海边散步，日落，电影质感"）或上传图片</li>
+        <li><strong>第四步</strong>：选择视频参数（时长、比例）</li>
+        <li><strong>第五步</strong>：点击生成，等待 1-3 分钟</li>
+        <li><strong>第六步</strong>：下载视频，用剪映等工具加字幕和音乐</li>
+    </ul>
+
+    <h2>💡 提高视频质量的小技巧</h2>
+    <ul>
+        <li><strong>图生视频比文生视频更可控</strong>：先用 AI 绘画工具生成一张满意的首帧图，再用图生视频。效果更稳定。</li>
+        <li><strong>描述越具体越好</strong>："一个女孩在海边"不如"一个穿白裙子的年轻女孩在金色沙滩上慢走，背景是橙色日落，电影质感，缓慢推进镜头"。</li>
+        <li><strong>多试几次</strong>：AI 视频有随机性，同一个 Prompt 生成 3-4 次选最好的。</li>
+        <li><strong>后期很重要</strong>：AI 生成的原始视频加上字幕、音乐、转场后效果会好很多。用剪映免费就能做。</li>
+    </ul>
+
+    <p>AI 视频还在快速发展中，每个月都有新模型新功能。现在开始学，半年后你就是"老手"了。先不要纠结哪个工具最好——挑一个开始试，用起来比什么都重要。</p>
+
+    <div class="btn-row">
+        <a href="../index.html" class="btn btn-purple">浏览全部 60 个 AI 工具 →</a>
+        <a href="../best/ai-video.html" class="btn btn-teal">AI 视频工具排行榜 →</a>
+    </div>
+</div>
+<footer class="footer"><p>© 2026 AI 工具箱 · <a href="../index.html">返回首页</a> · <a href="mailto:jiangangzhou@nuaa.edu.cn">联系我们</a></p><p style="margin-top:8px;font-size:11px;">本文基于 2026 年 5 月实测，工具价格和功能可能随时变化，请以官网最新信息为准。</p></footer>
+</body>
+</html>
