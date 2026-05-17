@@ -9,10 +9,12 @@
 
 | 维度 | 数量 |
 |------|------|
-| 总页面 | 49（首页+25详情+4排行+10对比+3博客+sitemap+robots+404） |
+| 总页面 | 53（首页+25详情+4排行+10对比+7博客+sitemap+robots+404） |
 | 工具收录 | 60 个 |
 | 有详情页的工具 | 25/60（42%）|
-| 对比页 | 10 个 |
+| 维度 | 数量 |
+|------|------|
+| 博客页 | 7 篇 |
 | 设计风格 | 亮色主题 ✅ |
 
 ---
@@ -42,12 +44,12 @@
 - [x] `compare/midjourney-vs-dalle.html` — MJ vs DALL·E，绘画界经典对比
 - [x] `compare/perplexity-vs-chatgpt.html` — AI 搜索 vs AI 对话
 
-### 3. 更多博客文章（覆盖长尾搜索词）
+### 3. 更多博客文章（覆盖长尾搜索词）✅ 已完成
 
-- [ ] `blog/ai-tools-for-students.html` → "学生必备 AI 工具"（学生群体搜索量大）
-- [ ] `blog/ai-tools-for-work.html` → "上班族 AI 工具推荐"（职场人群）
-- [ ] `blog/ai-image-tools-guide.html` → "AI 绘画入门：5 个工具让你画出好图"
-- [ ] `blog/ai-video-tools-guide.html` → "AI 视频生成入门"
+- [x] `blog/ai-tools-for-students.html` → "学生必备 AI 工具"（学生群体搜索量大）
+- [x] `blog/ai-tools-for-work.html` → "上班族 AI 工具推荐"（职场人群）
+- [x] `blog/ai-image-tools-guide.html` → "AI 绘画入门：5 个工具让你画出好图"
+- [x] `blog/ai-video-tools-guide.html` → "AI 视频生成入门"
 
 ---
 
