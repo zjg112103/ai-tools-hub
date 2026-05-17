@@ -389,14 +389,35 @@
             .navbar { padding:0 20px; }
             .nav-search-wrap { display:none; }
             .hero { padding:48px 20px 24px; }
-            .hero h1 { font-size:32px; }
+            .hero h1 { font-size:28px; }
+            .hero p { font-size:14px; }
             .stats { gap:24px; }
+            .stat-num { font-size:22px; }
             .categories { padding:0 20px; }
             .tools-section { padding:0 20px 60px; }
             .tools-grid { grid-template-columns:1fr; }
             .compare-panel { padding:20px; }
             .compare-table th { width:80px; font-size:12px; }
             .compare-table td { font-size:13px; }
+            /* 排行榜 4 宫格 → 2x2 */
+            .rank-grid { grid-template-columns:repeat(2,1fr) !important; }
+            /* 热门对比+文章 双栏 → 单栏 */
+            .content-dual { grid-template-columns:1fr !important; }
+            /* 工具卡片 */
+            .tool-card { padding:16px; }
+            .tool-icon { width:40px; height:40px; font-size:18px; }
+            .tool-name { font-size:14px; }
+            .tool-desc { font-size:12px; -webkit-line-clamp:2; }
+            /* 搜索框 */
+            .search-box { padding:14px 16px 14px 44px; font-size:14px; }
+            /* 页脚 */
+            .footer { padding:24px 20px; }
+        }
+        @media (max-width:480px) {
+            .hero h1 { font-size:24px; letter-spacing:-0.5px; }
+            .rank-grid { grid-template-columns:1fr 1fr !important; gap:8px !important; }
+            .rank-grid a { padding:12px 8px !important; font-size:12px !important; }
+            .rank-grid span { font-size:20px !important; }
         }
 
         .fade-in { opacity:0; transform:translateY(16px); animation:fadeInUp 0.5s ease forwards; }
@@ -449,7 +470,7 @@
     <!-- 排行榜 -->
     <div style="text-align:center;margin-bottom:32px;">
         <div style="font-family:'Outfit';font-size:14px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:2px;margin-bottom:16px;">排行榜</div>
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:680px;margin:0 auto;">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:680px;margin:0 auto;" class="rank-grid">
             <a href="best/ai-chatbot.html" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 12px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;color:var(--text-primary);text-decoration:none;font-size:13px;font-weight:600;transition:all 0.25s;"><span style="font-size:24px;">🏆</span>AI 对话</a>
             <a href="best/ai-image.html" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 12px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;color:var(--text-primary);text-decoration:none;font-size:13px;font-weight:600;transition:all 0.25s;"><span style="font-size:24px;">🎨</span>AI 绘画</a>
             <a href="best/ai-code.html" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 12px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;color:var(--text-primary);text-decoration:none;font-size:13px;font-weight:600;transition:all 0.25s;"><span style="font-size:24px;">💻</span>AI 编程</a>
@@ -459,7 +480,7 @@
     <!-- 分隔线 -->
     <div style="height:1px;background:var(--border);margin:0 auto 28px;max-width:200px;"></div>
     <!-- 热门对比 + 精选文章 -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:800px;margin:0 auto 32px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:800px;margin:0 auto 32px;" class="content-dual">
         <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;">
             <div style="font-size:13px;font-weight:600;color:var(--text-muted);margin-bottom:12px;">⚖️ 热门对比</div>
             <div style="display:flex;flex-direction:column;gap:8px;">
